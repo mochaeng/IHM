@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://sdarojc2iq7k"]
+
+[ext_resource type="Script" path="res://scripts/blocks/queue_blocks.gd" id="1_migqk"]
+
+[sub_resource type="Theme" id="Theme_krpum"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nw4rj"]
+bg_color = Color(0.8, 0.533333, 0.262745, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="QueueBlocks" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 512.0
+offset_bottom = 128.0
+script = ExtResource("1_migqk")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 128.0
+theme = SubResource("Theme_krpum")
+theme_override_styles/panel = SubResource("StyleBoxFlat_nw4rj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 128.0
