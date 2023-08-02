@@ -15,10 +15,16 @@ run/main_scene="res://scenes/levels/game_level.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Utils="*res://scripts/utils.gd"
+
 [display]
 
+window/size/viewport_width=800
+window/size/viewport_height=600
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/scale=4.0
 
 [input]
 

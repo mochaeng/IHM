@@ -9,6 +9,7 @@ bg_color = Color(1, 1, 1, 1)
 [node name="Block" type="Panel"]
 offset_right = 64.0
 offset_bottom = 64.0
+scale = Vector2(0.2, 0.2)
 theme_override_styles/panel = SubResource("StyleBoxFlat_30h4b")
 script = ExtResource("1_p3tyw")
 

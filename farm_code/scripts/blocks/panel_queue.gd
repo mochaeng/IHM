@@ -19,7 +19,7 @@ func _can_drop_data(_at_position, data):
 
 
 func _drop_data(_at_position, data):
-	var new_block = block.instantiate()
+	var new_block := block.instantiate()
 	new_block.get_node("image").texture = textures[data.category]
 
 	$Container.add_child(new_block)

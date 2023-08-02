@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cnwy7dl1yevgd"]
+[gd_scene load_steps=42 format=3 uid="uid://cnwy7dl1yevgd"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_fqajd"]
 [ext_resource type="Texture2D" uid="uid://dmb6i6skobkj1" path="res://art/cat_basic.png" id="1_st0lt"]
@@ -479,6 +479,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_xfivt"]
 resource_name = "watering_down"
 length = 0.5
+loop_mode = 2
 step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -530,6 +531,59 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_7i50q"]
+resource_name = "watering_left"
+length = 0.5
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [20, 21, 20]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_5kjpu")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+
+[sub_resource type="Animation" id="Animation_gv1c4"]
 resource_name = "watering_right"
 length = 0.5
 step = 0.2
@@ -582,6 +636,59 @@ tracks/3/keys = {
 "values": [12]
 }
 
+[sub_resource type="Animation" id="Animation_l1cs2"]
+resource_name = "watering_up"
+length = 0.5
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [18, 19, 18]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_5kjpu")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_udt3y"]
 _data = {
 "RESET": SubResource("Animation_48a20"),
@@ -594,12 +701,13 @@ _data = {
 "move_right": SubResource("Animation_6evce"),
 "move_up": SubResource("Animation_5c3qv"),
 "watering_down": SubResource("Animation_xfivt"),
-"watering_right": SubResource("Animation_7i50q")
+"watering_left": SubResource("Animation_7i50q"),
+"watering_right": SubResource("Animation_gv1c4"),
+"watering_up": SubResource("Animation_l1cs2")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_avtcj"]
-radius = 17.0
-height = 44.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpxfu"]
+size = Vector2(16, 13)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_28vo1"]
 animation = &"idle_left"
@@ -651,7 +759,29 @@ min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1yi5g"]
+animation = &"watering_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b2eud"]
+animation = &"watering_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3ufsy"]
+animation = &"watering_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1u0lf"]
+animation = &"watering_up"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_jk7mm"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_1yi5g")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_b2eud")
+blend_point_1/pos = Vector2(0, 1.1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_3ufsy")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_1u0lf")
+blend_point_3/pos = Vector2(0, -1.1)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k0onm"]
@@ -695,11 +825,11 @@ states/Watering/position = Vector2(415, 36)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_k0onm"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_2q0gc"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_fkyie"), "Watering", "Walk", SubResource("AnimationNodeStateMachineTransition_khtib"), "Walk", "Watering", SubResource("AnimationNodeStateMachineTransition_hwli7"), "Idle", "Watering", SubResource("AnimationNodeStateMachineTransition_v0kth"), "Watering", "Idle", SubResource("AnimationNodeStateMachineTransition_m5eg6")]
 
 [node name="Player" type="CharacterBody2D"]
+rotation = 0.0100737
 motion_mode = 1
 script = ExtResource("1_fqajd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(4.5, 4.5)
 texture = ExtResource("1_st0lt")
 hframes = 4
 vframes = 4
@@ -710,10 +840,8 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-1, 16)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_avtcj")
+shape = SubResource("RectangleShape2D_cpxfu")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_8u00w")
@@ -723,4 +851,7 @@ parameters/conditions/is_walking = false
 parameters/conditions/is_watering = false
 parameters/Idle/blend_position = Vector2(0.00174212, 0.928743)
 parameters/Walk/blend_position = Vector2(0, 0)
-parameters/Watering/blend_position = Vector2(0, 0)
+parameters/Watering/blend_position = Vector2(-0.998243, 0.0179641)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 16)
