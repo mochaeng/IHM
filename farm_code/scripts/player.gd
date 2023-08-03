@@ -7,7 +7,8 @@ class_name Player
 
 # @onready var initial_position = Vector2.ZERO
 @onready var animation_tree: AnimationTree = $AnimationTree
-@onready var ray_cast: RayCast2D = $RayCast2D
+@onready var animation_state = animation_tree.get("parameters/playback")
+@onready var ray_cast: RayCast2D = $MoveRayCast2D
 
 const TILE_SIZE = 16
 
@@ -39,7 +40,6 @@ func _ready():
 func update_animation_parameters():
 	animation_tree["parameters/conditions/is_idle"] = not is_moving
 	animation_tree["parameters/conditions/is_walking"] = is_moving
-	animation_tree["parameters/conditions/is_watering"] = is_watering
 
 	if input_direction != Vector2.ZERO:
 		animation_tree["parameters/Idle/blend_position"] = input_direction
@@ -48,18 +48,21 @@ func update_animation_parameters():
 
 
 func _process(_delta):
-	update_animation_parameters()
+	# update_animation_parameters()
+	pass
 
 
 func _physics_process(delta):
 	if player_state == PlayerState.TURNING:
-		pass
+		return
 	elif not is_moving:
 		# input_direction = Vector2.ZERO
 		process_player_input()
 	elif input_direction != Vector2.ZERO:
+		animation_state.travel("Walk")
 		move(delta)
 	else:
+		animation_state.travel("Idle")
 		is_moving = false
 
 
@@ -74,8 +77,45 @@ func process_player_input():
 		)
 
 	if input_direction != Vector2.ZERO:
-		initial_position = position
-		is_moving = true
+		animation_tree["parameters/Idle/blend_position"] = input_direction
+		animation_tree["parameters/Walk/blend_position"] = input_direction
+		animation_tree["parameters/Turning/blend_position"] = input_direction
+		# animation_tree["parameters/Watering/blend_position"] = input_direction
+
+		if is_need_to_turn():
+			player_state = PlayerState.TURNING
+			animation_state.travel("Turning")
+		else:
+			initial_position = position
+			is_moving = true
+	else:
+		animation_state.travel("Idle")
+
+
+func is_need_to_turn() -> bool:
+	var new_facing_direction
+	if input_direction.x < 0:
+		new_facing_direction = FacingDirection.LEFT
+	elif input_direction.x > 0:
+		new_facing_direction = FacingDirection.RIGHT
+	elif input_direction.y < 0:
+		new_facing_direction = FacingDirection.UP
+	elif input_direction.y > 0:
+		new_facing_direction = FacingDirection.DOWN
+
+	if player_facing_direction != new_facing_direction:
+		player_facing_direction = new_facing_direction
+		return true
+
+	player_facing_direction = new_facing_direction
+	return false
+
+
+func finished_turning():
+	player_state = PlayerState.IDLE
+	var desired_step: Vector2 = input_direction * TILE_SIZE / 1.94
+	ray_cast.target_position = desired_step
+	ray_cast.force_update_transform()
 
 
 func move_by_direction(direction: String):
@@ -91,28 +131,15 @@ func move_by_direction(direction: String):
 		is_moving = true
 
 
-var prev_position = 0
-
 func move(delta):
-	var desired_step: Vector2 = input_direction * TILE_SIZE / 2
-	ray_cast.target_position = desired_step
-	ray_cast.force_update_transform()
-
-	print(ray_cast.get_collider())
-	percent_move_to_next_tile += wallk_speed * delta
-
 	if !ray_cast.is_colliding():
+		percent_move_to_next_tile += wallk_speed * delta
 		if percent_move_to_next_tile >= 1.0:
 			position = initial_position + (TILE_SIZE * input_direction)
 			percent_move_to_next_tile = 0.0
 			is_moving = false
 		else:
 			position = initial_position + (TILE_SIZE * input_direction * percent_move_to_next_tile)
-		
-		prev_position = position
 	else:
 		is_moving = false
 		percent_move_to_next_tile = 0.0
-		position = prev_position
-	
-	print(prev_position)
