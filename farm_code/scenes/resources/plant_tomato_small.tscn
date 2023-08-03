@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c2jwwtsxq215e" path="res://art/Objects/Basic Plants.png" id="1_wny6a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uysy4"]
-size = Vector2(13, 13)
+size = Vector2(16, 16)
 
 [node name="PlantTomatoSmall" type="StaticBody2D"]
 
@@ -15,5 +15,5 @@ vframes = 2
 frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.5, 9.50001)
+position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_uysy4")

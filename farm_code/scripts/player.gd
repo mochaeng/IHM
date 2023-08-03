@@ -11,6 +11,12 @@ class_name Player
 
 const TILE_SIZE = 16
 
+enum PlayerState { IDLE, TURNING, WALKING, WATERING }
+enum FacingDirection { LEFT, RIGHT, UP, DOWN }
+
+var player_state := PlayerState.IDLE
+var player_facing_direction := FacingDirection.DOWN
+
 var input_direction = Vector2.ZERO
 var is_moving = false
 var is_watering = false
@@ -46,7 +52,9 @@ func _process(_delta):
 
 
 func _physics_process(delta):
-	if not is_moving:
+	if player_state == PlayerState.TURNING:
+		pass
+	elif not is_moving:
 		# input_direction = Vector2.ZERO
 		process_player_input()
 	elif input_direction != Vector2.ZERO:
@@ -83,18 +91,28 @@ func move_by_direction(direction: String):
 		is_moving = true
 
 
+var prev_position = 0
+
 func move(delta):
 	var desired_step: Vector2 = input_direction * TILE_SIZE / 2
 	ray_cast.target_position = desired_step
 	ray_cast.force_update_transform()
 
+	print(ray_cast.get_collider())
+	percent_move_to_next_tile += wallk_speed * delta
+
 	if !ray_cast.is_colliding():
-		percent_move_to_next_tile += wallk_speed * delta
 		if percent_move_to_next_tile >= 1.0:
 			position = initial_position + (TILE_SIZE * input_direction)
 			percent_move_to_next_tile = 0.0
 			is_moving = false
 		else:
 			position = initial_position + (TILE_SIZE * input_direction * percent_move_to_next_tile)
+		
+		prev_position = position
 	else:
 		is_moving = false
+		percent_move_to_next_tile = 0.0
+		position = prev_position
+	
+	print(prev_position)
