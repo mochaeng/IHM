@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://byvdg5xnhxjjt"]
+[gd_scene load_steps=14 format=3 uid="uid://byvdg5xnhxjjt"]
 
 [ext_resource type="PackedScene" uid="uid://cnwy7dl1yevgd" path="res://scenes/player.tscn" id="1_1iutq"]
 [ext_resource type="Script" path="res://scripts/levels/game_level.gd" id="1_wus7k"]
@@ -6,7 +6,11 @@
 [ext_resource type="Script" path="res://scripts/Grid.gd" id="3_4kn4j"]
 [ext_resource type="PackedScene" uid="uid://pkx0020xl1lc" path="res://scenes/blocks/panel_queue.tscn" id="6_kasjd"]
 [ext_resource type="PackedScene" uid="uid://c011h37r0uk6h" path="res://scenes/blocks/block.tscn" id="6_pop5m"]
+[ext_resource type="Texture2D" uid="uid://dkw513kx3c5hj" path="res://art/blocks/left.png" id="7_p2et7"]
+[ext_resource type="Texture2D" uid="uid://djuudvcnadlym" path="res://art/blocks/down.png" id="8_bbosd"]
+[ext_resource type="Texture2D" uid="uid://d0nsl04wdjsr" path="res://art/blocks/up.png" id="9_fi6ci"]
 [ext_resource type="PackedScene" uid="uid://byrid6uiras0d" path="res://scenes/resources/plant_tomato_small.tscn" id="10_5f3xb"]
+[ext_resource type="Texture2D" uid="uid://bojlqvosjakus" path="res://art/blocks/turn_minus.png" id="10_ratxf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qbifw"]
 texture = ExtResource("2_r7k1m")
@@ -82,33 +86,84 @@ offset_right = 168.0
 offset_bottom = 148.0
 
 [node name="RightBlock" parent="." instance=ExtResource("6_pop5m")]
-offset_left = 184.0
-offset_right = 248.0
+offset_left = 181.0
+offset_top = 1.0
+offset_right = 261.0
+offset_bottom = 81.0
 category = "right"
 
+[node name="image" parent="RightBlock" index="0"]
+position = Vector2(40, 40)
+scale = Vector2(0.3, 0.3)
+
 [node name="LeftBlock" parent="." instance=ExtResource("6_pop5m")]
-offset_left = 184.0
-offset_top = 16.0
-offset_right = 248.0
-offset_bottom = 80.0
+offset_left = 181.0
+offset_top = 20.0
+offset_right = 261.0
+offset_bottom = 100.0
 category = "left"
 
-[node name="Block" parent="." instance=ExtResource("6_pop5m")]
-offset_left = 184.0
-offset_top = 32.0
-offset_right = 248.0
-offset_bottom = 96.0
+[node name="image" parent="LeftBlock" index="0"]
+position = Vector2(40, 40)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_p2et7")
+
+[node name="UpBlock" parent="." instance=ExtResource("6_pop5m")]
+offset_left = 181.0
+offset_top = 41.0
+offset_right = 261.0
+offset_bottom = 121.0
 category = "up"
 
-[node name="Block2" parent="." instance=ExtResource("6_pop5m")]
-offset_left = 184.0
-offset_top = 48.0
-offset_right = 248.0
-offset_bottom = 112.0
+[node name="image" parent="UpBlock" index="0"]
+position = Vector2(40, 40)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_fi6ci")
+
+[node name="DownBlock" parent="." instance=ExtResource("6_pop5m")]
+offset_left = 182.0
+offset_top = 65.0
+offset_right = 262.0
+offset_bottom = 145.0
 category = "down"
+metadata/_edit_group_ = true
+
+[node name="image" parent="DownBlock" index="0"]
+position = Vector2(40, 40)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_bbosd")
+
+[node name="DownBlock3" parent="." instance=ExtResource("6_pop5m")]
+offset_left = 190.0
+offset_top = 108.0
+offset_right = 254.0
+offset_bottom = 172.0
+category = "down"
+metadata/_edit_group_ = true
+
+[node name="image" parent="DownBlock3" index="0"]
+texture = ExtResource("8_bbosd")
+
+[node name="DownBlock2" parent="." instance=ExtResource("6_pop5m")]
+offset_left = 226.0
+offset_top = 102.0
+offset_right = 290.0
+offset_bottom = 166.0
+category = "minus_90"
+
+[node name="image" parent="DownBlock2" index="0"]
+position = Vector2(35, 34.9999)
+texture = ExtResource("10_ratxf")
 
 [node name="PlantTomatoSmall" parent="." instance=ExtResource("10_5f3xb")]
 position = Vector2(96, 16)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="block_added" from="PanelQueue" to="." method="_on_panel_queue_block_added"]
+
+[editable path="RightBlock"]
+[editable path="LeftBlock"]
+[editable path="UpBlock"]
+[editable path="DownBlock"]
+[editable path="DownBlock3"]
+[editable path="DownBlock2"]

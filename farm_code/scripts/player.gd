@@ -37,7 +37,7 @@ func _ready():
 	animation_tree.active = true
 
 
-func update_animation_parameters():
+func ___update_animation_parameters():
 	animation_tree["parameters/conditions/is_idle"] = not is_moving
 	animation_tree["parameters/conditions/is_walking"] = is_moving
 
@@ -57,6 +57,7 @@ func _physics_process(delta):
 		return
 	elif not is_moving:
 		# input_direction = Vector2.ZERO
+		# travel_logic_update()
 		process_player_input()
 	elif input_direction != Vector2.ZERO:
 		animation_state.travel("Walk")
@@ -66,16 +67,7 @@ func _physics_process(delta):
 		is_moving = false
 
 
-func process_player_input():
-	if input_direction.y == 0:
-		input_direction.x = (
-			int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
-		)
-	if input_direction.x == 0:
-		input_direction.y = (
-			int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
-		)
-
+func travel_logic_update():
 	if input_direction != Vector2.ZERO:
 		animation_tree["parameters/Idle/blend_position"] = input_direction
 		animation_tree["parameters/Walk/blend_position"] = input_direction
@@ -90,6 +82,19 @@ func process_player_input():
 			is_moving = true
 	else:
 		animation_state.travel("Idle")
+
+
+func process_player_input():
+	if input_direction.y == 0:
+		input_direction.x = (
+			int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
+		)
+	if input_direction.x == 0:
+		input_direction.y = (
+			int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
+		)
+
+	travel_logic_update()
 
 
 func is_need_to_turn() -> bool:
@@ -119,6 +124,7 @@ func finished_turning():
 
 
 func move_by_direction(direction: String):
+
 	var vec_dir = directions[direction]
 
 	if input_direction.y == 0:
@@ -127,8 +133,9 @@ func move_by_direction(direction: String):
 		input_direction.y += vec_dir.y
 
 	if input_direction != Vector2.ZERO:
-		initial_position = position
-		is_moving = true
+		# initial_position = position
+		# is_moving = true
+		travel_logic_update()
 
 
 func move(delta):
