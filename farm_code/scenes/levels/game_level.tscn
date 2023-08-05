@@ -121,10 +121,10 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("9_fi6ci")
 
 [node name="DownBlock" parent="." instance=ExtResource("6_pop5m")]
-offset_left = 182.0
-offset_top = 65.0
-offset_right = 262.0
-offset_bottom = 145.0
+offset_left = 181.0
+offset_top = 61.0
+offset_right = 261.0
+offset_bottom = 141.0
 category = "down"
 metadata/_edit_group_ = true
 
@@ -134,10 +134,10 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("8_bbosd")
 
 [node name="DownBlock3" parent="." instance=ExtResource("6_pop5m")]
-offset_left = 190.0
-offset_top = 108.0
-offset_right = 254.0
-offset_bottom = 172.0
+offset_left = 181.0
+offset_top = 102.0
+offset_right = 245.0
+offset_bottom = 166.0
 category = "down"
 metadata/_edit_group_ = true
 
@@ -145,14 +145,15 @@ metadata/_edit_group_ = true
 texture = ExtResource("8_bbosd")
 
 [node name="DownBlock2" parent="." instance=ExtResource("6_pop5m")]
-offset_left = 226.0
-offset_top = 102.0
-offset_right = 290.0
-offset_bottom = 166.0
+offset_left = 181.0
+offset_top = 81.0
+offset_right = 261.0
+offset_bottom = 161.0
 category = "minus_90"
 
 [node name="image" parent="DownBlock2" index="0"]
-position = Vector2(35, 34.9999)
+position = Vector2(45, 40)
+scale = Vector2(0.18, 0.18)
 texture = ExtResource("10_ratxf")
 
 [node name="PlantTomatoSmall" parent="." instance=ExtResource("10_5f3xb")]
