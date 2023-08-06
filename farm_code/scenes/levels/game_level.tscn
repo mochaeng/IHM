@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://byvdg5xnhxjjt"]
+[gd_scene load_steps=15 format=3 uid="uid://byvdg5xnhxjjt"]
 
 [ext_resource type="PackedScene" uid="uid://cnwy7dl1yevgd" path="res://scenes/player.tscn" id="1_1iutq"]
 [ext_resource type="Script" path="res://scripts/levels/game_level.gd" id="1_wus7k"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d0nsl04wdjsr" path="res://art/blocks/up.png" id="9_fi6ci"]
 [ext_resource type="PackedScene" uid="uid://byrid6uiras0d" path="res://scenes/resources/plant_tomato_small.tscn" id="10_5f3xb"]
 [ext_resource type="Texture2D" uid="uid://bojlqvosjakus" path="res://art/blocks/turn_minus.png" id="10_ratxf"]
+[ext_resource type="Texture2D" uid="uid://dusirhrvrpy8m" path="res://art/Objects/Basic tools and meterials.png" id="10_rx8mp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qbifw"]
 texture = ExtResource("2_r7k1m")
@@ -133,16 +134,19 @@ position = Vector2(40, 40)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("8_bbosd")
 
-[node name="DownBlock3" parent="." instance=ExtResource("6_pop5m")]
+[node name="WaterBlock" parent="." instance=ExtResource("6_pop5m")]
 offset_left = 181.0
-offset_top = 102.0
-offset_right = 245.0
-offset_bottom = 166.0
-category = "down"
-metadata/_edit_group_ = true
+offset_top = 101.0
+offset_right = 261.0
+offset_bottom = 181.0
+category = "water"
 
-[node name="image" parent="DownBlock3" index="0"]
-texture = ExtResource("8_bbosd")
+[node name="image" parent="WaterBlock" index="0"]
+position = Vector2(39.9999, 37.5)
+scale = Vector2(4.375, 4.6875)
+texture = ExtResource("10_rx8mp")
+hframes = 3
+vframes = 2
 
 [node name="DownBlock2" parent="." instance=ExtResource("6_pop5m")]
 offset_left = 181.0
@@ -166,5 +170,5 @@ position = Vector2(96, 16)
 [editable path="LeftBlock"]
 [editable path="UpBlock"]
 [editable path="DownBlock"]
-[editable path="DownBlock3"]
+[editable path="WaterBlock"]
 [editable path="DownBlock2"]
