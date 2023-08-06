@@ -63,8 +63,7 @@ func _physics_process(delta):
 			input_direction = Vector2.ZERO
 			process_player_input()
 		PlayerState.WATERING:
-			process_player_input()
-			# animation_state.travel("Idle")
+			return
 
 	# if player_state == PlayerState.TURNING:
 	# 	return
@@ -131,6 +130,10 @@ func turn_player():
 	# animation_state.travel("Turning")
 
 
+func do_watering():
+	player_state = PlayerState.WATERING
+
+
 func finished_turning():
 	player_state = PlayerState.IDLE
 	var desired_step: Vector2 = input_direction * TILE_SIZE / 1.94
@@ -139,7 +142,6 @@ func finished_turning():
 
 
 func finished_watering():
-	print("hi")
 	player_state = PlayerState.IDLE
 
 
@@ -185,7 +187,6 @@ func update_animation_tree():
 
 
 func update_parameters():
-
 	if input_direction != Vector2.ZERO:
 		update_animation_tree()
 
@@ -223,7 +224,8 @@ func move_by_direction(direction: String):
 		"minus_90":
 			vec_dir = get_directional_vector()
 		"water":
-			vec_dir = Vector2.ZERO
+			# vec_dir = Vector2.ZERO
+			vec_dir = get_current_vector_position()
 		_:
 			vec_dir = directions[direction]
 
@@ -240,6 +242,8 @@ func move_by_direction(direction: String):
 				turn_player()
 			"plus_90":
 				turn_player()
+			"water":
+				do_watering()
 			_:
 				initial_position = position
 				is_moving = true
@@ -283,3 +287,12 @@ func move(delta):
 		is_moving = false
 		player_state = PlayerState.IDLE
 		percent_move_to_next_tile = 0.0
+
+
+func interact_with_entity():
+	if ray_cast.is_colliding():
+		print(ray_cast.get_collider())
+		var plant := ray_cast.get_collider()
+		plant.emit_signal("watered")
+
+	print('piece of crap')

@@ -69,7 +69,7 @@ layer_0/tile_data = PackedInt32Array(65537, 65536, 1, 65538, 65536, 1, 131074, 6
 script = ExtResource("3_4kn4j")
 
 [node name="Player" parent="." instance=ExtResource("1_1iutq")]
-position = Vector2(32, 32)
+position = Vector2(48, 16)
 
 [node name="Button" type="Button" parent="."]
 offset_left = 176.0
@@ -81,10 +81,13 @@ text = "Play
 "
 
 [node name="PanelQueue" parent="." instance=ExtResource("6_kasjd")]
-offset_left = 0.0
-offset_top = 132.0
-offset_right = 168.0
-offset_bottom = 148.0
+offset_left = 1.0
+offset_top = 129.0
+offset_right = 169.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
 
 [node name="RightBlock" parent="." instance=ExtResource("6_pop5m")]
 offset_left = 181.0
@@ -161,7 +164,7 @@ scale = Vector2(0.18, 0.18)
 texture = ExtResource("10_ratxf")
 
 [node name="PlantTomatoSmall" parent="." instance=ExtResource("10_5f3xb")]
-position = Vector2(96, 16)
+position = Vector2(96, 80)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="block_added" from="PanelQueue" to="." method="_on_panel_queue_block_added"]

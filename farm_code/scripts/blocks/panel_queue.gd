@@ -11,7 +11,7 @@ signal block_added(data: Block)
 @onready var up_texture = preload("res://art/blocks/up.png")
 @onready var down_texture = preload("res://art/blocks/down.png")
 @onready var minus_90_texture = preload("res://art/blocks/turn_minus.png")
-@onready var water_texture = preload("res://art/blocks/turn_minus.png")
+@onready var water_texture = preload("res://art/blocks/watering_can.png")
 
 var textures = {}
 
