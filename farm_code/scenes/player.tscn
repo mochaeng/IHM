@@ -1,8 +1,9 @@
-[gd_scene load_steps=55 format=3 uid="uid://cnwy7dl1yevgd"]
+[gd_scene load_steps=61 format=3 uid="uid://cnwy7dl1yevgd"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_fqajd"]
 [ext_resource type="Texture2D" uid="uid://dmb6i6skobkj1" path="res://art/cat_basic.png" id="1_st0lt"]
 [ext_resource type="Texture2D" uid="uid://dn5oh2xkypa4u" path="res://art/cat_actions.png" id="2_5kjpu"]
+[ext_resource type="Texture2D" uid="uid://c1p2i81727ihh" path="res://art/gui/select1.png" id="4_f6cmr"]
 
 [sub_resource type="Animation" id="Animation_48a20"]
 length = 0.001
@@ -1356,6 +1357,42 @@ states/Watering/position = Vector2(399, 36)
 transitions = ["Idle", "Watering", SubResource("AnimationNodeStateMachineTransition_ccqvc"), "Watering", "Idle", SubResource("AnimationNodeStateMachineTransition_g64kk"), "Idle", "Turning", SubResource("AnimationNodeStateMachineTransition_20ybv"), "Turning", "Idle", SubResource("AnimationNodeStateMachineTransition_8taqs"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_rqe33"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_wb4rl"), "Turning", "Walk", SubResource("AnimationNodeStateMachineTransition_qeefr"), "Walk", "Turning", SubResource("AnimationNodeStateMachineTransition_rwc7j"), "Walk", "Watering", SubResource("AnimationNodeStateMachineTransition_i6t75"), "Watering", "Walk", SubResource("AnimationNodeStateMachineTransition_fc3o0"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ipdtf")]
 graph_offset = Vector2(-298.698, 10.1579)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_shl3h"]
+atlas = ExtResource("4_f6cmr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddi6p"]
+atlas = ExtResource("4_f6cmr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c62qi"]
+atlas = ExtResource("4_f6cmr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nud14"]
+atlas = ExtResource("4_f6cmr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f5bn8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shl3h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddi6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c62qi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nud14")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 rotation = 0.0100737
 motion_mode = 1
@@ -1394,3 +1431,11 @@ parameters/Watering/blend_position = Vector2(-0.00351495, 1.1)
 [node name="MoveRayCast2D" type="RayCast2D" parent="."]
 position = Vector2(24, 24)
 target_position = Vector2(0, 16)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(16.3215, 31.8372)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_f5bn8")
+autoplay = "default"
+frame_progress = 0.748305
+centered = false

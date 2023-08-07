@@ -9,6 +9,7 @@ class_name Player
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_state = animation_tree["parameters/playback"]
 @onready var ray_cast: RayCast2D = $MoveRayCast2D
+@onready var animated_sprite := $AnimatedSprite2D
 
 const TILE_SIZE = 16
 
@@ -49,9 +50,21 @@ func ___update_animation_parameters():
 		animation_tree["parameters/Watering/blend_position"] = input_direction
 
 
+func update_select():
+	if player_facing_direction == FacingDirection.LEFT:
+		animated_sprite.position = Vector2(0, 16)
+	elif player_facing_direction == FacingDirection.RIGHT:
+		animated_sprite.position = Vector2(32, 16)
+	elif player_facing_direction == FacingDirection.DOWN:
+		animated_sprite.position = Vector2(16, 32)
+	elif player_facing_direction == FacingDirection.UP:
+		animated_sprite.position = Vector2(16, 0)
+
+
 func _process(_delta):
 	# update_animation_parameters()
 	update_parameters()
+	update_select()
 
 
 func _physics_process(delta):
@@ -66,6 +79,8 @@ func _physics_process(delta):
 		PlayerState.WATERING:
 			pass
 
+	print(animated_sprite.position)
+	print(input_direction)
 	# var desired_step: Vector2 = input_direction * TILE_SIZE / 1.94
 	# ray_cast.target_position = desired_step
 	# ray_cast.force_update_transform()
