@@ -56,14 +56,18 @@ func _process(_delta):
 func _physics_process(delta):
 	match player_state:
 		PlayerState.TURNING:
-			return
+			pass
 		PlayerState.WALKING:
 			move(delta)
 		PlayerState.IDLE:
 			input_direction = Vector2.ZERO
 			process_player_input()
 		PlayerState.WATERING:
-			return
+			pass
+		
+	var desired_step: Vector2 = input_direction * TILE_SIZE / 1.94
+	ray_cast.target_position = desired_step
+	ray_cast.force_update_transform()
 
 	# if player_state == PlayerState.TURNING:
 	# 	return
@@ -136,13 +140,21 @@ func do_watering():
 
 func finished_turning():
 	player_state = PlayerState.IDLE
-	var desired_step: Vector2 = input_direction * TILE_SIZE / 1.94
-	ray_cast.target_position = desired_step
-	ray_cast.force_update_transform()
+	# var desired_step: Vector2 = input_direction * TILE_SIZE / 1.94
+	# ray_cast.target_position = desired_step
+	# ray_cast.force_update_transform()
+	# print('acabei de virar')
 
 
 func finished_watering():
 	player_state = PlayerState.IDLE
+	# var desired_step: Vector2 = input_direction * TILE_SIZE / 1.94
+	# print("acabou de regar")
+	# input_direction = get_current_vector_position()
+	# print(input_direction)
+	# ray_cast.target_position = desired_step
+	# ray_cast.force_update_transform()
+	# input_direction = Vector2.ZERO
 
 
 func get_directional_vector():
@@ -233,7 +245,9 @@ func move_by_direction(direction: String):
 		input_direction.x += vec_dir.x
 	if input_direction.x == 0:
 		input_direction.y += vec_dir.y
-
+	
+	print('posição -> ' + direction)
+	print(input_direction)
 	if input_direction != Vector2.ZERO:
 		update_animation_tree()
 
