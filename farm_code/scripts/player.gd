@@ -30,6 +30,7 @@ var directions = {
 	"up": Vector2(0, -1),
 	"down": Vector2(0, 1),
 	"minus_90": Vector2(0, 0),
+	"plus_90": Vector2(0, 0),
 	"empty": Vector2.ZERO
 }
 
@@ -64,10 +65,10 @@ func _physics_process(delta):
 			process_player_input()
 		PlayerState.WATERING:
 			pass
-		
-	var desired_step: Vector2 = input_direction * TILE_SIZE / 1.94
-	ray_cast.target_position = desired_step
-	ray_cast.force_update_transform()
+
+	# var desired_step: Vector2 = input_direction * TILE_SIZE / 1.94
+	# ray_cast.target_position = desired_step
+	# ray_cast.force_update_transform()
 
 	# if player_state == PlayerState.TURNING:
 	# 	return
@@ -140,10 +141,10 @@ func do_watering():
 
 func finished_turning():
 	player_state = PlayerState.IDLE
-	# var desired_step: Vector2 = input_direction * TILE_SIZE / 1.94
-	# ray_cast.target_position = desired_step
-	# ray_cast.force_update_transform()
-	# print('acabei de virar')
+	var desired_step: Vector2 = input_direction * TILE_SIZE / 1.94
+	ray_cast.target_position = desired_step
+	ray_cast.force_update_transform()
+	print("acabei de virar")
 
 
 func finished_watering():
@@ -157,7 +158,7 @@ func finished_watering():
 	# input_direction = Vector2.ZERO
 
 
-func get_directional_vector():
+func get_minus90_directional_vector():
 	var dir
 
 	if player_facing_direction == FacingDirection.LEFT:
@@ -172,6 +173,21 @@ func get_directional_vector():
 	elif player_facing_direction == FacingDirection.UP:
 		# dir = FacingDirection.UP
 		dir = directions["left"]
+
+	return dir
+
+
+func get_plus90_directional_vector():
+	var dir
+
+	if player_facing_direction == FacingDirection.LEFT:
+		dir = directions["up"]
+	elif player_facing_direction == FacingDirection.RIGHT:
+		dir = directions["down"]
+	elif player_facing_direction == FacingDirection.DOWN:
+		dir = directions["left"]
+	elif player_facing_direction == FacingDirection.UP:
+		dir = directions["right"]
 
 	return dir
 
@@ -234,9 +250,10 @@ func move_by_direction(direction: String):
 
 	match direction:
 		"minus_90":
-			vec_dir = get_directional_vector()
+			vec_dir = get_minus90_directional_vector()
+		"plus_90":
+			vec_dir = get_plus90_directional_vector()
 		"water":
-			# vec_dir = Vector2.ZERO
 			vec_dir = get_current_vector_position()
 		_:
 			vec_dir = directions[direction]
@@ -245,8 +262,8 @@ func move_by_direction(direction: String):
 		input_direction.x += vec_dir.x
 	if input_direction.x == 0:
 		input_direction.y += vec_dir.y
-	
-	print('posição -> ' + direction)
+
+	print("posição -> " + direction)
 	print(input_direction)
 	if input_direction != Vector2.ZERO:
 		update_animation_tree()
@@ -288,6 +305,10 @@ func travel_logic_update():
 
 
 func move(delta):
+	var desired_step: Vector2 = input_direction * TILE_SIZE / 1.94
+	ray_cast.target_position = desired_step
+	ray_cast.force_update_transform()
+
 	if !ray_cast.is_colliding():
 		percent_move_to_next_tile += wallk_speed * delta
 		if percent_move_to_next_tile >= 1.0:
@@ -309,4 +330,4 @@ func interact_with_entity():
 		var plant := ray_cast.get_collider()
 		plant.emit_signal("watered")
 
-	print('piece of crap')
+	print("piece of crap")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://byvdg5xnhxjjt"]
+[gd_scene load_steps=16 format=3 uid="uid://byvdg5xnhxjjt"]
 
 [ext_resource type="PackedScene" uid="uid://cnwy7dl1yevgd" path="res://scenes/player.tscn" id="1_1iutq"]
 [ext_resource type="Script" path="res://scripts/levels/game_level.gd" id="1_wus7k"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://byrid6uiras0d" path="res://scenes/resources/plant_tomato_small.tscn" id="10_5f3xb"]
 [ext_resource type="Texture2D" uid="uid://bojlqvosjakus" path="res://art/blocks/turn_minus.png" id="10_ratxf"]
 [ext_resource type="Texture2D" uid="uid://dusirhrvrpy8m" path="res://art/Objects/Basic tools and meterials.png" id="10_rx8mp"]
+[ext_resource type="Texture2D" uid="uid://cemo2lidow0oq" path="res://art/blocks/turn_plus.png" id="12_stvm7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qbifw"]
 texture = ExtResource("2_r7k1m")
@@ -63,7 +64,7 @@ script = ExtResource("1_wus7k")
 [node name="TileMap1" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ux0n8")
 format = 2
-layer_0/tile_data = PackedInt32Array(65537, 65536, 1, 65538, 65536, 1, 131074, 65536, 1, 131075, 65536, 1, 65539, 65536, 1, 2, 327680, 5, 1, 0, 5, 0, 327680, 5, 65536, 0, 5, 131072, 0, 5, 4, 65536, 1, 3, 65536, 1, 65540, 65536, 1, 131073, 65536, 1, 196608, 327680, 5, 196609, 65536, 1, 196610, 327680, 5, 196611, 65536, 1, 196612, 65536, 1, 196613, 65536, 1, 196614, 65536, 1, 131078, 65536, 1, 65542, 65536, 1, 65541, 65536, 1, 5, 65536, 1, 6, 65536, 1, 65543, 65536, 1, 131079, 65536, 1, 196615, 65536, 1, 262144, 327680, 5, 327680, 65536, 1, 393216, 131072, 5, 262145, 65536, 1, 327681, 327680, 5, 393217, 65536, 1, 262146, 65536, 1, 327682, 65536, 1, 393218, 65536, 1, 262147, 65536, 1, 327683, 65536, 1, 393219, 65536, 1, 131076, 65536, 1, 262148, 65536, 1, 327684, 131072, 5, 393220, 65536, 1, 131077, 65536, 1, 262149, 65536, 1, 327685, 65536, 1, 393221, 65536, 1, 262150, 65536, 1, 327686, 65536, 1, 393222, 65536, 1, 7, 131072, 5, 262151, 65536, 1, 327687, 65536, 1, 393223, 262144, 5, 8, 65536, 1, 65544, 131072, 5, 131080, 65536, 1, 196616, 65536, 1, 262152, 65536, 1, 327688, 262144, 5, 393224, 262144, 5, 9, 65536, 1, 65545, 65536, 1, 131081, 65536, 1, 196617, 65536, 1, 262153, 65536, 1, 327689, 65536, 1, 393225, 65536, 1, 10, 65536, 1, 65546, 65536, 1, 131082, 65536, 1, 196618, 65536, 1, 262154, 327680, 5, 327690, 65536, 1, 393226, 65536, 1, 458752, 65536, 1, 458753, 131072, 5, 458754, 65536, 1, 458755, 131072, 5, 458756, 65536, 1, 458757, 65536, 1, 458758, 65536, 1, 458759, 65536, 1, 458760, 65536, 1, 458761, 131072, 5, 458762, 65536, 1)
+layer_0/tile_data = PackedInt32Array(65537, 65536, 1, 65538, 65536, 1, 131074, 65536, 1, 131075, 65536, 1, 65539, 65536, 1, 2, 327680, 5, 1, 0, 5, 0, 327680, 5, 65536, 0, 5, 131072, 0, 5, 4, 65536, 1, 3, 65536, 1, 65540, 65536, 1, 131073, 65536, 1, 196608, 327680, 5, 196609, 65536, 1, 196610, 327680, 5, 196611, 65536, 1, 196612, 65536, 1, 196613, 65536, 1, 196614, 65536, 1, 131078, 65536, 1, 65542, 65536, 1, 65541, 65536, 1, 5, 65536, 1, 6, 65536, 1, 65543, 65536, 1, 131079, 65536, 1, 196615, 65536, 1, 262144, 327680, 5, 327680, 65536, 1, 393216, 131072, 5, 262145, 65536, 1, 327681, 327680, 5, 393217, 65536, 1, 262146, 65536, 1, 327682, 65536, 1, 393218, 65536, 1, 262147, 65536, 1, 327683, 65536, 1, 393219, 65536, 1, 131076, 65536, 1, 262148, 65536, 1, 327684, 131072, 5, 393220, 65536, 1, 131077, 65536, 1, 262149, 65536, 1, 327685, 65536, 1, 393221, 65536, 1, 262150, 65536, 1, 327686, 65536, 1, 393222, 65536, 1, 7, 131072, 5, 262151, 65536, 1, 327687, 65536, 1, 393223, 262144, 5, 8, 65536, 1, 65544, 131072, 5, 131080, 65536, 1, 196616, 65536, 1, 262152, 65536, 1, 327688, 262144, 5, 393224, 262144, 5, 9, 65536, 1, 65545, 65536, 1, 131081, 65536, 1, 196617, 65536, 1, 262153, 65536, 1, 327689, 65536, 1, 393225, 65536, 1, 458752, 65536, 1, 458753, 131072, 5, 458754, 65536, 1, 458755, 131072, 5, 458756, 65536, 1, 458757, 65536, 1, 458758, 65536, 1, 458759, 65536, 1, 458760, 65536, 1, 458761, 131072, 5)
 
 [node name="Grid" type="Node2D" parent="."]
 script = ExtResource("3_4kn4j")
@@ -90,10 +91,10 @@ grow_vertical = 2
 size_flags_horizontal = 0
 
 [node name="RightBlock" parent="." instance=ExtResource("6_pop5m")]
-offset_left = 181.0
-offset_top = 1.0
-offset_right = 261.0
-offset_bottom = 81.0
+offset_left = 163.0
+offset_top = 3.0
+offset_right = 243.0
+offset_bottom = 83.0
 category = "right"
 
 [node name="image" parent="RightBlock" index="0"]
@@ -101,10 +102,10 @@ position = Vector2(40, 40)
 scale = Vector2(0.3, 0.3)
 
 [node name="LeftBlock" parent="." instance=ExtResource("6_pop5m")]
-offset_left = 181.0
-offset_top = 20.0
-offset_right = 261.0
-offset_bottom = 100.0
+offset_left = 163.0
+offset_top = 22.0
+offset_right = 243.0
+offset_bottom = 102.0
 category = "left"
 
 [node name="image" parent="LeftBlock" index="0"]
@@ -113,10 +114,10 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("7_p2et7")
 
 [node name="UpBlock" parent="." instance=ExtResource("6_pop5m")]
-offset_left = 181.0
-offset_top = 41.0
-offset_right = 261.0
-offset_bottom = 121.0
+offset_left = 182.0
+offset_top = 3.0
+offset_right = 262.0
+offset_bottom = 83.0
 category = "up"
 
 [node name="image" parent="UpBlock" index="0"]
@@ -125,10 +126,10 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("9_fi6ci")
 
 [node name="DownBlock" parent="." instance=ExtResource("6_pop5m")]
-offset_left = 181.0
-offset_top = 61.0
-offset_right = 261.0
-offset_bottom = 141.0
+offset_left = 182.0
+offset_top = 22.0
+offset_right = 262.0
+offset_bottom = 102.0
 category = "down"
 metadata/_edit_group_ = true
 
@@ -138,10 +139,10 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("8_bbosd")
 
 [node name="WaterBlock" parent="." instance=ExtResource("6_pop5m")]
-offset_left = 181.0
-offset_top = 101.0
-offset_right = 261.0
-offset_bottom = 181.0
+offset_left = 163.0
+offset_top = 54.0
+offset_right = 243.0
+offset_bottom = 134.0
 category = "water"
 
 [node name="image" parent="WaterBlock" index="0"]
@@ -151,20 +152,37 @@ texture = ExtResource("10_rx8mp")
 hframes = 3
 vframes = 2
 
-[node name="DownBlock2" parent="." instance=ExtResource("6_pop5m")]
-offset_left = 181.0
-offset_top = 81.0
-offset_right = 261.0
-offset_bottom = 161.0
+[node name="Minus90" parent="." instance=ExtResource("6_pop5m")]
+offset_left = 164.0
+offset_top = 83.0
+offset_right = 244.0
+offset_bottom = 163.0
 category = "minus_90"
 
-[node name="image" parent="DownBlock2" index="0"]
-position = Vector2(45, 40)
-scale = Vector2(0.18, 0.18)
+[node name="image" parent="Minus90" index="0"]
+position = Vector2(40, 40.0001)
+scale = Vector2(0.22, 0.22)
 texture = ExtResource("10_ratxf")
 
-[node name="PlantTomatoSmall" parent="." instance=ExtResource("10_5f3xb")]
-position = Vector2(96, 80)
+[node name="Plus90" parent="." instance=ExtResource("6_pop5m")]
+offset_left = 183.0
+offset_top = 83.0
+offset_right = 263.0
+offset_bottom = 163.0
+category = "plus_90"
+
+[node name="image" parent="Plus90" index="0"]
+position = Vector2(40, 40)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("12_stvm7")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="PlantTomatoSmall1" parent="Node2D" instance=ExtResource("10_5f3xb")]
+position = Vector2(80, 64)
+
+[node name="PlantTomatoSmall2" parent="Node2D" instance=ExtResource("10_5f3xb")]
+position = Vector2(64, 64)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="block_added" from="PanelQueue" to="." method="_on_panel_queue_block_added"]
@@ -174,4 +192,5 @@ position = Vector2(96, 80)
 [editable path="UpBlock"]
 [editable path="DownBlock"]
 [editable path="WaterBlock"]
-[editable path="DownBlock2"]
+[editable path="Minus90"]
+[editable path="Plus90"]

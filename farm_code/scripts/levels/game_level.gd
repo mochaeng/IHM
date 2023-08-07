@@ -17,7 +17,7 @@ func process_commands():
 	for dir in commands:
 		print(dir)
 		player.move_by_direction(dir)
-		await get_tree().create_timer(0.8).timeout
+		await get_tree().create_timer(1).timeout
 
 	is_processing_commands = false
 
