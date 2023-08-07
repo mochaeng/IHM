@@ -18,12 +18,15 @@ var textures = {}
 
 
 func _can_drop_data(_at_position, data):
-	return data is Block == true
+	return (data is Block == true) && data.category != ""
 
 
 func _drop_data(_at_position, data):
+	print(data.category)
 	var new_block := block.instantiate()
 	new_block.get_node("image").texture = textures[data.category]
+	new_block.get_node("image").set_offset(Vector2(7, 0))
+	new_block.set_custom_minimum_size(Vector2(64, 64))
 
 	$Container.add_child(new_block)
 

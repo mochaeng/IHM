@@ -51,15 +51,23 @@ func ___update_animation_parameters():
 
 
 func update_select():
-	if player_facing_direction == FacingDirection.LEFT:
-		animated_sprite.position = Vector2(0, 16)
-	elif player_facing_direction == FacingDirection.RIGHT:
-		animated_sprite.position = Vector2(32, 16)
-	elif player_facing_direction == FacingDirection.DOWN:
-		animated_sprite.position = Vector2(16, 32)
-	elif player_facing_direction == FacingDirection.UP:
-		animated_sprite.position = Vector2(16, 0)
+	# if player_facing_direction == FacingDirection.LEFT:
+	# 	animated_sprite.position = Vector2(0, 16)
+	# elif player_facing_direction == FacingDirection.RIGHT:
+	# 	animated_sprite.position = Vector2(32, 16)
+	# elif player_facing_direction == FacingDirection.DOWN:
+	# 	animated_sprite.position = Vector2(16, 32)
+	# elif player_facing_direction == FacingDirection.UP:
+	# 	animated_sprite.position = Vector2(16, 0)
 
+	if input_direction.x < 0:
+		animated_sprite.position = Vector2(0, 16)
+	elif input_direction.x > 0:
+		animated_sprite.position = Vector2(32, 16)
+	elif input_direction.y < 0:
+		animated_sprite.position = Vector2(16, 0)
+	elif input_direction.y > 0:
+		animated_sprite.position = Vector2(16, 32)
 
 func _process(_delta):
 	# update_animation_parameters()
@@ -79,8 +87,11 @@ func _physics_process(delta):
 		PlayerState.WATERING:
 			pass
 
-	print(animated_sprite.position)
-	print(input_direction)
+	var desired_step: Vector2 = input_direction * TILE_SIZE / 1.94
+	ray_cast.target_position = desired_step
+	ray_cast.force_update_transform()
+	# print(animated_sprite.position)
+	# print(input_direction)
 	# var desired_step: Vector2 = input_direction * TILE_SIZE / 1.94
 	# ray_cast.target_position = desired_step
 	# ray_cast.force_update_transform()

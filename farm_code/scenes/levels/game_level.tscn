@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://byvdg5xnhxjjt"]
+[gd_scene load_steps=23 format=3 uid="uid://byvdg5xnhxjjt"]
 
 [ext_resource type="PackedScene" uid="uid://cnwy7dl1yevgd" path="res://scenes/player.tscn" id="1_1iutq"]
 [ext_resource type="Script" path="res://scripts/levels/game_level.gd" id="1_wus7k"]
 [ext_resource type="Texture2D" uid="uid://bhuhbvbax3vf" path="res://art/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png" id="2_r7k1m"]
 [ext_resource type="Script" path="res://scripts/Grid.gd" id="3_4kn4j"]
+[ext_resource type="Texture2D" uid="uid://dueq7plyll2nm" path="res://art/Tilesets/Fences.png" id="3_8gswn"]
+[ext_resource type="Texture2D" uid="uid://d2ov37m16f7d7" path="res://art/Tilesets/ground tiles/old tiles/Tilled Dirt.png" id="3_hdd1p"]
 [ext_resource type="PackedScene" uid="uid://pkx0020xl1lc" path="res://scenes/blocks/panel_queue.tscn" id="6_kasjd"]
 [ext_resource type="PackedScene" uid="uid://c011h37r0uk6h" path="res://scenes/blocks/block.tscn" id="6_pop5m"]
 [ext_resource type="Texture2D" uid="uid://dkw513kx3c5hj" path="res://art/blocks/left.png" id="7_p2et7"]
@@ -13,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bojlqvosjakus" path="res://art/blocks/turn_minus.png" id="10_ratxf"]
 [ext_resource type="Texture2D" uid="uid://dusirhrvrpy8m" path="res://art/Objects/Basic tools and meterials.png" id="10_rx8mp"]
 [ext_resource type="Texture2D" uid="uid://cemo2lidow0oq" path="res://art/blocks/turn_plus.png" id="12_stvm7"]
+[ext_resource type="Texture2D" uid="uid://c2jwwtsxq215e" path="res://art/Objects/Basic Plants.png" id="15_46oix"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qbifw"]
 texture = ExtResource("2_r7k1m")
@@ -55,8 +58,109 @@ texture = ExtResource("2_r7k1m")
 0:3/0 = 0
 0:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pwn1v"]
+texture = ExtResource("3_hdd1p")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_ux0n8"]
 sources/0 = SubResource("TileSetAtlasSource_qbifw")
+sources/1 = SubResource("TileSetAtlasSource_pwn1v")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t2756"]
+texture = ExtResource("3_8gswn")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hkxr0"]
+sources/0 = SubResource("TileSetAtlasSource_t2756")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uf088"]
+bg_color = Color(0.0862745, 0.231373, 0.160784, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [node name="GameLevel" type="Node2D"]
 script = ExtResource("1_wus7k")
@@ -64,13 +168,18 @@ script = ExtResource("1_wus7k")
 [node name="TileMap1" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ux0n8")
 format = 2
-layer_0/tile_data = PackedInt32Array(65537, 65536, 1, 65538, 65536, 1, 131074, 65536, 1, 131075, 65536, 1, 65539, 65536, 1, 2, 327680, 5, 1, 0, 5, 0, 327680, 5, 65536, 0, 5, 131072, 0, 5, 4, 65536, 1, 3, 65536, 1, 65540, 65536, 1, 131073, 65536, 1, 196608, 327680, 5, 196609, 65536, 1, 196610, 327680, 5, 196611, 65536, 1, 196612, 65536, 1, 196613, 65536, 1, 196614, 65536, 1, 131078, 65536, 1, 65542, 65536, 1, 65541, 65536, 1, 5, 65536, 1, 6, 65536, 1, 65543, 65536, 1, 131079, 65536, 1, 196615, 65536, 1, 262144, 327680, 5, 327680, 65536, 1, 393216, 131072, 5, 262145, 65536, 1, 327681, 327680, 5, 393217, 65536, 1, 262146, 65536, 1, 327682, 65536, 1, 393218, 65536, 1, 262147, 65536, 1, 327683, 65536, 1, 393219, 65536, 1, 131076, 65536, 1, 262148, 65536, 1, 327684, 131072, 5, 393220, 65536, 1, 131077, 65536, 1, 262149, 65536, 1, 327685, 65536, 1, 393221, 65536, 1, 262150, 65536, 1, 327686, 65536, 1, 393222, 65536, 1, 7, 131072, 5, 262151, 65536, 1, 327687, 65536, 1, 393223, 262144, 5, 8, 65536, 1, 65544, 131072, 5, 131080, 65536, 1, 196616, 65536, 1, 262152, 65536, 1, 327688, 262144, 5, 393224, 262144, 5, 9, 65536, 1, 65545, 65536, 1, 131081, 65536, 1, 196617, 65536, 1, 262153, 65536, 1, 327689, 65536, 1, 393225, 65536, 1, 458752, 65536, 1, 458753, 131072, 5, 458754, 65536, 1, 458755, 131072, 5, 458756, 65536, 1, 458757, 65536, 1, 458758, 65536, 1, 458759, 65536, 1, 458760, 65536, 1, 458761, 131072, 5)
+layer_0/tile_data = PackedInt32Array(65537, 65536, 1, 65538, 65536, 1, 131074, 65536, 1, 131075, 65536, 1, 65539, 65536, 1, 2, 327680, 5, 1, 0, 5, 0, 327680, 5, 65536, 0, 5, 131072, 0, 5, 4, 65536, 1, 3, 65536, 1, 65540, 65536, 1, 131073, 65536, 1, 196608, 327680, 5, 196609, 65536, 1, 196610, 327680, 5, 196611, 65536, 1, 196612, 65536, 1, 196613, 65536, 1, 196614, 65536, 1, 131078, 65536, 1, 65542, 65536, 1, 65541, 65536, 1, 5, 65536, 1, 6, 65536, 1, 65543, 65536, 1, 131079, 65536, 1, 196615, 65536, 1, 262144, 327680, 5, 327680, 65536, 1, 393216, 131072, 5, 262145, 65536, 1, 327681, 327680, 5, 393217, 65536, 1, 262146, 65536, 1, 327682, 65536, 1, 393218, 65536, 1, 262147, 65536, 1, 327683, 65536, 1, 393219, 65536, 1, 131076, 65536, 1, 262148, 1, 1, 327684, 131072, 5, 393220, 65536, 1, 131077, 65536, 1, 262149, 1, 1, 327685, 65536, 1, 393221, 65536, 1, 262150, 65536, 1, 327686, 65536, 1, 393222, 65536, 1, 7, 131072, 5, 262151, 65536, 1, 327687, 65536, 1, 393223, 262144, 5, 8, 65536, 1, 65544, 131072, 5, 131080, 65536, 1, 196616, 65536, 1, 262152, 65536, 1, 327688, 262144, 5, 393224, 262144, 5, 9, 65536, 1, 65545, 65536, 1, 131081, 65536, 1, 196617, 65536, 1, 262153, 65536, 1, 327689, 65536, 1, 393225, 65536, 1, 458752, 65536, 1, 458753, 131072, 5, 458754, 65536, 1, 458755, 131072, 5, 458756, 65536, 1, 458757, 65536, 1, 458758, 65536, 1, 458759, 65536, 1, 458760, 65536, 1, 458761, 131072, 5)
+
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_hkxr0")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 65536, 0, 65536, 0, 1, 131072, 0, 1, 196608, 0, 1, 262144, 0, 1, 327680, 0, 1, 393216, 0, 1, 458752, 65536, 2, 458753, 131072, 2, 458754, 131072, 2, 458755, 131072, 2, 458756, 131072, 2, 458757, 131072, 2, 458758, 131072, 2, 458759, 131072, 2, 458760, 131072, 2, 458761, 196608, 2, 393225, 0, 1, 327689, 0, 1, 262153, 0, 1, 196617, 0, 1, 131081, 0, 1, 65545, 0, 1, 9, 196608, 0, 8, 131072, 3, 7, 131072, 3, 6, 131072, 3, 5, 131072, 3, 4, 131072, 3, 3, 131072, 3, 2, 131072, 3, 1, 131072, 3)
 
 [node name="Grid" type="Node2D" parent="."]
 script = ExtResource("3_4kn4j")
 
 [node name="Player" parent="." instance=ExtResource("1_1iutq")]
-position = Vector2(48, 16)
+position = Vector2(48, 0)
 
 [node name="Button" type="Button" parent="."]
 offset_left = 176.0
@@ -153,15 +262,15 @@ hframes = 3
 vframes = 2
 
 [node name="Minus90" parent="." instance=ExtResource("6_pop5m")]
-offset_left = 164.0
+offset_left = 165.0
 offset_top = 83.0
-offset_right = 244.0
+offset_right = 245.0
 offset_bottom = 163.0
 category = "minus_90"
 
 [node name="image" parent="Minus90" index="0"]
-position = Vector2(40, 40.0001)
-scale = Vector2(0.22, 0.22)
+position = Vector2(40, 40)
+scale = Vector2(0.21, 0.21)
 texture = ExtResource("10_ratxf")
 
 [node name="Plus90" parent="." instance=ExtResource("6_pop5m")]
@@ -173,19 +282,45 @@ category = "plus_90"
 
 [node name="image" parent="Plus90" index="0"]
 position = Vector2(40, 40)
-scale = Vector2(0.24, 0.24)
+scale = Vector2(0.21, 0.21)
 texture = ExtResource("12_stvm7")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Entities" type="Node2D" parent="."]
 
-[node name="PlantTomatoSmall1" parent="Node2D" instance=ExtResource("10_5f3xb")]
+[node name="PlantTomatoSmall1" parent="Entities" instance=ExtResource("10_5f3xb")]
 position = Vector2(80, 64)
 
-[node name="PlantTomatoSmall2" parent="Node2D" instance=ExtResource("10_5f3xb")]
+[node name="PlantTomatoSmall2" parent="Entities" instance=ExtResource("10_5f3xb")]
 position = Vector2(64, 64)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 50.0
+offset_bottom = 18.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uf088")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 1.0
+offset_right = 46.0
+offset_bottom = 18.0
+theme_override_font_sizes/font_size = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel"]
+position = Vector2(11, 7)
+texture = ExtResource("15_46oix")
+hframes = 6
+vframes = 2
+frame = 9
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="block_added" from="PanelQueue" to="." method="_on_panel_queue_block_added"]
+[connection signal="completed" from="Entities/PlantTomatoSmall1" to="." method="_on_plant_tomato_small_1_completed"]
+[connection signal="completed" from="Entities/PlantTomatoSmall2" to="." method="_on_plant_tomato_small_2_completed"]
 
 [editable path="RightBlock"]
 [editable path="LeftBlock"]

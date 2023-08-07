@@ -6,3 +6,4 @@ const CELLS_AMOUNT := Vector2(GRID_SIZE.x / CELL_SIZE.x, GRID_SIZE.y / CELL_SIZE
 
 const BLACK := Color("23213D")
 const GRAY := Color("B9B5C3")
+const WHITE := Color.WHITE
