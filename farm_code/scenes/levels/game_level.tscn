@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://byvdg5xnhxjjt"]
+[gd_scene load_steps=30 format=3 uid="uid://byvdg5xnhxjjt"]
 
 [ext_resource type="PackedScene" uid="uid://cnwy7dl1yevgd" path="res://scenes/player.tscn" id="1_1iutq"]
 [ext_resource type="Script" path="res://scripts/levels/game_level.gd" id="1_wus7k"]
@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://d2ov37m16f7d7" path="res://art/Tilesets/ground tiles/old tiles/Tilled Dirt.png" id="3_hdd1p"]
 [ext_resource type="PackedScene" uid="uid://pkx0020xl1lc" path="res://scenes/blocks/panel_queue.tscn" id="6_kasjd"]
 [ext_resource type="PackedScene" uid="uid://c011h37r0uk6h" path="res://scenes/blocks/block.tscn" id="6_pop5m"]
+[ext_resource type="Texture2D" uid="uid://dwubw6dygffhr" path="res://art/resources/Play.png" id="7_6e3hc"]
 [ext_resource type="Texture2D" uid="uid://dkw513kx3c5hj" path="res://art/blocks/left.png" id="7_p2et7"]
+[ext_resource type="FontFile" uid="uid://xkwoks88wexv" path="res://art/resources/Funhouse.ttf" id="7_uihhb"]
 [ext_resource type="Texture2D" uid="uid://djuudvcnadlym" path="res://art/blocks/down.png" id="8_bbosd"]
 [ext_resource type="Texture2D" uid="uid://d0nsl04wdjsr" path="res://art/blocks/up.png" id="9_fi6ci"]
 [ext_resource type="PackedScene" uid="uid://byrid6uiras0d" path="res://scenes/resources/plant_tomato_small.tscn" id="10_5f3xb"]
@@ -149,6 +151,21 @@ texture = ExtResource("3_8gswn")
 [sub_resource type="TileSet" id="TileSet_hkxr0"]
 sources/0 = SubResource("TileSetAtlasSource_t2756")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dirll"]
+bg_color = Color(0.258824, 0.262745, 0.231373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whypw"]
+bg_color = Color(0.784314, 0.776471, 0.705882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkep4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmyyg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4pse"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uf088"]
 bg_color = Color(0.0862745, 0.231373, 0.160784, 1)
 border_width_left = 1
@@ -178,17 +195,36 @@ layer_0/tile_data = PackedInt32Array(0, 65536, 0, 65536, 0, 1, 131072, 0, 1, 196
 [node name="Grid" type="Node2D" parent="."]
 script = ExtResource("3_4kn4j")
 
+[node name="PanelBottom" type="Panel" parent="."]
+offset_left = -3.0
+offset_top = 128.0
+offset_right = 205.0
+offset_bottom = 155.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dirll")
+
+[node name="RightPanel" type="Panel" parent="."]
+offset_left = 160.0
+offset_top = -2.0
+offset_right = 210.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_whypw")
+
 [node name="Player" parent="." instance=ExtResource("1_1iutq")]
 position = Vector2(48, 0)
 
 [node name="Button" type="Button" parent="."]
-offset_left = 176.0
-offset_top = 128.0
-offset_right = 217.0
-offset_bottom = 159.0
-scale = Vector2(0.3, 0.3)
-text = "Play
-"
+offset_left = 170.0
+offset_top = 129.0
+offset_right = 366.0
+offset_bottom = 201.0
+scale = Vector2(0.15, 0.15)
+theme_override_fonts/font = ExtResource("7_uihhb")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_kkep4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bmyyg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b4pse")
+text = "Play"
+icon = ExtResource("7_6e3hc")
 
 [node name="PanelQueue" parent="." instance=ExtResource("6_kasjd")]
 offset_left = 1.0

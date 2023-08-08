@@ -22,7 +22,6 @@ func _can_drop_data(_at_position, data):
 
 
 func _drop_data(_at_position, data):
-	print(data.category)
 	var new_block := block.instantiate()
 	new_block.get_node("image").texture = textures[data.category]
 	new_block.get_node("image").set_offset(Vector2(7, 0))
