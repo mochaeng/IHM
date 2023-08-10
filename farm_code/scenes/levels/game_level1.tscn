@@ -1,7 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://byvdg5xnhxjjt"]
+[gd_scene load_steps=31 format=3 uid="uid://h1yxn0wcd4wt"]
 
 [ext_resource type="PackedScene" uid="uid://cnwy7dl1yevgd" path="res://scenes/player.tscn" id="1_1iutq"]
-[ext_resource type="Script" path="res://scripts/levels/game_level.gd" id="1_wus7k"]
+[ext_resource type="Script" path="res://scripts/levels/level1.gd" id="1_jcwjo"]
 [ext_resource type="Texture2D" uid="uid://bhuhbvbax3vf" path="res://art/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png" id="2_r7k1m"]
 [ext_resource type="Script" path="res://scripts/Grid.gd" id="3_4kn4j"]
 [ext_resource type="Texture2D" uid="uid://dueq7plyll2nm" path="res://art/Tilesets/Fences.png" id="3_8gswn"]
@@ -215,13 +215,13 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[node name="GameLevel" type="Node2D"]
-script = ExtResource("1_wus7k")
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_jcwjo")
 
 [node name="TileMap1" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ux0n8")
 format = 2
-layer_0/tile_data = PackedInt32Array(65537, 65536, 1, 65538, 65536, 1, 131074, 65536, 1, 131075, 65536, 1, 65539, 65536, 1, 2, 327680, 5, 1, 0, 5, 0, 327680, 5, 65536, 0, 5, 131072, 0, 5, 4, 65536, 1, 3, 65536, 1, 65540, 65536, 1, 131073, 65536, 1, 196608, 327680, 5, 196609, 65536, 1, 196610, 327680, 5, 196611, 65536, 1, 196612, 65536, 1, 196613, 65536, 1, 196614, 65536, 1, 131078, 65536, 1, 65542, 65536, 1, 65541, 65536, 1, 5, 65536, 1, 6, 65536, 1, 65543, 65536, 1, 131079, 65536, 1, 196615, 65536, 1, 262144, 327680, 5, 327680, 65536, 1, 393216, 131072, 5, 262145, 65536, 1, 327681, 327680, 5, 393217, 65536, 1, 262146, 65536, 1, 327682, 65536, 1, 393218, 65536, 1, 262147, 65536, 1, 327683, 65536, 1, 393219, 65536, 1, 131076, 65536, 1, 262148, 1, 1, 327684, 131072, 5, 393220, 65536, 1, 131077, 65536, 1, 262149, 1, 1, 327685, 65536, 1, 393221, 65536, 1, 262150, 65536, 1, 327686, 65536, 1, 393222, 65536, 1, 7, 131072, 5, 262151, 65536, 1, 327687, 65536, 1, 393223, 262144, 5, 8, 65536, 1, 65544, 131072, 5, 131080, 65536, 1, 196616, 65536, 1, 262152, 65536, 1, 327688, 262144, 5, 393224, 262144, 5, 9, 65536, 1, 65545, 65536, 1, 131081, 65536, 1, 196617, 65536, 1, 262153, 65536, 1, 327689, 65536, 1, 393225, 65536, 1, 458752, 65536, 1, 458753, 131072, 5, 458754, 65536, 1, 458755, 131072, 5, 458756, 65536, 1, 458757, 65536, 1, 458758, 65536, 1, 458759, 65536, 1, 458760, 65536, 1, 458761, 131072, 5)
+layer_0/tile_data = PackedInt32Array(65537, 65536, 1, 65538, 65536, 1, 131074, 65536, 1, 131075, 65536, 1, 65539, 65536, 1, 2, 327680, 5, 1, 0, 5, 0, 327680, 5, 65536, 0, 5, 131072, 0, 5, 4, 65536, 1, 3, 65536, 1, 65540, 65536, 1, 131073, 65536, 1, 196608, 327680, 5, 196609, 65536, 1, 196610, 327680, 5, 196611, 65536, 1, 196612, 65536, 1, 196613, 65536, 1, 196614, 65536, 1, 131078, 65536, 1, 65542, 65536, 1, 65541, 65536, 1, 5, 65536, 1, 6, 65536, 1, 65543, 65536, 1, 131079, 65536, 1, 196615, 65536, 1, 262144, 327680, 5, 327680, 65536, 1, 393216, 131072, 5, 262145, 65536, 1, 327681, 327680, 5, 393217, 65536, 1, 262146, 65536, 1, 327682, 65536, 1, 393218, 65536, 1, 262147, 65536, 1, 327683, 65536, 1, 393219, 65536, 1, 131076, 65536, 1, 262148, 1, 1, 327684, 131072, 5, 393220, 65536, 1, 131077, 65536, 1, 262149, 65536, 1, 327685, 65536, 1, 393221, 65536, 1, 262150, 65536, 1, 327686, 65536, 1, 393222, 65536, 1, 7, 131072, 5, 262151, 65536, 1, 327687, 65536, 1, 393223, 262144, 5, 8, 65536, 1, 65544, 131072, 5, 131080, 65536, 1, 196616, 65536, 1, 262152, 65536, 1, 327688, 262144, 5, 393224, 262144, 5, 9, 65536, 1, 65545, 65536, 1, 131081, 65536, 1, 196617, 65536, 1, 262153, 65536, 1, 327689, 65536, 1, 393225, 65536, 1, 458752, 65536, 1, 458753, 131072, 5, 458754, 65536, 1, 458755, 131072, 5, 458756, 65536, 1, 458757, 65536, 1, 458758, 65536, 1, 458759, 65536, 1, 458760, 65536, 1, 458761, 131072, 5)
 
 [node name="TileMap2" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_hkxr0")
@@ -373,9 +373,6 @@ texture = ExtResource("12_stvm7")
 
 [node name="Entities" type="Node2D" parent="."]
 
-[node name="PlantTomatoSmall1" parent="Entities" instance=ExtResource("10_5f3xb")]
-position = Vector2(80, 64)
-
 [node name="PlantTomatoSmall2" parent="Entities" instance=ExtResource("10_5f3xb")]
 position = Vector2(64, 64)
 
@@ -407,7 +404,6 @@ frame = 9
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="LimparButton" to="." method="_on_limpar_button_pressed"]
 [connection signal="block_added" from="PanelQueue" to="." method="_on_panel_queue_block_added"]
-[connection signal="completed" from="Entities/PlantTomatoSmall1" to="." method="_on_plant_tomato_small_1_completed"]
 [connection signal="completed" from="Entities/PlantTomatoSmall2" to="." method="_on_plant_tomato_small_2_completed"]
 
 [editable path="RightBlock"]

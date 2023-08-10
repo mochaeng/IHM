@@ -35,10 +35,12 @@ func process_commands():
 		await get_tree().create_timer(1).timeout
 	
 	print('acabou')
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.5).timeout
 
 	if entities_completed != total_amount:
 		get_tree().reload_current_scene()
+	else:
+		get_tree().change_scene_to_file("res://scenes/levels/game_level.tscn")
 	
 
 	is_processing_commands = false

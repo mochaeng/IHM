@@ -3,6 +3,7 @@ extends Panel
 class_name PanelQueue
 
 signal block_added(data: Block)
+signal clean_panel
 
 @onready var block = preload("res://scenes/blocks/block.tscn")
 
@@ -44,3 +45,11 @@ func _ready():
 
 func _process(_delta):
 	pass
+
+
+func _on_game_level_clean_panel():
+	var blocks := $Container.get_children()
+	var container := $Container
+	for block_ in blocks:
+		container.remove_child(block_)
+		block_.call_deferred("queue_free")

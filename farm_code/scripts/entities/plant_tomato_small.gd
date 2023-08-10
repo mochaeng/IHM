@@ -20,8 +20,12 @@ func _process(_delta):
 
 
 func completed_action():
-	await get_tree().create_timer(0.5).timeout
+	if is_completed:
+		return
+
+	# await get_tree().create_timer(0.5).timeout
 	completed.emit()
+	is_completed = true
 
 
 func _on_watered():
