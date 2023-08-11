@@ -1,7 +1,39 @@
 [
-    {"name": "Emylly", "text": "Olá! Boa noite! Meu nome é Emylly (clique nessa caixa para passar o texto)", "frame": 0},
-    {"name": "Emylly", "text": "Você deve ser o novo responsável pela fazenda que ouvi falar. Deve ser muito legal cuidar de uma fazenda", "frame": 1},
-    {"name": "Emylly", "text": "O quê??? Você nunca cuidou de uma fazenda antes??", "frame": 2},
-    {"name": "Emylly", "text": "OkayPrimeiro, vamos aprender a nos mover. Consegue ver aquelas setas na direita?", "frame": 3},
-    {"name": "Emylly", "text": "Ótimo. Agora arraste ele para a caixa abaixo", "frame": 0},
+    {
+        "name": "Emylly",
+        "text": "Olá! Boa noite! Meu nome é Emylly (clique nessa caixa para passar o texto)",
+        "frame": 0,
+        "is_disruptive": false
+    },
+    {
+        "name": "Emylly",
+        "text": "Você deve ser o novo responsável pela fazenda que ouvi falar. Deve ser muito legal cuidar de uma fazenda",
+        "frame": 1,
+        "is_disruptive": false
+    },
+    {
+        "name": "Emylly",
+        "text": "O quê??? Você nunca cuidou de uma fazenda antes??",
+        "frame": 2,
+        "is_disruptive": false
+    },
+    {
+        "name": "Emylly",
+        "text": "Sem problemas Rss. Vamos aprender a nos mover. Consegue ver aquelas setas na direita?",
+        "frame": 3,
+        "is_disruptive": true
+    },
+    {
+        "name": "Emylly",
+        "text": "Ótimo. Agora arraste uma delas para a caixa abaixo e aperte play",
+        "frame": 0,
+        "is_disruptive": false
+    },
+    {
+        "name": "Emylly",
+        "text": "",
+        "frame": 0,
+        "is_disruptive": true
+    },
+
 ]

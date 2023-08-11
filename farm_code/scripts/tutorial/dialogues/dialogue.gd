@@ -3,6 +3,7 @@ extends Control
 class_name Dialogue
 
 signal dialogue_change
+signal should_change_stage
 
 @onready var dialogue
 
@@ -55,4 +56,6 @@ func set_dialogue(line: Dictionary) -> void:
 
 func get_current_dialogue_line():
 	assert(content != null, "Error: You should iniate the dialogue before getting its content")
+	if content[current_dialogue_line]["is_disruptive"]:
+		should_change_stage.emit()
 	return content[current_dialogue_line]

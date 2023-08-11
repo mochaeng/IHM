@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://h1yxn0wcd4wt"]
+[gd_scene load_steps=30 format=3 uid="uid://h1yxn0wcd4wt"]
 
 [ext_resource type="PackedScene" uid="uid://cnwy7dl1yevgd" path="res://scenes/player.tscn" id="1_1iutq"]
 [ext_resource type="Script" path="res://scripts/tutorial/levels/tutorial1.gd" id="1_pk5j6"]
@@ -211,6 +211,14 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwagq"]
 bg_color = Color(1, 1, 1, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hja1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.329412, 0.392157, 1)
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_pk5j6")
 
@@ -282,10 +290,10 @@ grow_vertical = 2
 size_flags_horizontal = 0
 
 [node name="RightBlock" parent="." instance=ExtResource("6_pop5m")]
-offset_left = 185.0
-offset_top = 8.0
-offset_right = 265.0
-offset_bottom = 88.0
+offset_left = 180.0
+offset_top = 7.0
+offset_right = 260.0
+offset_bottom = 87.0
 category = "right"
 
 [node name="image" parent="RightBlock" index="0"]
@@ -293,10 +301,10 @@ position = Vector2(40, 40)
 scale = Vector2(0.3, 0.3)
 
 [node name="DownBlock" parent="." instance=ExtResource("6_pop5m")]
-offset_left = 166.0
-offset_top = 8.0
-offset_right = 246.0
-offset_bottom = 88.0
+offset_left = 163.0
+offset_top = 7.0
+offset_right = 243.0
+offset_bottom = 87.0
 category = "down"
 metadata/_edit_group_ = true
 
@@ -308,17 +316,17 @@ texture = ExtResource("8_bbosd")
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="Dialogue" parent="." instance=ExtResource("12_arpkh")]
-offset_top = 41.0
-offset_bottom = 41.0
+offset_top = 42.0
+offset_bottom = 42.0
 
 [node name="Chat" parent="Dialogue" index="4"]
 text = ""
 
 [node name="SkipButton" type="Button" parent="."]
-offset_left = 6.0
-offset_top = 106.0
-offset_right = 199.0
-offset_bottom = 145.0
+offset_left = 2.0
+offset_top = 107.0
+offset_right = 197.0
+offset_bottom = 146.0
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_fdl3i")
 theme_override_styles/hover = SubResource("StyleBoxFlat_165j0")
@@ -326,12 +334,21 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_4m2sj")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_d7sck")
 theme_override_styles/focus = SubResource("StyleBoxFlat_pwagq")
 
+[node name="PanelShowButtons" type="Panel" parent="."]
+offset_left = 161.0
+offset_top = 4.0
+offset_right = 198.0
+offset_bottom = 27.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0hja1")
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="LimparButton" to="." method="_on_limpar_button_pressed"]
 [connection signal="block_added" from="PanelQueue" to="." method="_on_panel_queue_block_added"]
+[connection signal="clean_panel" from="PanelQueue" to="." method="_on_panel_queue_clean_panel"]
 [connection signal="dialogue_change" from="Dialogue" to="." method="_on_dialogue_dialogue_change"]
 [connection signal="mouse_entered" from="Dialogue" to="." method="_on_dialogue_mouse_entered"]
 [connection signal="mouse_exited" from="Dialogue" to="." method="_on_dialogue_mouse_exited"]
+[connection signal="should_change_stage" from="Dialogue" to="." method="_on_dialogue_should_change_stage"]
 [connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]
 
 [editable path="RightBlock"]
