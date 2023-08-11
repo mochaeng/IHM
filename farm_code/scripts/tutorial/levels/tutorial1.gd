@@ -11,14 +11,16 @@ signal clean_panel
 @onready var skip_button := $SkipButton
 @onready var panel_show_buttons := $PanelShowButtons
 
-enum Stage { CONVERSATION_1, CONVERSATION_2, ACTION_1 }
+enum Stage { CONVERSATION_1, CONVERSATION_2, CONVERSATION_3, ACTION_1, ENDED }
 
 var is_processing_commands = false
 var commands = []
 var is_setting_stage = false
 
 var stages_sequence_pointer = 0
-var stages_sequence = [Stage.CONVERSATION_1, Stage.CONVERSATION_2, Stage.ACTION_1]
+var stages_sequence = [
+	Stage.CONVERSATION_1, Stage.CONVERSATION_2, Stage.ACTION_1, Stage.CONVERSATION_3, Stage.ENDED
+]
 var current_stage = Stage.CONVERSATION_1
 
 var path_to_dialogue = "res://art/resources/dialogues/tutorial_01.json"
@@ -49,6 +51,12 @@ func _process(_delta):
 			if is_setting_stage:
 				set_action_1()
 				is_setting_stage = false
+		Stage.CONVERSATION_3:
+			if is_setting_stage:
+				set_conversation_3()
+				is_setting_stage = false
+		Stage.ENDED:
+			get_tree().change_scene_to_file("res://scenes/gui/menu_screen.tscn")
 
 
 func set_conversation_1():
@@ -65,19 +73,19 @@ func set_action_1():
 	panel_show_buttons.visible = false
 
 
+func set_conversation_3():
+	enable_dialogue_mode()
+
+
 func enable_dialogue_mode():
 	dialogue.position = Vector2(0, 42)
 	skip_button.position = Vector2(2, 107)
-	# dialogue.visible = true
-	# skip_button.disabled = false
 
 
 func disable_dialogue_mode():
 	print(dialogue.position)
 	dialogue.position = Vector2(0, 200)
 	skip_button.position = Vector2(2, 200)
-	# dialogue.visible = false
-	# skip_button.disabled = true
 
 
 func process_commands():
@@ -88,8 +96,10 @@ func process_commands():
 		player.move_by_direction(dir)
 		await get_tree().create_timer(1).timeout
 
-	await get_tree().create_timer(0.5).timeout
 	is_processing_commands = false
+
+	if current_stage == Stage.ACTION_1:
+		_on_dialogue_should_change_stage()
 
 
 func _on_button_pressed():
@@ -103,7 +113,6 @@ func _on_panel_queue_block_added(data: Block):
 
 
 func _on_skip_button_pressed():
-	print("change")
 	dialogue.next_dialogue()
 
 

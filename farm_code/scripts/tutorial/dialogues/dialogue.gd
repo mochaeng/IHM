@@ -59,3 +59,7 @@ func get_current_dialogue_line():
 	if content[current_dialogue_line]["is_disruptive"]:
 		should_change_stage.emit()
 	return content[current_dialogue_line]
+
+
+func increase_current_dialogue_line():
+	current_dialogue_line += 1
