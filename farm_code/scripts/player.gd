@@ -85,7 +85,7 @@ func update_ray_cast_to_player_direction():
 func _physics_process(delta):
 	match player_state:
 		PlayerState.TURNING:
-			pass
+			turn_player()
 		PlayerState.WALKING:
 			move(delta)
 		PlayerState.IDLE:
@@ -94,6 +94,7 @@ func _physics_process(delta):
 		PlayerState.WATERING:
 			pass
 
+	update_ray_cast_to_player_direction()
 	# print(animated_sprite.position)
 	# print(input_direction)
 
@@ -149,17 +150,17 @@ func is_need_to_turn() -> bool:
 
 
 func turn_player():
-	if input_direction.x < 0:
-		player_facing_direction = FacingDirection.LEFT
-	elif input_direction.x > 0:
-		player_facing_direction = FacingDirection.RIGHT
-	elif input_direction.y < 0:
-		player_facing_direction = FacingDirection.UP
-	elif input_direction.y > 0:
-		player_facing_direction = FacingDirection.DOWN
+	# if input_direction.x < 0:
+	# 	player_facing_direction = FacingDirection.LEFT
+	# elif input_direction.x > 0:
+	# 	player_facing_direction = FacingDirection.RIGHT
+	# elif input_direction.y < 0:
+	# 	player_facing_direction = FacingDirection.UP
+	# elif input_direction.y > 0:
+	# 	player_facing_direction = FacingDirection.DOWN
 
 	player_state = PlayerState.TURNING
-	# animation_state.travel("Turning")
+	update_ray_cast_to_player_direction()
 
 
 func do_watering():
@@ -169,9 +170,6 @@ func do_watering():
 func finished_turning():
 	player_state = PlayerState.IDLE
 	update_ray_cast_to_player_direction()
-	# var desired_step: Vector2 = input_direction * TILE_SIZE / 1.94
-	# ray_cast.target_position = desired_step
-	# ray_cast.force_update_transform()
 	print("acabei de virar")
 
 
@@ -189,14 +187,25 @@ func finished_watering():
 func get_minus90_directional_vector():
 	var dir
 
-	if player_facing_direction == FacingDirection.LEFT:
+	if prev_input_direction.x < 0:
 		dir = directions["down"]
-	elif player_facing_direction == FacingDirection.RIGHT:
+	elif prev_input_direction.x > 0:
 		dir = directions["up"]
-	elif player_facing_direction == FacingDirection.DOWN:
-		dir = directions["right"]
-	elif player_facing_direction == FacingDirection.UP:
+	elif prev_input_direction.y < 0:
 		dir = directions["left"]
+	elif prev_input_direction.y > 0:
+		dir = directions["right"]
+	else:
+		dir = Vector2.ZERO
+
+	# if player_facing_direction == FacingDirection.LEFT:
+	# 	dir = directions["down"]
+	# elif player_facing_direction == FacingDirection.RIGHT:
+	# 	dir = directions["up"]
+	# elif player_facing_direction == FacingDirection.DOWN:
+	# 	dir = directions["right"]
+	# elif player_facing_direction == FacingDirection.UP:
+	# 	dir = directions["left"]
 
 	return dir
 
@@ -204,14 +213,25 @@ func get_minus90_directional_vector():
 func get_plus90_directional_vector():
 	var dir
 
-	if player_facing_direction == FacingDirection.LEFT:
+	if prev_input_direction.x < 0:
 		dir = directions["up"]
-	elif player_facing_direction == FacingDirection.RIGHT:
+	elif prev_input_direction.x > 0:
 		dir = directions["down"]
-	elif player_facing_direction == FacingDirection.DOWN:
-		dir = directions["left"]
-	elif player_facing_direction == FacingDirection.UP:
+	elif prev_input_direction.y < 0:
 		dir = directions["right"]
+	elif prev_input_direction.y > 0:
+		dir = directions["left"]
+	else:
+		dir = Vector2.ZERO
+
+	# if player_facing_direction == FacingDirection.LEFT:
+	# 	dir = directions["up"]
+	# elif player_facing_direction == FacingDirection.RIGHT:
+	# 	dir = directions["down"]
+	# elif player_facing_direction == FacingDirection.DOWN:
+	# 	dir = directions["left"]
+	# elif player_facing_direction == FacingDirection.UP:
+	# 	dir = directions["right"]
 
 	return dir
 
@@ -265,14 +285,19 @@ func update_parameters():
 			animation_tree["parameters/conditions/Turning"] = false
 
 
+var prev_input_direction: Vector2 = get_current_vector_position()
+
 func move_by_direction(direction: String):
 	var vec_dir
 
 	match direction:
 		"minus_90":
 			vec_dir = get_minus90_directional_vector()
+			# vec_dir = get_current_vector_position()
+			# vec_dir = prev_input_direction
 		"plus_90":
 			vec_dir = get_plus90_directional_vector()
+			# vec_dir = prev_input_direction
 		"water":
 			vec_dir = get_current_vector_position()
 		_:
@@ -283,6 +308,8 @@ func move_by_direction(direction: String):
 	if input_direction.x == 0:
 		input_direction.y += vec_dir.y
 
+	prev_input_direction = input_direction
+
 	print("posição -> " + direction)
 	print(input_direction)
 
@@ -292,10 +319,10 @@ func move_by_direction(direction: String):
 		match direction:
 			"minus_90":
 				# turn_player()
-				pass
+				player_state = PlayerState.TURNING
 			"plus_90":
 				# turn_player()
-				pass
+				player_state = PlayerState.TURNING
 			"water":
 				do_watering()
 			_:
@@ -328,11 +355,8 @@ func travel_logic_update():
 
 
 func move(delta):
-	# var desired_step: Vector2 = input_direction * TILE_SIZE / 1.94
-	# ray_cast.target_position = desired_step
-	# ray_cast.force_update_transform()
 	update_ray_cast_to_player_direction()
-
+	# print("I'hve ")
 	if !ray_cast.is_colliding():
 		percent_move_to_next_tile += wallk_speed * delta
 		if percent_move_to_next_tile >= 1.0:
