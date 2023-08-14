@@ -40,7 +40,7 @@ func process_commands():
 	if entities_completed != total_amount:
 		get_tree().reload_current_scene()
 	else:
-		get_tree().change_scene_to_file("res://scenes/levels/game_level.tscn")
+		get_tree().change_scene_to_file("res://scenes/levels/level2.tscn")
 	
 
 	is_processing_commands = false

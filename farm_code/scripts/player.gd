@@ -35,6 +35,8 @@ var directions = {
 	"empty": Vector2.ZERO
 }
 
+var prev_input_direction: Vector2 = get_current_vector_position()
+
 
 func _ready():
 	animation_tree.active = true
@@ -85,7 +87,8 @@ func update_ray_cast_to_player_direction():
 func _physics_process(delta):
 	match player_state:
 		PlayerState.TURNING:
-			turn_player()
+			# turn_player()
+			pass
 		PlayerState.WALKING:
 			move(delta)
 		PlayerState.IDLE:
@@ -158,7 +161,8 @@ func turn_player():
 	# 	player_facing_direction = FacingDirection.UP
 	# elif input_direction.y > 0:
 	# 	player_facing_direction = FacingDirection.DOWN
-
+	
+	print('a virar')
 	player_state = PlayerState.TURNING
 	update_ray_cast_to_player_direction()
 
@@ -285,7 +289,6 @@ func update_parameters():
 			animation_tree["parameters/conditions/Turning"] = false
 
 
-var prev_input_direction: Vector2 = get_current_vector_position()
 
 func move_by_direction(direction: String):
 	var vec_dir
@@ -299,7 +302,7 @@ func move_by_direction(direction: String):
 			vec_dir = get_plus90_directional_vector()
 			# vec_dir = prev_input_direction
 		"water":
-			vec_dir = get_current_vector_position()
+			vec_dir = prev_input_direction
 		_:
 			vec_dir = directions[direction]
 
@@ -314,22 +317,19 @@ func move_by_direction(direction: String):
 	print(input_direction)
 
 	if input_direction != Vector2.ZERO:
-		update_animation_tree()
-
 		match direction:
 			"minus_90":
-				# turn_player()
-				player_state = PlayerState.TURNING
+				turn_player()
+				# player_state = PlayerState.TURNING
 			"plus_90":
-				# turn_player()
-				player_state = PlayerState.TURNING
+				turn_player()
+				# player_state = PlayerState.TURNING
 			"water":
 				do_watering()
 			_:
 				initial_position = position
 				is_moving = true
 				player_state = PlayerState.WALKING
-				# animation_state.travel("Walking")
 	else:
 		pass
 		# animation_state.travel("Idle")
@@ -356,7 +356,7 @@ func travel_logic_update():
 
 func move(delta):
 	update_ray_cast_to_player_direction()
-	# print("I'hve ")
+
 	if !ray_cast.is_colliding():
 		percent_move_to_next_tile += wallk_speed * delta
 		if percent_move_to_next_tile >= 1.0:

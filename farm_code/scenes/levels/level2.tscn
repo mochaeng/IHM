@@ -1,27 +1,27 @@
 [gd_scene load_steps=31 format=3 uid="uid://h1yxn0wcd4wt"]
 
-[ext_resource type="PackedScene" uid="uid://cnwy7dl1yevgd" path="res://scenes/player.tscn" id="1_1iutq"]
-[ext_resource type="Script" path="res://scripts/levels/level1.gd" id="1_jcwjo"]
-[ext_resource type="Texture2D" uid="uid://bhuhbvbax3vf" path="res://art/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png" id="2_r7k1m"]
-[ext_resource type="Script" path="res://scripts/Grid.gd" id="3_4kn4j"]
-[ext_resource type="Texture2D" uid="uid://dueq7plyll2nm" path="res://art/Tilesets/Fences.png" id="3_8gswn"]
-[ext_resource type="Texture2D" uid="uid://d2ov37m16f7d7" path="res://art/Tilesets/ground tiles/old tiles/Tilled Dirt.png" id="3_hdd1p"]
-[ext_resource type="PackedScene" uid="uid://pkx0020xl1lc" path="res://scenes/blocks/panel_queue.tscn" id="6_kasjd"]
-[ext_resource type="PackedScene" uid="uid://c011h37r0uk6h" path="res://scenes/blocks/block.tscn" id="6_pop5m"]
-[ext_resource type="Texture2D" uid="uid://dwubw6dygffhr" path="res://art/resources/Play.png" id="7_6e3hc"]
-[ext_resource type="Texture2D" uid="uid://dkw513kx3c5hj" path="res://art/blocks/left.png" id="7_p2et7"]
-[ext_resource type="FontFile" uid="uid://xkwoks88wexv" path="res://art/resources/Funhouse.ttf" id="7_uihhb"]
-[ext_resource type="Texture2D" uid="uid://djuudvcnadlym" path="res://art/blocks/down.png" id="8_bbosd"]
-[ext_resource type="Texture2D" uid="uid://ihv0jjgf74wo" path="res://art/resources/Remove.png" id="9_1aikp"]
-[ext_resource type="Texture2D" uid="uid://d0nsl04wdjsr" path="res://art/blocks/up.png" id="9_fi6ci"]
-[ext_resource type="PackedScene" uid="uid://byrid6uiras0d" path="res://scenes/resources/plant_tomato_small.tscn" id="10_5f3xb"]
-[ext_resource type="Texture2D" uid="uid://bojlqvosjakus" path="res://art/blocks/turn_minus.png" id="10_ratxf"]
-[ext_resource type="Texture2D" uid="uid://dusirhrvrpy8m" path="res://art/Objects/Basic tools and meterials.png" id="10_rx8mp"]
-[ext_resource type="Texture2D" uid="uid://cemo2lidow0oq" path="res://art/blocks/turn_plus.png" id="12_stvm7"]
-[ext_resource type="Texture2D" uid="uid://c2jwwtsxq215e" path="res://art/Objects/Basic Plants.png" id="15_46oix"]
+[ext_resource type="Script" path="res://scripts/levels/level2.gd" id="1_dsa54"]
+[ext_resource type="Texture2D" uid="uid://bhuhbvbax3vf" path="res://art/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png" id="2_6xksk"]
+[ext_resource type="Texture2D" uid="uid://d2ov37m16f7d7" path="res://art/Tilesets/ground tiles/old tiles/Tilled Dirt.png" id="3_scsff"]
+[ext_resource type="Texture2D" uid="uid://dueq7plyll2nm" path="res://art/Tilesets/Fences.png" id="4_7h34h"]
+[ext_resource type="Script" path="res://scripts/Grid.gd" id="5_eeynt"]
+[ext_resource type="PackedScene" uid="uid://cnwy7dl1yevgd" path="res://scenes/player.tscn" id="6_yqn6c"]
+[ext_resource type="FontFile" uid="uid://xkwoks88wexv" path="res://art/resources/Funhouse.ttf" id="7_suvb5"]
+[ext_resource type="Texture2D" uid="uid://dwubw6dygffhr" path="res://art/resources/Play.png" id="8_f1pos"]
+[ext_resource type="Texture2D" uid="uid://ihv0jjgf74wo" path="res://art/resources/Remove.png" id="9_qtm3t"]
+[ext_resource type="PackedScene" uid="uid://pkx0020xl1lc" path="res://scenes/blocks/panel_queue.tscn" id="10_xox1o"]
+[ext_resource type="PackedScene" uid="uid://c011h37r0uk6h" path="res://scenes/blocks/block.tscn" id="11_snc38"]
+[ext_resource type="Texture2D" uid="uid://dkw513kx3c5hj" path="res://art/blocks/left.png" id="12_ieac5"]
+[ext_resource type="Texture2D" uid="uid://d0nsl04wdjsr" path="res://art/blocks/up.png" id="13_8hhsr"]
+[ext_resource type="Texture2D" uid="uid://djuudvcnadlym" path="res://art/blocks/down.png" id="14_ylb41"]
+[ext_resource type="Texture2D" uid="uid://dusirhrvrpy8m" path="res://art/Objects/Basic tools and meterials.png" id="15_lm5ru"]
+[ext_resource type="Texture2D" uid="uid://bojlqvosjakus" path="res://art/blocks/turn_minus.png" id="16_gdj5g"]
+[ext_resource type="Texture2D" uid="uid://cemo2lidow0oq" path="res://art/blocks/turn_plus.png" id="17_eqgbg"]
+[ext_resource type="PackedScene" uid="uid://byrid6uiras0d" path="res://scenes/resources/plant_tomato_small.tscn" id="18_p458m"]
+[ext_resource type="Texture2D" uid="uid://c2jwwtsxq215e" path="res://art/Objects/Basic Plants.png" id="19_1tkds"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qbifw"]
-texture = ExtResource("2_r7k1m")
+texture = ExtResource("2_6xksk")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -62,7 +62,7 @@ texture = ExtResource("2_r7k1m")
 0:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pwn1v"]
-texture = ExtResource("3_hdd1p")
+texture = ExtResource("3_scsff")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -131,7 +131,7 @@ sources/0 = SubResource("TileSetAtlasSource_qbifw")
 sources/1 = SubResource("TileSetAtlasSource_pwn1v")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t2756"]
-texture = ExtResource("3_8gswn")
+texture = ExtResource("4_7h34h")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -178,7 +178,7 @@ texture = ExtResource("3_8gswn")
 2:3/0 = 0
 2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:3/0/physics_layer_0/angular_velocity = 0.0
-2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -6, 8, -5.875, 8, 3.875, -8, 3.625)
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:3/0 = 0
 3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:3/0/physics_layer_0/angular_velocity = 0.0
@@ -215,13 +215,13 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[node name="Level1" type="Node2D"]
-script = ExtResource("1_jcwjo")
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_dsa54")
 
 [node name="TileMap1" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ux0n8")
 format = 2
-layer_0/tile_data = PackedInt32Array(65537, 65536, 1, 65538, 65536, 1, 131074, 65536, 1, 131075, 65536, 1, 65539, 65536, 1, 2, 327680, 5, 1, 0, 5, 0, 327680, 5, 65536, 0, 5, 131072, 0, 5, 4, 65536, 1, 3, 65536, 1, 65540, 65536, 1, 131073, 65536, 1, 196608, 327680, 5, 196609, 65536, 1, 196610, 327680, 5, 196611, 65536, 1, 196612, 65536, 1, 196613, 65536, 1, 196614, 65536, 1, 131078, 65536, 1, 65542, 65536, 1, 65541, 65536, 1, 5, 65536, 1, 6, 65536, 1, 65543, 65536, 1, 131079, 65536, 1, 196615, 65536, 1, 262144, 327680, 5, 327680, 65536, 1, 393216, 131072, 5, 262145, 65536, 1, 327681, 327680, 5, 393217, 65536, 1, 262146, 65536, 1, 327682, 65536, 1, 393218, 65536, 1, 262147, 65536, 1, 327683, 65536, 1, 393219, 65536, 1, 131076, 65536, 1, 262148, 1, 1, 327684, 131072, 5, 393220, 65536, 1, 131077, 65536, 1, 262149, 65536, 1, 327685, 65536, 1, 393221, 65536, 1, 262150, 65536, 1, 327686, 65536, 1, 393222, 65536, 1, 7, 131072, 5, 262151, 65536, 1, 327687, 65536, 1, 393223, 262144, 5, 8, 65536, 1, 65544, 131072, 5, 131080, 65536, 1, 196616, 65536, 1, 262152, 65536, 1, 327688, 262144, 5, 393224, 262144, 5, 9, 65536, 1, 65545, 65536, 1, 131081, 65536, 1, 196617, 65536, 1, 262153, 65536, 1, 327689, 65536, 1, 393225, 65536, 1, 458752, 65536, 1, 458753, 131072, 5, 458754, 65536, 1, 458755, 131072, 5, 458756, 65536, 1, 458757, 65536, 1, 458758, 65536, 1, 458759, 65536, 1, 458760, 65536, 1, 458761, 131072, 5)
+layer_0/tile_data = PackedInt32Array(65537, 65536, 1, 65538, 65536, 1, 131074, 65536, 1, 131075, 65536, 1, 65539, 65536, 1, 2, 327680, 5, 1, 0, 5, 0, 327680, 5, 65536, 0, 5, 131072, 0, 5, 4, 65536, 1, 3, 65536, 1, 65540, 65536, 1, 131073, 65536, 1, 196608, 327680, 5, 196609, 65536, 1, 196610, 327680, 5, 196611, 65536, 1, 196612, 65536, 1, 196613, 65536, 1, 196614, 65536, 1, 131078, 65536, 1, 65542, 65536, 1, 65541, 65536, 1, 5, 65536, 1, 6, 65536, 1, 65543, 65536, 1, 131079, 65536, 1, 196615, 65536, 1, 262144, 327680, 5, 327680, 65536, 1, 393216, 131072, 5, 262145, 65536, 1, 327681, 327680, 5, 393217, 65536, 1, 262146, 65536, 1, 327682, 65536, 1, 393218, 65536, 1, 262147, 65536, 1, 327683, 65536, 1, 393219, 65536, 1, 131076, 65536, 1, 262148, 1, 1, 327684, 131072, 5, 393220, 65536, 1, 131077, 65536, 1, 262149, 1, 1, 327685, 65536, 1, 393221, 65536, 1, 262150, 65536, 1, 327686, 65536, 1, 393222, 65536, 1, 7, 131072, 5, 262151, 65536, 1, 327687, 65536, 1, 393223, 262144, 5, 8, 65536, 1, 65544, 131072, 5, 131080, 65536, 1, 196616, 65536, 1, 262152, 65536, 1, 327688, 262144, 5, 393224, 262144, 5, 9, 65536, 1, 65545, 65536, 1, 131081, 65536, 1, 196617, 65536, 1, 262153, 65536, 1, 327689, 65536, 1, 393225, 65536, 1, 458752, 65536, 1, 458753, 131072, 5, 458754, 65536, 1, 458755, 131072, 5, 458756, 65536, 1, 458757, 65536, 1, 458758, 65536, 1, 458759, 65536, 1, 458760, 65536, 1, 458761, 131072, 5)
 
 [node name="TileMap2" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_hkxr0")
@@ -229,7 +229,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(0, 65536, 0, 65536, 0, 1, 131072, 0, 1, 196608, 0, 1, 262144, 0, 1, 327680, 0, 1, 393216, 0, 1, 458752, 65536, 2, 458753, 131072, 2, 458754, 131072, 2, 458755, 131072, 2, 458756, 131072, 2, 458757, 131072, 2, 458758, 131072, 2, 458759, 131072, 2, 458760, 131072, 2, 458761, 196608, 2, 393225, 0, 1, 327689, 0, 1, 262153, 0, 1, 196617, 0, 1, 131081, 0, 1, 65545, 0, 1, 9, 196608, 0, 8, 131072, 3, 7, 131072, 3, 6, 131072, 3, 5, 131072, 3, 4, 131072, 3, 3, 131072, 3, 2, 131072, 3, 1, 131072, 3)
 
 [node name="Grid" type="Node2D" parent="."]
-script = ExtResource("3_4kn4j")
+script = ExtResource("5_eeynt")
 
 [node name="PanelBottom" type="Panel" parent="."]
 offset_left = -3.0
@@ -245,7 +245,7 @@ offset_right = 210.0
 offset_bottom = 128.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_whypw")
 
-[node name="Player" parent="." instance=ExtResource("1_1iutq")]
+[node name="Player" parent="." instance=ExtResource("6_yqn6c")]
 position = Vector2(48, 0)
 
 [node name="Button" type="Button" parent="."]
@@ -254,13 +254,13 @@ offset_top = 130.0
 offset_right = 366.0
 offset_bottom = 202.0
 scale = Vector2(0.12, 0.12)
-theme_override_fonts/font = ExtResource("7_uihhb")
+theme_override_fonts/font = ExtResource("7_suvb5")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_kkep4")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bmyyg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_b4pse")
 text = "Play"
-icon = ExtResource("7_6e3hc")
+icon = ExtResource("8_f1pos")
 
 [node name="LimparButton" type="Button" parent="."]
 offset_left = 170.0
@@ -268,15 +268,15 @@ offset_top = 139.0
 offset_right = 430.0
 offset_bottom = 211.0
 scale = Vector2(0.12, 0.12)
-theme_override_fonts/font = ExtResource("7_uihhb")
+theme_override_fonts/font = ExtResource("7_suvb5")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_kkep4")
 theme_override_styles/hover = SubResource("StyleBoxFlat_bmyyg")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_b4pse")
 text = "Limpar"
-icon = ExtResource("9_1aikp")
+icon = ExtResource("9_qtm3t")
 
-[node name="PanelQueue" parent="." instance=ExtResource("6_kasjd")]
+[node name="PanelQueue" parent="." instance=ExtResource("10_xox1o")]
 offset_left = 1.0
 offset_top = 129.0
 offset_right = 169.0
@@ -285,7 +285,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 
-[node name="RightBlock" parent="." instance=ExtResource("6_pop5m")]
+[node name="RightBlock" parent="." instance=ExtResource("11_snc38")]
 offset_left = 163.0
 offset_top = 3.0
 offset_right = 243.0
@@ -296,7 +296,7 @@ category = "right"
 position = Vector2(40, 40)
 scale = Vector2(0.3, 0.3)
 
-[node name="LeftBlock" parent="." instance=ExtResource("6_pop5m")]
+[node name="LeftBlock" parent="." instance=ExtResource("11_snc38")]
 offset_left = 163.0
 offset_top = 22.0
 offset_right = 243.0
@@ -306,9 +306,9 @@ category = "left"
 [node name="image" parent="LeftBlock" index="0"]
 position = Vector2(40, 40)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_p2et7")
+texture = ExtResource("12_ieac5")
 
-[node name="UpBlock" parent="." instance=ExtResource("6_pop5m")]
+[node name="UpBlock" parent="." instance=ExtResource("11_snc38")]
 offset_left = 182.0
 offset_top = 3.0
 offset_right = 262.0
@@ -318,9 +318,9 @@ category = "up"
 [node name="image" parent="UpBlock" index="0"]
 position = Vector2(40, 40)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("9_fi6ci")
+texture = ExtResource("13_8hhsr")
 
-[node name="DownBlock" parent="." instance=ExtResource("6_pop5m")]
+[node name="DownBlock" parent="." instance=ExtResource("11_snc38")]
 offset_left = 182.0
 offset_top = 22.0
 offset_right = 262.0
@@ -331,9 +331,9 @@ metadata/_edit_group_ = true
 [node name="image" parent="DownBlock" index="0"]
 position = Vector2(40, 40)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("8_bbosd")
+texture = ExtResource("14_ylb41")
 
-[node name="WaterBlock" parent="." instance=ExtResource("6_pop5m")]
+[node name="WaterBlock" parent="." instance=ExtResource("11_snc38")]
 offset_left = 163.0
 offset_top = 54.0
 offset_right = 243.0
@@ -343,11 +343,11 @@ category = "water"
 [node name="image" parent="WaterBlock" index="0"]
 position = Vector2(39.9999, 37.5)
 scale = Vector2(4.375, 4.6875)
-texture = ExtResource("10_rx8mp")
+texture = ExtResource("15_lm5ru")
 hframes = 3
 vframes = 2
 
-[node name="Minus90" parent="." instance=ExtResource("6_pop5m")]
+[node name="Minus90" parent="." instance=ExtResource("11_snc38")]
 offset_left = 165.0
 offset_top = 83.0
 offset_right = 245.0
@@ -357,9 +357,9 @@ category = "minus_90"
 [node name="image" parent="Minus90" index="0"]
 position = Vector2(40, 40)
 scale = Vector2(0.21, 0.21)
-texture = ExtResource("10_ratxf")
+texture = ExtResource("16_gdj5g")
 
-[node name="Plus90" parent="." instance=ExtResource("6_pop5m")]
+[node name="Plus90" parent="." instance=ExtResource("11_snc38")]
 offset_left = 183.0
 offset_top = 83.0
 offset_right = 263.0
@@ -369,12 +369,15 @@ category = "plus_90"
 [node name="image" parent="Plus90" index="0"]
 position = Vector2(40, 40)
 scale = Vector2(0.21, 0.21)
-texture = ExtResource("12_stvm7")
+texture = ExtResource("17_eqgbg")
 
 [node name="Entities" type="Node2D" parent="."]
 
-[node name="PlantTomatoSmall2" parent="Entities" instance=ExtResource("10_5f3xb")]
+[node name="PlantTomatoSmall2" parent="Entities" instance=ExtResource("18_p458m")]
 position = Vector2(64, 64)
+
+[node name="PlantTomatoSmall3" parent="Entities" instance=ExtResource("18_p458m")]
+position = Vector2(80, 64)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -395,7 +398,7 @@ theme_override_font_sizes/font_size = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel"]
 position = Vector2(11, 7)
-texture = ExtResource("15_46oix")
+texture = ExtResource("19_1tkds")
 hframes = 6
 vframes = 2
 frame = 9
@@ -405,6 +408,7 @@ frame = 9
 [connection signal="pressed" from="LimparButton" to="." method="_on_limpar_button_pressed"]
 [connection signal="block_added" from="PanelQueue" to="." method="_on_panel_queue_block_added"]
 [connection signal="completed" from="Entities/PlantTomatoSmall2" to="." method="_on_plant_tomato_small_2_completed"]
+[connection signal="completed" from="Entities/PlantTomatoSmall3" to="." method="_on_plant_tomato_small_2_completed"]
 
 [editable path="RightBlock"]
 [editable path="LeftBlock"]

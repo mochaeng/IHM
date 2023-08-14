@@ -6,7 +6,7 @@ func _process(_delta):
 
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/levels/game_level1.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/level1.tscn")
 
 
 func _on_button_2_pressed():
