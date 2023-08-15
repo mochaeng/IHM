@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://h1yxn0wcd4wt"]
+[gd_scene load_steps=31 format=3 uid="uid://h1yxn0wcd4wt"]
 
 [ext_resource type="PackedScene" uid="uid://cnwy7dl1yevgd" path="res://scenes/player.tscn" id="1_1iutq"]
 [ext_resource type="Script" path="res://scripts/tutorial/levels/tutorial1.gd" id="1_pk5j6"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://djuudvcnadlym" path="res://art/blocks/down.png" id="8_bbosd"]
 [ext_resource type="Texture2D" uid="uid://ihv0jjgf74wo" path="res://art/resources/Remove.png" id="9_1aikp"]
 [ext_resource type="PackedScene" uid="uid://d4lddkr54unir" path="res://scenes/dialogue/dialogue.tscn" id="12_arpkh"]
+[ext_resource type="PackedScene" uid="uid://ccjmncegnpgl8" path="res://scenes/gui/home_button.tscn" id="14_s6xhp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qbifw"]
 texture = ExtResource("2_r7k1m")
@@ -341,6 +342,11 @@ offset_top = 4.0
 offset_right = 198.0
 offset_bottom = 27.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_0hja1")
+
+[node name="Button2" parent="." instance=ExtResource("14_s6xhp")]
+offset_left = 137.0
+offset_right = 154.0
+offset_bottom = 17.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="LimparButton" to="." method="_on_limpar_button_pressed"]

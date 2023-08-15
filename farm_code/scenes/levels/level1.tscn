@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://h1yxn0wcd4wt"]
+[gd_scene load_steps=32 format=3 uid="uid://h1yxn0wcd4wt"]
 
 [ext_resource type="Script" path="res://scripts/levels/level1.gd" id="1_hmd0t"]
 [ext_resource type="Texture2D" uid="uid://bhuhbvbax3vf" path="res://art/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png" id="2_6xksk"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cemo2lidow0oq" path="res://art/blocks/turn_plus.png" id="17_eqgbg"]
 [ext_resource type="PackedScene" uid="uid://byrid6uiras0d" path="res://scenes/resources/plant_tomato_small.tscn" id="18_p458m"]
 [ext_resource type="Texture2D" uid="uid://c2jwwtsxq215e" path="res://art/Objects/Basic Plants.png" id="19_1tkds"]
+[ext_resource type="PackedScene" uid="uid://ccjmncegnpgl8" path="res://scenes/gui/home_button.tscn" id="20_lluuy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qbifw"]
 texture = ExtResource("2_6xksk")
@@ -335,9 +336,9 @@ texture = ExtResource("14_ylb41")
 
 [node name="WaterBlock" parent="." instance=ExtResource("11_snc38")]
 offset_left = 163.0
-offset_top = 54.0
+offset_top = 45.0
 offset_right = 243.0
-offset_bottom = 134.0
+offset_bottom = 125.0
 category = "water"
 
 [node name="image" parent="WaterBlock" index="0"]
@@ -348,10 +349,10 @@ hframes = 3
 vframes = 2
 
 [node name="Minus90" parent="." instance=ExtResource("11_snc38")]
-offset_left = 165.0
-offset_top = 83.0
-offset_right = 245.0
-offset_bottom = 163.0
+offset_left = 163.0
+offset_top = 68.0
+offset_right = 243.0
+offset_bottom = 148.0
 category = "minus_90"
 
 [node name="image" parent="Minus90" index="0"]
@@ -360,10 +361,10 @@ scale = Vector2(0.21, 0.21)
 texture = ExtResource("16_gdj5g")
 
 [node name="Plus90" parent="." instance=ExtResource("11_snc38")]
-offset_left = 183.0
-offset_top = 83.0
-offset_right = 263.0
-offset_bottom = 163.0
+offset_left = 181.0
+offset_top = 68.0
+offset_right = 261.0
+offset_bottom = 148.0
 category = "plus_90"
 
 [node name="image" parent="Plus90" index="0"]
@@ -399,6 +400,12 @@ texture = ExtResource("19_1tkds")
 hframes = 6
 vframes = 2
 frame = 9
+
+[node name="Button2" parent="." instance=ExtResource("20_lluuy")]
+offset_left = 142.0
+offset_top = 1.0
+offset_right = 158.0
+offset_bottom = 16.0
 
 [connection signal="clean_panel" from="." to="PanelQueue" method="_on_game_level_clean_panel"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
