@@ -7,3 +7,10 @@ const CELLS_AMOUNT := Vector2(GRID_SIZE.x / CELL_SIZE.x, GRID_SIZE.y / CELL_SIZE
 const BLACK := Color("23213D")
 const GRAY := Color("B9B5C3")
 const WHITE := Color.WHITE
+
+var arrow_cursor = load("res://art/cat_UI/Sprite sheets/Mouse sprites/Triangle Mouse icon 1.png")
+var pointing_hand_cursor = load("res://art/cat_UI/Sprite sheets/Mouse sprites/Catpaw pointing Mouse icon.png")
+
+func _ready():
+    Input.set_custom_mouse_cursor(arrow_cursor)
+    Input.set_custom_mouse_cursor(pointing_hand_cursor, Input.CURSOR_POINTING_HAND)
