@@ -1,0 +1,155 @@
+[gd_scene load_steps=8 format=3 uid="uid://c488snhf0xgax"]
+
+[ext_resource type="FontFile" uid="uid://cn7qvq8xj8uy5" path="res://art/resources/Roboto-Bold.ttf" id="1_0dmcy"]
+[ext_resource type="FontFile" uid="uid://72dn2pdt3ef0" path="res://art/resources/dragon_font.otf" id="2_yt5lg"]
+[ext_resource type="Script" path="res://scripts/gui/intro.gd" id="3_2jw7y"]
+
+[sub_resource type="Animation" id="Animation_g4nfk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect3:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ceg28"]
+resource_name = "fade_in"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect3:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e70ro"]
+resource_name = "fade_out"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect3:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_klivr"]
+_data = {
+"RESET": SubResource("Animation_g4nfk"),
+"fade_in": SubResource("Animation_ceg28"),
+"fade_out": SubResource("Animation_e70ro")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 208.0
+offset_bottom = 160.0
+script = ExtResource("3_2jw7y")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 210.0
+offset_bottom = 160.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 47.0
+offset_right = 145.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("1_0dmcy")
+text = "A GAME BY "
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 77.0
+offset_right = 184.0
+offset_bottom = 98.0
+theme_override_fonts/font = ExtResource("2_yt5lg")
+text = "@ m o c h a e n g"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 103.0
+offset_right = 171.0
+offset_bottom = 129.0
+theme_override_fonts/font = ExtResource("1_0dmcy")
+theme_override_font_sizes/font_size = 10
+text = "Luiz Antônio (UFRPE/UAST)"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 212.0
+offset_bottom = 99.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 99.0
+offset_right = 211.0
+offset_bottom = 160.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_klivr")
+}

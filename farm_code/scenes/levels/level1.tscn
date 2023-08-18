@@ -377,16 +377,14 @@ texture = ExtResource("17_eqgbg")
 [node name="PlantTomatoSmall2" parent="Entities" instance=ExtResource("18_p458m")]
 position = Vector2(64, 64)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Panel" type="Panel" parent="CanvasLayer"]
+[node name="Panel" type="Panel" parent="."]
 offset_left = 2.0
 offset_top = 1.0
 offset_right = 50.0
 offset_bottom = 18.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_uf088")
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+[node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 1.0
@@ -394,12 +392,14 @@ offset_right = 46.0
 offset_bottom = 18.0
 theme_override_font_sizes/font_size = 10
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Panel"]
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
 position = Vector2(11, 7)
 texture = ExtResource("19_1tkds")
 hframes = 6
 vframes = 2
 frame = 9
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Button2" parent="." instance=ExtResource("20_lluuy")]
 offset_left = 142.0

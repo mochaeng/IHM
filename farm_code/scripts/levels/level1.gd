@@ -3,7 +3,7 @@ extends Node2D
 signal clean_panel
 
 @onready var player: Player = $Player
-@onready var label_text := $CanvasLayer.get_node("Panel/Label")
+@onready var label_text := $Panel.get_node("Label")
 
 @onready var entities := $Entities.get_children()
 @onready var total_amount := $Entities.get_children().size()

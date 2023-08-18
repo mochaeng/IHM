@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://b1axqsnun14wh"]
+[gd_scene load_steps=47 format=3 uid="uid://b1axqsnun14wh"]
 
 [ext_resource type="Script" path="res://scripts/gui/menu_screen.gd" id="1_8uhpk"]
 [ext_resource type="Texture2D" uid="uid://bdbnwg0tolmwk" path="res://art/wallpapers/possible_5.png" id="2_2ah1d"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://c2jwwtsxq215e" path="res://art/Objects/Basic Plants.png" id="6_orkwk"]
 [ext_resource type="Theme" uid="uid://bxma1r6bkrrah" path="res://scenes/gui/themes/cat_button2.tres" id="12_xayvp"]
 [ext_resource type="FontFile" uid="uid://cn7qvq8xj8uy5" path="res://art/resources/Roboto-Bold.ttf" id="14_8kubc"]
+[ext_resource type="AudioStream" uid="uid://dareoapfyjy26" path="res://songs/01 Title.mp3" id="14_gge73"]
+[ext_resource type="Theme" uid="uid://mn1vvllcw7qx" path="res://scenes/gui/themes/settings_button.tres" id="14_mbv1l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qqv52"]
 texture = ExtResource("2_4vsrg")
@@ -543,48 +545,48 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_0wda0")
 layout_mode = 0
 offset_left = 14.0
 offset_top = 5.0
-offset_right = 85.0
+offset_right = 97.0
 offset_bottom = 55.0
 scale = Vector2(1.04, 1.04)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 1
+theme_override_constants/line_spacing = -2
 theme_override_fonts/font = ExtResource("2_wkp5o")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 22
 text = "Farm 
 Code"
 
 [node name="CuteCat1" type="AnimatedSprite2D" parent="."]
-position = Vector2(68, 77)
+position = Vector2(14, 77)
 rotation = 0.00666368
 scale = Vector2(0.540161, 0.538417)
 sprite_frames = SubResource("SpriteFrames_113h8")
 autoplay = "default"
-frame_progress = 0.0312262
+frame_progress = 0.892939
 
 [node name="CuteCat2" type="AnimatedSprite2D" parent="."]
-position = Vector2(182, 126)
+position = Vector2(178, 126)
 rotation = -0.00584662
 scale = Vector2(0.627881, 0.614671)
 sprite_frames = SubResource("SpriteFrames_pjmpf")
 autoplay = "default"
-frame_progress = 0.757949
+frame_progress = 0.619658
 
 [node name="CutCat3" type="AnimatedSprite2D" parent="."]
-position = Vector2(130, 128)
-rotation = -0.0209152
+position = Vector2(131, 126)
+rotation = 0.00596986
 scale = Vector2(0.66477, 0.570794)
 sprite_frames = SubResource("SpriteFrames_q8rf0")
 autoplay = "default"
-frame_progress = 0.329255
+frame_progress = 0.190967
 
 [node name="CutCat4" type="AnimatedSprite2D" parent="."]
-position = Vector2(8.74972, 117.502)
-rotation = -0.327698
+position = Vector2(77, 117)
+rotation = 0.238729
 scale = Vector2(0.533928, 0.438293)
 sprite_frames = SubResource("SpriteFrames_u083v")
 autoplay = "default"
-frame_progress = 0.840462
+frame_progress = 0.785213
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 2
@@ -600,12 +602,13 @@ theme_override_fonts/font = ExtResource("2_wkp5o")
 theme_override_font_sizes/font_size = 11
 text = "Start"
 
-[node name="HistoryButton" type="Button" parent="."]
+[node name="TutorialButton" type="Button" parent="."]
 layout_mode = 2
 offset_left = 8.0
 offset_top = 122.0
 offset_right = 78.0
 offset_bottom = 147.0
+focus_mode = 0
 mouse_default_cursor_shape = 2
 theme = ExtResource("4_2ene7")
 theme_override_colors/font_color = Color(0.713726, 0.537255, 0.384314, 1)
@@ -615,7 +618,7 @@ theme_override_font_sizes/font_size = 11
 text = "Tutorial
 "
 
-[node name="Button" type="Button" parent="."]
+[node name="HistoryButton2" type="Button" parent="."]
 layout_mode = 0
 offset_left = 157.0
 offset_top = 135.0
@@ -626,17 +629,31 @@ theme_override_fonts/font = ExtResource("14_8kubc")
 theme_override_font_sizes/font_size = 8
 text = "História"
 
-[node name="Button2" type="Button" parent="."]
+[node name="CreditButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 116.0
+offset_left = 115.0
 offset_top = 135.0
-offset_right = 156.0
-offset_bottom = 157.0
+offset_right = 154.0
+offset_bottom = 156.0
+focus_mode = 0
 theme = ExtResource("12_xayvp")
 theme_override_fonts/font = ExtResource("14_8kubc")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 7
 text = "Créditos
 "
 
+[node name="SettingsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 1.0
+offset_right = 198.0
+offset_bottom = 16.0
+focus_mode = 0
+theme = ExtResource("14_mbv1l")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_gge73")
+
 [connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="HistoryButton" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="TutorialButton" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="CreditButton" to="." method="_on_credit_button_pressed"]

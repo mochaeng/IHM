@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="farm_code"
-run/main_scene="res://scenes/gui/menu_screen.tscn"
+run/main_scene="res://scenes/gui/intro.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Utils="*res://scripts/utils.gd"
+Transitioner="*res://scenes/gui/transitioner.tscn"
 
 [display]
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dareoapfyjy26"
+path="res://.godot/imported/01 Title.mp3-bbd11597cbfb362036d707e8c0a218b7.mp3str"
+
+[deps]
+
+source_file="res://songs/01 Title.mp3"
+dest_files=["res://.godot/imported/01 Title.mp3-bbd11597cbfb362036d707e8c0a218b7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
