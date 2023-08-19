@@ -14,14 +14,57 @@ var arrow_cursor = load("res://art/cat_UI/Sprite sheets/Mouse sprites/Triangle M
 var pointing_hand_cursor = load(
 	"res://art/cat_UI/Sprite sheets/Mouse sprites/Catpaw pointing Mouse icon.png"
 )
+var holding_cursor = load(
+	"res://art/cat_UI/Sprite sheets/Mouse sprites/Catpaw holding Mouse icon.png"
+)
+var is_songs_enable := false
 
-var is_songs_enable := true
+var transitioner = preload("res://scenes/gui/transitioner.tscn")
+
+var is_world_2_unlock = false
+var is_world_3_unlock = false
+
+
+func change_scene_with_transition(target: String) -> void:
+	var transitioner_instance = transitioner.instantiate()
+	var animation_player = transitioner_instance.get_node("AnimationPlayer")
+
+	await get_tree().get_root().call_deferred("add_child", transitioner_instance)
+
+	animation_player.play("fade_out")
+	await animation_player.animation_finished
+
+	get_tree().change_scene_to_file(target)
+
+	animation_player.play("fade_in")
+	await animation_player.animation_changed
+
+	get_tree().get_root().call_deferred("remove_child", transitioner_instance)
+	transitioner_instance.call_deferred("queue_free")
+	animation_player.call_deferred("queue_free")
+
+
+func change_scene_with_loading(target: String) -> void:
+	var transitioner_instance = transitioner.instantiate()
+	var animation_player = transitioner_instance.get_node("AnimationPlayer")
+
+	get_tree().get_root().call_deferred("add_child", transitioner_instance)
+
+	animation_player.play("fade_out")
+	await animation_player.animation_finished
+
+	get_tree().change_scene_to_file(target)
+
+	animation_player.play("fade_in")
+	await animation_player.animation_changed
+	transitioner_instance.call_deferred("queue_free")
 
 
 func _ready():
 	Input.set_custom_mouse_cursor(arrow_cursor)
 	Input.set_custom_mouse_cursor(pointing_hand_cursor, Input.CURSOR_POINTING_HAND)
 	Input.set_custom_mouse_cursor(arrow_cursor, Input.CURSOR_FORBIDDEN)
+	Input.set_custom_mouse_cursor(holding_cursor, Input.CURSOR_CAN_DROP)
 
 
 func set_is_songs_enable(value: bool):

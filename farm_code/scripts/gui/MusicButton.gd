@@ -23,3 +23,7 @@ func _on_pressed():
 	is_active = not is_active
 	Utils.set_is_songs_enable(is_active)
 	change_texture()
+
+
+func _on_back_button_pressed():
+	pass # Replace with function body.

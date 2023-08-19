@@ -1,29 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfkomgjab1ciy"]
+[gd_scene load_steps=6 format=3 uid="uid://dfkomgjab1ciy"]
 
 [ext_resource type="Theme" uid="uid://c2utyh6fmb1f5" path="res://scenes/gui/themes/settings_window.tres" id="1_2ybhr"]
+[ext_resource type="Script" path="res://scripts/gui/settings_window.gd" id="2_havts"]
+[ext_resource type="FontFile" uid="uid://cn7qvq8xj8uy5" path="res://art/resources/Roboto-Bold.ttf" id="3_i0m35"]
 [ext_resource type="Script" path="res://scripts/gui/MusicButton.gd" id="3_lwtvs"]
+[ext_resource type="Theme" uid="uid://bo1d3l4wwmi8c" path="res://scenes/gui/themes/empty_button.tres" id="4_00dit"]
 
 [node name="SettingsWindow" type="Panel"]
-offset_right = 200.0
-offset_bottom = 150.0
+offset_left = 25.0
+offset_top = 6.0
+offset_right = 158.0
+offset_bottom = 122.0
 theme = ExtResource("1_2ybhr")
+script = ExtResource("2_havts")
 
 [node name="MusicButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 28.0
-offset_top = 44.0
-offset_right = 75.0
-offset_bottom = 68.0
+offset_left = 11.0
+offset_top = 36.0
+offset_right = 43.0
+offset_bottom = 51.0
 focus_mode = 0
-mouse_default_cursor_shape = 8
+mouse_default_cursor_shape = 2
 script = ExtResource("3_lwtvs")
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 76.0
-offset_top = 43.0
-offset_right = 178.0
-offset_bottom = 69.0
+offset_left = 46.0
+offset_top = 36.0
+offset_right = 125.0
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource("3_i0m35")
+theme_override_font_sizes/font_size = 12
 text = "Tocar Música"
 
+[node name="BackButton" type="Button" parent="."]
+offset_left = 39.0
+offset_top = 88.0
+offset_right = 96.0
+offset_bottom = 111.351
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("4_00dit")
+theme_override_fonts/font = ExtResource("3_i0m35")
+theme_override_font_sizes/font_size = 11
+text = "Voltar"
+
 [connection signal="pressed" from="MusicButton" to="MusicButton" method="_on_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

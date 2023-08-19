@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://8pujftcg17r"]
+
+[ext_resource type="PackedScene" uid="uid://cqquvuibn0in0" path="res://scenes/gui/world_phase.tscn" id="1_n76gk"]
+[ext_resource type="Script" path="res://scripts/gui/worlds_selection.gd" id="1_pcjw2"]
+
+[node name="WorldsSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_pcjw2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 150.0
+color = Color(0.313726, 0.141176, 0.443137, 1)
+
+[node name="World1" parent="." instance=ExtResource("1_n76gk")]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 14.0
+offset_right = 63.0
+offset_bottom = 88.0
+
+[node name="World2" parent="." instance=ExtResource("1_n76gk")]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 14.0
+offset_right = 126.0
+offset_bottom = 88.0
+
+[node name="World3" parent="." instance=ExtResource("1_n76gk")]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 14.0
+offset_right = 192.0
+offset_bottom = 88.0

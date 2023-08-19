@@ -338,11 +338,11 @@ texture = ExtResource("6_orkwk")
 4:0/0 = 0
 5:0/0 = 0
 0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
 3:1/0 = 0
 4:1/0 = 0
 5:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_5bsq7"]
 sources/0 = SubResource("TileSetAtlasSource_awqdp")
@@ -523,15 +523,7 @@ layer_0/tile_data = PackedInt32Array(524289, 65536, 1, 524290, 65536, 1, 524291,
 [node name="TileMap2" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_5bsq7")
 format = 2
-layer_0/tile_data = PackedInt32Array(9, 65536, 0, 262154, 131073, 2, 262155, 65536, 6, 12, 65536, 0, 10, 65536, 0, 11, 65536, 0, 393225, 196608, 6, 524298, 196608, 6, 589835, 0, 7, 393227, 262144, 5, 327692, 65536, 2, 262149, 327680, 7, 65542, 0, 1, 327686, 0, 2, 131077, 0, 7, 196614, 0, 1, 393223, 196608, 5, 589829, 0, 7, 589833, 0, 7, 458763, 262144, 6, 327688, 262144, 2, 262151, 524289, 1, 262145, 262144, 6, 5, 262144, 6, 589824, 262144, 6, 7, 65536, 0, 262152, 65536, 6, 262153, 65536, 6, 327689, 65536, 2, 262156, 65536, 6, 327691, 262144, 2, 393228, 65536, 6, 8, 65536, 0, 131078, 0, 1, 262150, 0, 1, 6, 0, 0, 327687, 196608, 2, 327690, 196608, 2, 458761, 327681, 2, 524300, 65536, 1, 196613, 327681, 0, 65541, 65536, 1, 393222, 458753, 0, 393226, 196608, 5, 262148, 131072, 6, 458758, 327681, 2, 393224, 262144, 5, 65543, 196612, 0, 131079, 196612, 0, 196615, 196612, 0, 65544, 131076, 0, 131080, 131076, 0, 196616, 131076, 0, 65545, 262148, 1, 131081, 262148, 1, 196617, 262148, 1, 65546, 196609, 0, 131082, 196609, 1, 65547, 262145, 0, 131083, 262145, 1, 196619, 327681, 0)
-
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 150.0
-texture = ExtResource("2_2ah1d")
-expand_mode = 1
+layer_0/tile_data = PackedInt32Array(9, 65536, 0, 262154, 131073, 2, 262155, 65536, 6, 12, 65536, 0, 10, 65536, 0, 11, 65536, 0, 393225, 196608, 6, 524298, 196608, 6, 589835, 0, 7, 393227, 262144, 5, 327692, 65536, 2, 262149, 262146, 1, 65542, 0, 1, 327686, 0, 2, 196614, 0, 1, 393223, 196608, 5, 589829, 0, 7, 589833, 0, 7, 458763, 262144, 6, 327688, 262144, 2, 262151, 524289, 1, 262145, 262144, 6, 589824, 262144, 6, 7, 65536, 0, 262152, 65536, 6, 262153, 65536, 6, 327689, 65536, 2, 327691, 262144, 2, 393228, 65536, 6, 8, 65536, 0, 131078, 0, 1, 262150, 0, 1, 6, 0, 0, 327687, 196608, 2, 327690, 196608, 2, 458761, 327681, 2, 524300, 65536, 1, 393222, 458753, 0, 393226, 196608, 5, 262148, 131072, 6, 458758, 327681, 2, 393224, 262144, 5, 65543, 196612, 0, 131079, 196612, 0, 196615, 196612, 0, 65544, 131076, 0, 131080, 131076, 0, 196616, 131076, 0, 65545, 262148, 1, 131081, 262148, 1, 196617, 262148, 1, 65546, 196609, 0, 131082, 196609, 1, 65547, 262145, 0, 131083, 262145, 1, 196619, 327681, 0)
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -540,6 +532,14 @@ offset_top = 2.0
 offset_right = 89.0
 offset_bottom = 57.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_0wda0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 150.0
+texture = ExtResource("2_2ah1d")
+expand_mode = 1
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -557,7 +557,7 @@ text = "Farm
 Code"
 
 [node name="CuteCat1" type="AnimatedSprite2D" parent="."]
-position = Vector2(14, 77)
+position = Vector2(14, 74)
 rotation = 0.00666368
 scale = Vector2(0.540161, 0.538417)
 sprite_frames = SubResource("SpriteFrames_113h8")
@@ -565,7 +565,7 @@ autoplay = "default"
 frame_progress = 0.892939
 
 [node name="CuteCat2" type="AnimatedSprite2D" parent="."]
-position = Vector2(178, 126)
+position = Vector2(127, 125)
 rotation = -0.00584662
 scale = Vector2(0.627881, 0.614671)
 sprite_frames = SubResource("SpriteFrames_pjmpf")
@@ -573,7 +573,7 @@ autoplay = "default"
 frame_progress = 0.619658
 
 [node name="CutCat3" type="AnimatedSprite2D" parent="."]
-position = Vector2(131, 126)
+position = Vector2(172, 125)
 rotation = 0.00596986
 scale = Vector2(0.66477, 0.570794)
 sprite_frames = SubResource("SpriteFrames_q8rf0")
@@ -581,7 +581,7 @@ autoplay = "default"
 frame_progress = 0.190967
 
 [node name="CutCat4" type="AnimatedSprite2D" parent="."]
-position = Vector2(77, 117)
+position = Vector2(77, 114)
 rotation = 0.238729
 scale = Vector2(0.533928, 0.438293)
 sprite_frames = SubResource("SpriteFrames_u083v")
@@ -591,9 +591,10 @@ frame_progress = 0.785213
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 2
 offset_left = 8.0
-offset_top = 84.0
+offset_top = 81.0
 offset_right = 78.0
-offset_bottom = 109.0
+offset_bottom = 106.0
+focus_mode = 0
 mouse_default_cursor_shape = 2
 theme = ExtResource("4_2ene7")
 theme_override_colors/font_color = Color(0.713726, 0.537255, 0.384314, 1)
@@ -605,9 +606,9 @@ text = "Start"
 [node name="TutorialButton" type="Button" parent="."]
 layout_mode = 2
 offset_left = 8.0
-offset_top = 122.0
+offset_top = 119.0
 offset_right = 78.0
-offset_bottom = 147.0
+offset_bottom = 144.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
 theme = ExtResource("4_2ene7")
@@ -618,12 +619,14 @@ theme_override_font_sizes/font_size = 11
 text = "Tutorial
 "
 
-[node name="HistoryButton2" type="Button" parent="."]
+[node name="HistoryButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 157.0
-offset_top = 135.0
-offset_right = 197.0
-offset_bottom = 157.0
+offset_left = 116.0
+offset_top = 134.0
+offset_right = 156.0
+offset_bottom = 156.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
 theme = ExtResource("12_xayvp")
 theme_override_fonts/font = ExtResource("14_8kubc")
 theme_override_font_sizes/font_size = 8
@@ -631,11 +634,12 @@ text = "História"
 
 [node name="CreditButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 115.0
-offset_top = 135.0
-offset_right = 154.0
-offset_bottom = 156.0
+offset_left = 158.0
+offset_top = 134.0
+offset_right = 197.0
+offset_bottom = 155.0
 focus_mode = 0
+mouse_default_cursor_shape = 2
 theme = ExtResource("12_xayvp")
 theme_override_fonts/font = ExtResource("14_8kubc")
 theme_override_font_sizes/font_size = 7
@@ -649,6 +653,7 @@ offset_top = 1.0
 offset_right = 198.0
 offset_bottom = 16.0
 focus_mode = 0
+mouse_default_cursor_shape = 2
 theme = ExtResource("14_mbv1l")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -657,3 +662,4 @@ stream = ExtResource("14_gge73")
 [connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="TutorialButton" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="CreditButton" to="." method="_on_credit_button_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]

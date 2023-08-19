@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Utils="*res://scripts/utils.gd"
-Transitioner="*res://scenes/gui/transitioner.tscn"
 
 [display]
 
