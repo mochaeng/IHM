@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccyje8fj7agbv"]
+
+[ext_resource type="Script" path="res://scripts/gui/phases_selection.gd" id="1_dosvs"]
+[ext_resource type="PackedScene" uid="uid://dm1i7gqbf67tq" path="res://scenes/gui/phase_button.tscn" id="1_jvc2y"]
+
+[node name="PhasesSelection1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dosvs")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 150.0
+color = Color(0.368627, 0.368627, 0.368627, 1)
+
+[node name="Buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PhaseButton" parent="Buttons" instance=ExtResource("1_jvc2y")]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 32.0
+offset_right = 87.0
+offset_bottom = 71.0
+
+[node name="PhaseButton2" parent="Buttons" instance=ExtResource("1_jvc2y")]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 32.0
+offset_right = 145.0
+offset_bottom = 71.0

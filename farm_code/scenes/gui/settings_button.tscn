@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://df0f7l7pt2167"]
+
+[ext_resource type="Theme" uid="uid://mn1vvllcw7qx" path="res://scenes/gui/themes/settings_button.tres" id="1_own5h"]
+
+[node name="SettingsButton" type="Button"]
+offset_right = 16.0
+offset_bottom = 15.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_own5h")

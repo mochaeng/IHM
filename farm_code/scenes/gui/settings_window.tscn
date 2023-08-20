@@ -19,7 +19,7 @@ offset_bottom = 150.0
 layout_mode = 0
 offset_right = 221.0
 offset_bottom = 155.0
-color = Color(0.156863, 0.156863, 0.156863, 0.176471)
+color = Color(0.156863, 0.156863, 0.156863, 0.631373)
 
 [node name="Panel" type="Panel" parent="Control"]
 layout_mode = 1

@@ -12,9 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://biejcofdx0ija" path="res://art/cat_UI/Sprite sheets/Dialouge UI/Emotes/Teemo Basic emote animations sprite sheet.png" id="6_kthpv"]
 [ext_resource type="Texture2D" uid="uid://c2jwwtsxq215e" path="res://art/Objects/Basic Plants.png" id="6_orkwk"]
 [ext_resource type="Theme" uid="uid://bxma1r6bkrrah" path="res://scenes/gui/themes/cat_button2.tres" id="12_xayvp"]
+[ext_resource type="PackedScene" uid="uid://df0f7l7pt2167" path="res://scenes/gui/settings_button.tscn" id="14_2eij1"]
 [ext_resource type="FontFile" uid="uid://cn7qvq8xj8uy5" path="res://art/resources/Roboto-Bold.ttf" id="14_8kubc"]
 [ext_resource type="AudioStream" uid="uid://dareoapfyjy26" path="res://songs/01 Title.mp3" id="14_gge73"]
-[ext_resource type="Theme" uid="uid://mn1vvllcw7qx" path="res://scenes/gui/themes/settings_button.tres" id="14_mbv1l"]
 [ext_resource type="PackedScene" uid="uid://dfkomgjab1ciy" path="res://scenes/gui/settings_window.tscn" id="16_saast"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qqv52"]
@@ -647,15 +647,12 @@ theme_override_font_sizes/font_size = 7
 text = "Créditos
 "
 
-[node name="SettingsButton" type="Button" parent="."]
+[node name="SettingsButton" parent="." instance=ExtResource("14_2eij1")]
 layout_mode = 0
 offset_left = 182.0
-offset_top = 1.0
+offset_top = 4.0
 offset_right = 198.0
-offset_bottom = 16.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-theme = ExtResource("14_mbv1l")
+offset_bottom = 19.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_gge73")
@@ -663,7 +660,7 @@ stream = ExtResource("14_gge73")
 [node name="SettingsWindow" parent="." instance=ExtResource("16_saast")]
 visible = false
 
-[connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="TutorialButton" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="CreditButton" to="." method="_on_credit_button_pressed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]

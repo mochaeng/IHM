@@ -38,6 +38,6 @@ theme_override_font_sizes/font_size = 7
 text = "Jogar"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(25, 35)
+position = Vector2(27, 35)
 scale = Vector2(0.0647426, 0.0653021)
 texture = ExtResource("4_5alu8")

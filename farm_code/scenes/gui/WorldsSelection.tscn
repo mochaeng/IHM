@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://8pujftcg17r"]
+[gd_scene load_steps=7 format=3 uid="uid://8pujftcg17r"]
 
 [ext_resource type="PackedScene" uid="uid://cqquvuibn0in0" path="res://scenes/gui/world_phase.tscn" id="1_n76gk"]
 [ext_resource type="Script" path="res://scripts/gui/worlds_selection.gd" id="1_pcjw2"]
+[ext_resource type="PackedScene" uid="uid://df0f7l7pt2167" path="res://scenes/gui/settings_button.tscn" id="3_madas"]
+[ext_resource type="Theme" uid="uid://bo1d3l4wwmi8c" path="res://scenes/gui/themes/empty_button.tres" id="4_ijt2v"]
+[ext_resource type="PackedScene" uid="uid://dfkomgjab1ciy" path="res://scenes/gui/settings_window.tscn" id="4_yuncy"]
+[ext_resource type="FontFile" uid="uid://cn7qvq8xj8uy5" path="res://art/resources/Roboto-Bold.ttf" id="5_dbemx"]
 
 [node name="WorldsSelection" type="Control"]
 layout_mode = 3
@@ -17,20 +21,52 @@ color = Color(0.313726, 0.141176, 0.443137, 1)
 [node name="World1" parent="." instance=ExtResource("1_n76gk")]
 layout_mode = 0
 offset_left = 9.0
-offset_top = 14.0
+offset_top = 22.0
 offset_right = 63.0
-offset_bottom = 88.0
+offset_bottom = 96.0
 
 [node name="World2" parent="." instance=ExtResource("1_n76gk")]
 layout_mode = 0
 offset_left = 72.0
-offset_top = 14.0
+offset_top = 22.0
 offset_right = 126.0
-offset_bottom = 88.0
+offset_bottom = 96.0
 
 [node name="World3" parent="." instance=ExtResource("1_n76gk")]
 layout_mode = 0
 offset_left = 138.0
-offset_top = 14.0
+offset_top = 22.0
 offset_right = 192.0
-offset_bottom = 88.0
+offset_bottom = 96.0
+
+[node name="SettingsButton" parent="." instance=ExtResource("3_madas")]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 4.0
+offset_right = 198.0
+offset_bottom = 19.0
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 128.0
+offset_right = 196.0
+offset_bottom = 146.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("4_ijt2v")
+theme_override_fonts/font = ExtResource("5_dbemx")
+theme_override_font_sizes/font_size = 10
+text = "Voltar"
+
+[node name="SettingsWindow" parent="." instance=ExtResource("4_yuncy")]
+visible = false
+
+[connection signal="button_up" from="World1/PlayButton" to="." method="_on_world_1_play_button_button_up"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="should_close_settings" from="SettingsWindow" to="." method="_on_settings_window_should_close_settings"]
+
+[editable path="World1"]
+[editable path="World2"]
+[editable path="SettingsWindow"]

@@ -17,12 +17,13 @@ func _ready():
 
 
 func toggle_music(is_enable: bool):
+	# audio_music.playing = is_enable
 	audio_music.playing = is_enable
+	# audio_music.stream_paused = is_enable
 
 
-func _on_button_pressed():
-	# Utils.load_scene(self, "res://scenes/levels/level1.tscn")
-	Utils.change_scene_with_transition("res://scenes/levels/level1.tscn")
+func _on_start_button_pressed():
+	Utils.change_scene_with_transition("WorldsSelection")
 
 
 func _on_button_2_pressed():

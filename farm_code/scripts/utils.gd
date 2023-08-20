@@ -2,6 +2,12 @@ extends Node
 
 signal songs_option_change(option)
 
+const SCENES_PATH = {
+	"WorldsSelection": "res://scenes/gui/WorldsSelection.tscn",
+	"MenuScreen": "res://scenes/gui/menu_screen.tscn",
+	"Phase1": "res://scenes/levels/level1.tscn"
+}
+
 const GRID_SIZE := Vector2(800, 600)
 const CELL_SIZE := Vector2(16, 16)
 const CELLS_AMOUNT := Vector2(GRID_SIZE.x / CELL_SIZE.x, GRID_SIZE.y / CELL_SIZE.y)
@@ -22,6 +28,10 @@ var is_songs_enable := false
 var transitioner = preload("res://scenes/gui/transitioner.tscn")
 var settings_window = preload("res://scenes/gui/settings_window.tscn")
 
+# wolrds && phases
+var phases_world_1_enable_status = [true, false]
+var phases_world_1_conclude_status = [false, false]
+
 var is_world_2_unlock = false
 var is_world_3_unlock = false
 
@@ -41,6 +51,9 @@ func change_scene_with_transition(target: String) -> void:
 
 	animation_player.play("fade_out")
 	await animation_player.animation_finished
+
+	if SCENES_PATH.has(target):
+		target = SCENES_PATH[target]
 
 	get_tree().change_scene_to_file(target)
 
