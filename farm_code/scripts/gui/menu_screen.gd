@@ -1,14 +1,23 @@
 extends Control
 
 @onready var audio_music := $AudioStreamPlayer
+@onready var settings_window := $SettingsWindow
 
 
 func _process(_delta):
+	# audio_music.playing = Utils.is_songs_enable
 	pass
 
 
 func _ready():
 	audio_music.playing = Utils.is_songs_enable
+	settings_window.visible = false
+	# Utils.should_close_settings.connect(clean_setting_window())
+	Utils.songs_option_change.connect(toggle_music)
+
+
+func toggle_music(is_enable: bool):
+	audio_music.playing = is_enable
 
 
 func _on_button_pressed():
@@ -25,7 +34,12 @@ func _on_credit_button_pressed():
 
 
 func _on_settings_button_pressed():
-	var setting_window = load("res://scenes/gui/settings_window.tscn").instantiate()
-	get_tree().get_root().call_deferred("add_child", setting_window)
-	print(setting_window)
-	# Transitioner.change_scene_with_transition("res://scenes/gui/settings_window.tscn")
+	settings_window.visible = true
+
+
+func clean_setting_window():
+	print("vou limpar")
+
+
+func _on_settings_window_should_close_settings():
+	settings_window.visible = false

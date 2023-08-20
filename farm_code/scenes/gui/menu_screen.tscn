@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b1axqsnun14wh"]
+[gd_scene load_steps=48 format=3 uid="uid://b1axqsnun14wh"]
 
 [ext_resource type="Script" path="res://scripts/gui/menu_screen.gd" id="1_8uhpk"]
 [ext_resource type="Texture2D" uid="uid://bdbnwg0tolmwk" path="res://art/wallpapers/possible_5.png" id="2_2ah1d"]
@@ -15,6 +15,7 @@
 [ext_resource type="FontFile" uid="uid://cn7qvq8xj8uy5" path="res://art/resources/Roboto-Bold.ttf" id="14_8kubc"]
 [ext_resource type="AudioStream" uid="uid://dareoapfyjy26" path="res://songs/01 Title.mp3" id="14_gge73"]
 [ext_resource type="Theme" uid="uid://mn1vvllcw7qx" path="res://scenes/gui/themes/settings_button.tres" id="14_mbv1l"]
+[ext_resource type="PackedScene" uid="uid://dfkomgjab1ciy" path="res://scenes/gui/settings_window.tscn" id="16_saast"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qqv52"]
 texture = ExtResource("2_4vsrg")
@@ -659,7 +660,13 @@ theme = ExtResource("14_mbv1l")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_gge73")
 
+[node name="SettingsWindow" parent="." instance=ExtResource("16_saast")]
+visible = false
+
 [connection signal="pressed" from="StartButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="TutorialButton" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="CreditButton" to="." method="_on_credit_button_pressed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="should_close_settings" from="SettingsWindow" to="." method="_on_settings_window_should_close_settings"]
+
+[editable path="SettingsWindow"]

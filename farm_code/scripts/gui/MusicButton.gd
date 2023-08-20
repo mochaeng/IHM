@@ -12,7 +12,6 @@ func _ready():
 
 
 func change_texture():
-	print("Hi")
 	if is_active:
 		self.theme = on_theme
 	else:
@@ -23,7 +22,4 @@ func _on_pressed():
 	is_active = not is_active
 	Utils.set_is_songs_enable(is_active)
 	change_texture()
-
-
-func _on_back_button_pressed():
-	pass # Replace with function body.
+	Utils.songs_option_change.emit(is_active)

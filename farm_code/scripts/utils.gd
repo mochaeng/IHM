@@ -1,6 +1,6 @@
 extends Node
 
-signal songs_option_change
+signal songs_option_change(option)
 
 const GRID_SIZE := Vector2(800, 600)
 const CELL_SIZE := Vector2(16, 16)
@@ -20,9 +20,17 @@ var holding_cursor = load(
 var is_songs_enable := false
 
 var transitioner = preload("res://scenes/gui/transitioner.tscn")
+var settings_window = preload("res://scenes/gui/settings_window.tscn")
 
 var is_world_2_unlock = false
 var is_world_3_unlock = false
+
+
+func _ready():
+	Input.set_custom_mouse_cursor(arrow_cursor)
+	Input.set_custom_mouse_cursor(pointing_hand_cursor, Input.CURSOR_POINTING_HAND)
+	Input.set_custom_mouse_cursor(arrow_cursor, Input.CURSOR_FORBIDDEN)
+	Input.set_custom_mouse_cursor(holding_cursor, Input.CURSOR_CAN_DROP)
 
 
 func change_scene_with_transition(target: String) -> void:
@@ -58,13 +66,6 @@ func change_scene_with_loading(target: String) -> void:
 	animation_player.play("fade_in")
 	await animation_player.animation_changed
 	transitioner_instance.call_deferred("queue_free")
-
-
-func _ready():
-	Input.set_custom_mouse_cursor(arrow_cursor)
-	Input.set_custom_mouse_cursor(pointing_hand_cursor, Input.CURSOR_POINTING_HAND)
-	Input.set_custom_mouse_cursor(arrow_cursor, Input.CURSOR_FORBIDDEN)
-	Input.set_custom_mouse_cursor(holding_cursor, Input.CURSOR_CAN_DROP)
 
 
 func set_is_songs_enable(value: bool):
