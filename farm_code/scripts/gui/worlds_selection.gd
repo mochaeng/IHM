@@ -26,5 +26,5 @@ func _on_back_button_pressed():
 	Utils.change_scene_with_transition("MenuScreen")
 
 
-func _on_world_1_play_button_button_up():
-	Utils.change_scene_with_transition("Phase1")
+func _on_world1_play_button_pressed():
+	Utils.change_scene_with_transition("Phases_1_Selection")

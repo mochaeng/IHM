@@ -5,7 +5,10 @@ signal songs_option_change(option)
 const SCENES_PATH = {
 	"WorldsSelection": "res://scenes/gui/WorldsSelection.tscn",
 	"MenuScreen": "res://scenes/gui/menu_screen.tscn",
-	"Phase1": "res://scenes/levels/level1.tscn"
+	"Phase1": "res://scenes/levels/level1.tscn",
+	"Phase2": "res://scenes/levels/level2.tscn",
+	"World_1_Phases": "res://scripts/gui/phases_selection_1.gd",
+	"Phases_1_Selection": "res://scenes/gui/phases_selection_1.tscn",
 }
 
 const GRID_SIZE := Vector2(800, 600)
@@ -20,6 +23,7 @@ var arrow_cursor = load("res://art/cat_UI/Sprite sheets/Mouse sprites/Triangle M
 var pointing_hand_cursor = load(
 	"res://art/cat_UI/Sprite sheets/Mouse sprites/Catpaw pointing Mouse icon.png"
 )
+
 var holding_cursor = load(
 	"res://art/cat_UI/Sprite sheets/Mouse sprites/Catpaw holding Mouse icon.png"
 )
@@ -28,7 +32,16 @@ var is_songs_enable := false
 var transitioner = preload("res://scenes/gui/transitioner.tscn")
 var settings_window = preload("res://scenes/gui/settings_window.tscn")
 
+
 # wolrds && phases
+func set_has_conclude_phase(values: Array, value: bool, idx: int):
+	values[idx] = value
+
+
+func set_has_enable_phase(values: Array, value: bool, idx: int):
+	values[idx] = value
+
+
 var phases_world_1_enable_status = [true, false]
 var phases_world_1_conclude_status = [false, false]
 
@@ -83,3 +96,33 @@ func change_scene_with_loading(target: String) -> void:
 
 func set_is_songs_enable(value: bool):
 	is_songs_enable = value
+
+
+const ENABLED_STAR_FRAME := 7
+const DISABLED_STAR_FRAME := 9
+
+
+func processed_phase_buttons(buttons: Array[Node]) -> void:
+	print(buttons)
+
+	var idx = 0
+	for is_enable in phases_world_1_enable_status:
+		if is_enable:
+			buttons[idx].get_node("Number").text = str(idx + 1)
+
+		buttons[idx].disabled = not is_enable
+
+		idx += 1
+
+	idx = 0
+	for is_concluded in phases_world_1_conclude_status:
+		var sprites := buttons[idx].get_node("Stars").get_children()
+		for sprite in sprites:
+			if not phases_world_1_enable_status[idx]:
+				sprite.visible = false
+			elif is_concluded:
+				sprite.frame = ENABLED_STAR_FRAME
+			else:
+				sprite.frame = DISABLED_STAR_FRAME
+
+		idx += 1
