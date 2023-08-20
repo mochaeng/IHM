@@ -33,8 +33,7 @@ func process_commands():
 		print(dir)
 		player.move_by_direction(dir)
 		await get_tree().create_timer(1).timeout
-	
-	print('acabou')
+
 	await get_tree().create_timer(0.5).timeout
 
 	if entities_completed != total_amount:
@@ -43,7 +42,6 @@ func process_commands():
 		Utils.set_has_conclude_phase(Utils.phases_world_1_conclude_status, true, 0)
 		Utils.set_has_enable_phase(Utils.phases_world_1_enable_status, true, 1)
 		get_tree().change_scene_to_file("res://scenes/levels/level2.tscn")
-	
 
 	is_processing_commands = false
 
@@ -74,6 +72,3 @@ func _on_limpar_button_pressed():
 	if not is_processing_commands:
 		commands = []
 		clean_panel.emit()
-
-
-

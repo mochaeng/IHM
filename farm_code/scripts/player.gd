@@ -13,7 +13,7 @@ class_name Player
 
 const TILE_SIZE = 16
 
-enum PlayerState { IDLE, TURNING, WALKING, WATERING }
+enum PlayerState { IDLE, TURNING, WALKING, WATERING, AXING }
 enum FacingDirection { LEFT, RIGHT, UP, DOWN }
 
 var player_state := PlayerState.IDLE
@@ -96,6 +96,8 @@ func _physics_process(delta):
 			process_player_input()
 		PlayerState.WATERING:
 			pass
+		PlayerState.AXING:
+			pass
 
 	update_ray_cast_to_player_direction()
 	# print(animated_sprite.position)
@@ -130,6 +132,9 @@ func process_player_input():
 	if Input.is_action_just_pressed("watering"):
 		player_state = PlayerState.WATERING
 
+	if Input.is_action_just_pressed("axing"):
+		player_state = PlayerState.AXING
+
 	travel_logic_update()
 
 
@@ -161,8 +166,8 @@ func turn_player():
 	# 	player_facing_direction = FacingDirection.UP
 	# elif input_direction.y > 0:
 	# 	player_facing_direction = FacingDirection.DOWN
-	
-	print('a virar')
+
+	print("a virar")
 	player_state = PlayerState.TURNING
 	update_ray_cast_to_player_direction()
 
@@ -174,7 +179,6 @@ func do_watering():
 func finished_turning():
 	player_state = PlayerState.IDLE
 	update_ray_cast_to_player_direction()
-	print("acabei de virar")
 
 
 func finished_watering():
@@ -186,6 +190,10 @@ func finished_watering():
 	# ray_cast.target_position = desired_step
 	# ray_cast.force_update_transform()
 	# input_direction = Vector2.ZERO
+
+
+func finished_axing():
+	player_state = PlayerState.IDLE
 
 
 func get_minus90_directional_vector():
@@ -228,15 +236,6 @@ func get_plus90_directional_vector():
 	else:
 		dir = Vector2.ZERO
 
-	# if player_facing_direction == FacingDirection.LEFT:
-	# 	dir = directions["up"]
-	# elif player_facing_direction == FacingDirection.RIGHT:
-	# 	dir = directions["down"]
-	# elif player_facing_direction == FacingDirection.DOWN:
-	# 	dir = directions["left"]
-	# elif player_facing_direction == FacingDirection.UP:
-	# 	dir = directions["right"]
-
 	return dir
 
 
@@ -260,6 +259,7 @@ func update_animation_tree():
 	animation_tree["parameters/Walk/blend_position"] = input_direction
 	animation_tree["parameters/Turning/blend_position"] = input_direction
 	animation_tree["parameters/Watering/blend_position"] = input_direction
+	animation_tree["parameters/Axing/blend_position"] = input_direction
 
 
 func update_parameters():
@@ -272,22 +272,31 @@ func update_parameters():
 			animation_tree["parameters/conditions/Idle"] = false
 			animation_tree["parameters/conditions/Turning"] = false
 			animation_tree["parameters/conditions/Watering"] = false
+			animation_tree["parameters/conditions/Axing"] = false
 		PlayerState.IDLE:
 			animation_tree["parameters/conditions/Idle"] = true
 			animation_tree["parameters/conditions/Walking"] = false
 			animation_tree["parameters/conditions/Turning"] = false
 			animation_tree["parameters/conditions/Watering"] = false
+			animation_tree["parameters/conditions/Axing"] = false
 		PlayerState.TURNING:
 			animation_tree["parameters/conditions/Turning"] = true
 			animation_tree["parameters/conditions/Idle"] = false
 			animation_tree["parameters/conditions/Walking"] = false
 			animation_tree["parameters/conditions/Watering"] = false
+			animation_tree["parameters/conditions/Axing"] = false
 		PlayerState.WATERING:
 			animation_tree["parameters/conditions/Watering"] = true
 			animation_tree["parameters/conditions/Idle"] = false
 			animation_tree["parameters/conditions/Walking"] = false
 			animation_tree["parameters/conditions/Turning"] = false
-
+			animation_tree["parameters/conditions/Axing"] = false
+		PlayerState.AXING:
+			animation_tree["parameters/conditions/Axing"] = true
+			animation_tree["parameters/conditions/Watering"] = false
+			animation_tree["parameters/conditions/Idle"] = false
+			animation_tree["parameters/conditions/Walking"] = false
+			animation_tree["parameters/conditions/Turning"] = false
 
 
 func move_by_direction(direction: String):
@@ -341,6 +350,7 @@ func travel_logic_update():
 		animation_tree["parameters/Walk/blend_position"] = input_direction
 		animation_tree["parameters/Turning/blend_position"] = input_direction
 		animation_tree["parameters/Watering/blend_position"] = input_direction
+		animation_tree["parameters/Axing/blend_position"] = input_direction
 
 		if is_need_to_turn():
 			player_state = PlayerState.TURNING
@@ -375,5 +385,5 @@ func move(delta):
 func interact_with_entity():
 	if ray_cast.is_colliding():
 		print(ray_cast.get_collider())
-		var plant := ray_cast.get_collider()
-		plant.emit_signal("watered")
+		var entity := ray_cast.get_collider()
+		entity.emit_signal("watered")
