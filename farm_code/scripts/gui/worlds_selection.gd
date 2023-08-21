@@ -1,17 +1,37 @@
 extends Control
 
-@onready var world_1 = $World1
-@onready var world_2 = $World2
-@onready var world_3 = $World3
+@onready var worlds := $Worlds.get_children()
 @onready var settings_window := $SettingsWindow
 
 
 func _ready():
-	world_1.get_node("Name").text = "Mundo 1"
-	world_2.get_node("Name").text = "Mundo 2"
-	world_3.get_node("Name").text = "Mundo 3"
+	var idx = 0
+	for world in worlds:
+		world.get_node("Name").text = "Mundo " + str(idx + 1)
+
+		var quantity_conclude = Utils.get_phases_conclude_from_world(idx)
+		world.get_node("Quantity").text = str(quantity_conclude) + "/" + str(Utils.phases_conclude[idx].size())
+
+		if not Utils.worlds_enable[idx]:
+			world.get_node("PlayButton").disabled = true
+			world.get_node("InfoButton").disabled = true
+			world.get_node("PlayButton").text = ""
+			world.get_node("InfoButton").text = ""
+			world.get_node("Quantity").visible = false
+
+		idx += 1
+
 
 	settings_window.visible = false
+
+
+
+	# var quantity_completed_1 = Utils.get_phases_completed_from_world(Utils.phases_world_1_conclude_status)
+	# var quantity_completed_2 = Utils.get_phases_completed_from_world(Utils.phases_world_2_conclude_status)
+
+	# world_1.get_node("Quantity").text = quantity_completed_1 + " " + Utils.phases_world_1_conclude_status.size()
+	# world_2.get_node("Quantity").text = quantity_completed_2 + " " + Utils.phases_world_2_conclude_status.size()
+
 
 
 func _on_settings_button_pressed():

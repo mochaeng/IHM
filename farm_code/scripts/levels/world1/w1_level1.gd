@@ -35,9 +35,9 @@ func process_commands():
 	if entities_completed != total_amount:
 		get_tree().reload_current_scene()
 	else:
-		Utils.set_has_conclude_phase(Utils.phases_world_1_conclude_status, true, 0)
-		Utils.set_has_enable_phase(Utils.phases_world_1_enable_status, true, 1)
-		get_tree().change_scene_to_file("res://scenes/levels/level2.tscn")
+		Utils.set_has_conclude_phase(0, 0, true)
+		Utils.set_has_enable_phase(0, 1, true)
+		Utils.change_scene_with_transition("W1_L2")
 
 	is_processing_commands = false
 

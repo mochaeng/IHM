@@ -9,6 +9,9 @@ const SCENES_PATH = {
 	"Phase2": "res://scenes/levels/level2.tscn",
 	"World_1_Phases": "res://scripts/gui/phases_selection_1.gd",
 	"Phases_1_Selection": "res://scenes/gui/phases_selection_1.tscn",
+	"W1_L1": "res://scenes/levels/world1/w1_level1.tscn",
+	"W1_L2": "res://scenes/levels/world1/w1_level2.tscn",
+	"W1_L3": "res://scenes/levels/world1/w1_level3.tscn",
 }
 
 const GRID_SIZE := Vector2(800, 600)
@@ -32,21 +35,44 @@ var is_songs_enable := false
 var transitioner = preload("res://scenes/gui/transitioner.tscn")
 var settings_window = preload("res://scenes/gui/settings_window.tscn")
 
-
 # wolrds && phases
-func set_has_conclude_phase(values: Array, value: bool, idx: int):
-	values[idx] = value
+var phases_conclude = [[false, false, false], [false, false], [false, false]]
+var phases_enable = [[true, false, false], [false, false], [false, false]]
+# var phases_world_1_enable_status = [true, false]
+# var phases_world_1_conclude_status = [false, false]
+
+# var phases_world_2_enable_status = [false, false]
+# var phases_world_2_conclude_status = [false, false]
+
+var worlds_conclude = [false, false, false]
+var worlds_enable = [true, false, false]
 
 
-func set_has_enable_phase(values: Array, value: bool, idx: int):
-	values[idx] = value
+func set_has_conclude_phase(world: int, phase: int, value: bool):
+	phases_conclude[world][phase] = value
 
 
-var phases_world_1_enable_status = [true, false]
-var phases_world_1_conclude_status = [false, false]
+func set_has_enable_phase(world: int, phase: int, value: bool):
+	phases_enable[world][phase] = value
 
-var is_world_2_unlock = false
-var is_world_3_unlock = false
+
+func set_has_conclude_world(world: int, value: bool):
+	worlds_conclude[world] = value
+
+
+func set_has_enable_world(world: int, value: bool):
+	worlds_enable[world] = value
+
+
+func get_phases_conclude_from_world(world: int) -> int:
+	var quantity = 0
+	for is_completed in phases_conclude[world]:
+		if is_completed:
+			quantity += 1
+	return quantity
+
+
+######
 
 
 func _ready():
@@ -102,11 +128,11 @@ const ENABLED_STAR_FRAME := 7
 const DISABLED_STAR_FRAME := 9
 
 
-func processed_phase_buttons(buttons: Array[Node]) -> void:
-	print(buttons)
+func processed_phase_buttons(buttons: Array[Node], phases_enable_, phases_conclude_) -> void:
+	print(phases_enable)
 
 	var idx = 0
-	for is_enable in phases_world_1_enable_status:
+	for is_enable in phases_enable_:
 		if is_enable:
 			buttons[idx].get_node("Number").text = str(idx + 1)
 
@@ -115,10 +141,10 @@ func processed_phase_buttons(buttons: Array[Node]) -> void:
 		idx += 1
 
 	idx = 0
-	for is_concluded in phases_world_1_conclude_status:
+	for is_concluded in phases_conclude_:
 		var sprites := buttons[idx].get_node("Stars").get_children()
 		for sprite in sprites:
-			if not phases_world_1_enable_status[idx]:
+			if not phases_enable_[idx]:
 				sprite.visible = false
 			elif is_concluded:
 				sprite.frame = ENABLED_STAR_FRAME
