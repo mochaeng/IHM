@@ -20,8 +20,8 @@ var player_state := PlayerState.IDLE
 var player_facing_direction := FacingDirection.DOWN
 
 var input_direction = Vector2.ZERO
-var is_moving = false
-var is_watering = false
+# var is_moving = false
+# var is_watering = false
 var percent_move_to_next_tile = 0.0
 var initial_position = Vector2.ZERO
 
@@ -35,21 +35,22 @@ var directions = {
 	"empty": Vector2.ZERO
 }
 
-var prev_input_direction: Vector2 = get_current_vector_position()
+var prev_input_direction: Vector2
 
 
 func _ready():
 	animation_tree.active = true
+	prev_input_direction = get_current_vector_position()
 
 
-func ___update_animation_parameters():
-	animation_tree["parameters/conditions/is_idle"] = not is_moving
-	animation_tree["parameters/conditions/is_walking"] = is_moving
+# func ___update_animation_parameters():
+# 	animation_tree["parameters/conditions/is_idle"] = not is_moving
+# 	animation_tree["parameters/conditions/is_walking"] = is_moving
 
-	if input_direction != Vector2.ZERO:
-		animation_tree["parameters/Idle/blend_position"] = input_direction
-		animation_tree["parameters/Walk/blend_position"] = input_direction
-		animation_tree["parameters/Watering/blend_position"] = input_direction
+# 	if input_direction != Vector2.ZERO:
+# 		animation_tree["parameters/Idle/blend_position"] = input_direction
+# 		animation_tree["parameters/Walk/blend_position"] = input_direction
+# 		animation_tree["parameters/Watering/blend_position"] = input_direction
 
 
 func update_select():
@@ -174,6 +175,10 @@ func turn_player():
 
 func do_watering():
 	player_state = PlayerState.WATERING
+
+
+func do_axing():
+	player_state = PlayerState.AXING
 
 
 func finished_turning():
@@ -312,6 +317,8 @@ func move_by_direction(direction: String):
 			# vec_dir = prev_input_direction
 		"water":
 			vec_dir = prev_input_direction
+		"axing":
+			vec_dir = prev_input_direction
 		_:
 			vec_dir = directions[direction]
 
@@ -335,9 +342,11 @@ func move_by_direction(direction: String):
 				# player_state = PlayerState.TURNING
 			"water":
 				do_watering()
+			"axing":
+				do_axing()
 			_:
 				initial_position = position
-				is_moving = true
+				# is_moving = true
 				player_state = PlayerState.WALKING
 	else:
 		pass
@@ -357,7 +366,7 @@ func travel_logic_update():
 			# animation_state.travel("Turning")
 		else:
 			initial_position = position
-			is_moving = true
+			# is_moving = true
 			player_state = PlayerState.WALKING
 	else:
 		# animation_state.travel("Idle")
@@ -372,12 +381,12 @@ func move(delta):
 		if percent_move_to_next_tile >= 1.0:
 			position = initial_position + (TILE_SIZE * input_direction)
 			percent_move_to_next_tile = 0.0
-			is_moving = false
+			# is_moving = false
 			player_state = PlayerState.IDLE
 		else:
 			position = initial_position + (TILE_SIZE * input_direction * percent_move_to_next_tile)
 	else:
-		is_moving = false
+		# is_moving = false
 		player_state = PlayerState.IDLE
 		percent_move_to_next_tile = 0.0
 
@@ -386,4 +395,4 @@ func interact_with_entity():
 	if ray_cast.is_colliding():
 		print(ray_cast.get_collider())
 		var entity := ray_cast.get_collider()
-		entity.emit_signal("watered")
+		entity.emit_signal("interacted")

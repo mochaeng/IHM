@@ -2,7 +2,7 @@ extends StaticBody2D
 
 class_name PlantTomatoSmall
 
-signal watered
+signal interacted
 signal completed
 
 @onready var animation_player := $AnimationPlayer
@@ -12,23 +12,19 @@ var is_completed := false
 
 
 func _ready():
-	pass
-
-
-func _process(_delta):
-	pass
+	interacted.connect(interact_with)
 
 
 func completed_action():
+	print("FUI CHAMADA")
 	if is_completed:
 		return
 
-	# await get_tree().create_timer(0.5).timeout
 	completed.emit()
 	is_completed = true
 
 
-func _on_watered():
+func interact_with():
 	print("I was watered")
 	animation_player.play("blink")
 	sprite.set_frame(10)

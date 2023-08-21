@@ -84,5 +84,3 @@ reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_elunk")
 }
-
-[connection signal="watered" from="." to="." method="_on_watered"]

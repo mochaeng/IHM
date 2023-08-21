@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://cn8dvbruv346u"]
+
+[ext_resource type="Script" path="res://scripts/entities/wood_1.gd" id="1_beidf"]
+[ext_resource type="Texture2D" uid="uid://db3etw17dmg1i" path="res://art/Objects/Basic Grass Biom things 1.png" id="1_fx73q"]
+[ext_resource type="Shader" path="res://scenes/resources/wood_1.gdshader" id="2_g6gjb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ddbd"]
+resource_local_to_scene = true
+shader = ExtResource("2_g6gjb")
+shader_parameter/active = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khacf"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_r736v"]
+resource_name = "blink"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"completed_action"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_jvl0f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wc10s"]
+_data = {
+"RESET": SubResource("Animation_jvl0f"),
+"blink": SubResource("Animation_r736v")
+}
+
+[node name="Wood1" type="StaticBody2D"]
+script = ExtResource("1_beidf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_6ddbd")
+texture = ExtResource("1_fx73q")
+centered = false
+hframes = 9
+vframes = 5
+frame = 23
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_khacf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_wc10s")
+}

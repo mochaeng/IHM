@@ -1,12 +1,15 @@
 extends Node2D
 
-signal clean_panel
+# signal clean_panel
 
 @onready var player: Player = $Player
-@onready var label_text := $Panel.get_node("Label")
+@onready var label_text := $MissionIndicator.get_node("Label")
 
 @onready var entities := $Entities.get_children()
 @onready var total_amount := $Entities.get_children().size()
+
+@onready var panel_queue := $PanelBottom.get_node("PanelQueue")
+
 
 var entities_completed := 0
 var is_processing_commands = false
@@ -33,21 +36,14 @@ func process_commands():
 		print(dir)
 		player.move_by_direction(dir)
 		await get_tree().create_timer(1).timeout
-	
-	print('acabou')
+
+	print("acabou")
 	await get_tree().create_timer(0.2).timeout
 
 	if entities_completed != total_amount:
 		get_tree().reload_current_scene()
-	
 
 	is_processing_commands = false
-
-
-func _on_button_pressed():
-	print(commands)
-	if not is_processing_commands:
-		process_commands()
 
 
 func _on_panel_queue_block_added(data: Block):
@@ -66,10 +62,15 @@ func _on_plant_tomato_small_2_completed():
 		update_label()
 
 
-func _on_limpar_button_pressed():
+func _on_play_button_pressed():
+	print(commands)
+	if not is_processing_commands:
+		process_commands()
+
+
+func _on_clean_button_pressed():
+	print("FUCK PISS OF SHIT"+str(is_processing_commands))
+
 	if not is_processing_commands:
 		commands = []
-		clean_panel.emit()
-
-
-
+		panel_queue.emit_signal("panel_clened")

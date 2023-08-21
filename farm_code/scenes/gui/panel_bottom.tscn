@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://ybxdfixp7lrf"]
+
+[ext_resource type="FontFile" uid="uid://xkwoks88wexv" path="res://art/resources/Funhouse.ttf" id="1_20e4t"]
+[ext_resource type="Texture2D" uid="uid://dwubw6dygffhr" path="res://art/resources/Play.png" id="2_wgu1f"]
+[ext_resource type="Texture2D" uid="uid://ihv0jjgf74wo" path="res://art/resources/Remove.png" id="3_wiocu"]
+[ext_resource type="PackedScene" uid="uid://pkx0020xl1lc" path="res://scenes/blocks/panel_queue.tscn" id="4_lmbn0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dirll"]
+bg_color = Color(0.258824, 0.262745, 0.231373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkep4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmyyg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4pse"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="PanelBottom" type="Panel"]
+offset_right = 200.0
+offset_bottom = 27.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dirll")
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 2.0
+offset_right = 378.0
+offset_bottom = 74.0
+scale = Vector2(0.12, 0.12)
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_20e4t")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_kkep4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bmyyg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b4pse")
+text = "Play"
+icon = ExtResource("2_wgu1f")
+
+[node name="CleanButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 11.0
+offset_right = 430.0
+offset_bottom = 83.0
+scale = Vector2(0.12, 0.12)
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_20e4t")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_kkep4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bmyyg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b4pse")
+text = "Limpar"
+icon = ExtResource("3_wiocu")
+
+[node name="PanelQueue" parent="." instance=ExtResource("4_lmbn0")]
+layout_mode = 1
+offset_left = -3.6
+offset_top = -1.673
+offset_right = 164.4
+offset_bottom = 18.327
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0

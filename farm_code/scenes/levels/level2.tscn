@@ -1,24 +1,15 @@
-[gd_scene load_steps=32 format=3 uid="uid://h1yxn0wcd4wt"]
+[gd_scene load_steps=17 format=3 uid="uid://h1yxn0wcd4wt"]
 
 [ext_resource type="Script" path="res://scripts/levels/level2.gd" id="1_dsa54"]
 [ext_resource type="Texture2D" uid="uid://bhuhbvbax3vf" path="res://art/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png" id="2_6xksk"]
 [ext_resource type="Texture2D" uid="uid://d2ov37m16f7d7" path="res://art/Tilesets/ground tiles/old tiles/Tilled Dirt.png" id="3_scsff"]
 [ext_resource type="Texture2D" uid="uid://dueq7plyll2nm" path="res://art/Tilesets/Fences.png" id="4_7h34h"]
 [ext_resource type="Script" path="res://scripts/Grid.gd" id="5_eeynt"]
+[ext_resource type="PackedScene" uid="uid://c4rx5isgyq5r4" path="res://scenes/gui/right_panel.tscn" id="6_646g2"]
 [ext_resource type="PackedScene" uid="uid://cnwy7dl1yevgd" path="res://scenes/player.tscn" id="6_yqn6c"]
-[ext_resource type="FontFile" uid="uid://xkwoks88wexv" path="res://art/resources/Funhouse.ttf" id="7_suvb5"]
-[ext_resource type="Texture2D" uid="uid://dwubw6dygffhr" path="res://art/resources/Play.png" id="8_f1pos"]
-[ext_resource type="Texture2D" uid="uid://ihv0jjgf74wo" path="res://art/resources/Remove.png" id="9_qtm3t"]
-[ext_resource type="PackedScene" uid="uid://pkx0020xl1lc" path="res://scenes/blocks/panel_queue.tscn" id="10_xox1o"]
-[ext_resource type="PackedScene" uid="uid://c011h37r0uk6h" path="res://scenes/blocks/block.tscn" id="11_snc38"]
-[ext_resource type="Texture2D" uid="uid://dkw513kx3c5hj" path="res://art/blocks/left.png" id="12_ieac5"]
-[ext_resource type="Texture2D" uid="uid://d0nsl04wdjsr" path="res://art/blocks/up.png" id="13_8hhsr"]
-[ext_resource type="Texture2D" uid="uid://djuudvcnadlym" path="res://art/blocks/down.png" id="14_ylb41"]
-[ext_resource type="Texture2D" uid="uid://dusirhrvrpy8m" path="res://art/Objects/Basic tools and meterials.png" id="15_lm5ru"]
-[ext_resource type="Texture2D" uid="uid://bojlqvosjakus" path="res://art/blocks/turn_minus.png" id="16_gdj5g"]
-[ext_resource type="Texture2D" uid="uid://cemo2lidow0oq" path="res://art/blocks/turn_plus.png" id="17_eqgbg"]
+[ext_resource type="PackedScene" uid="uid://ybxdfixp7lrf" path="res://scenes/gui/panel_bottom.tscn" id="7_k33w2"]
+[ext_resource type="PackedScene" uid="uid://dnkdp5pbkqhyr" path="res://scenes/gui/mission_indicator.tscn" id="10_xstoc"]
 [ext_resource type="PackedScene" uid="uid://byrid6uiras0d" path="res://scenes/resources/plant_tomato_small.tscn" id="18_p458m"]
-[ext_resource type="Texture2D" uid="uid://c2jwwtsxq215e" path="res://art/Objects/Basic Plants.png" id="19_1tkds"]
 [ext_resource type="PackedScene" uid="uid://ccjmncegnpgl8" path="res://scenes/gui/home_button.tscn" id="20_vyqj3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qbifw"]
@@ -188,34 +179,6 @@ texture = ExtResource("4_7h34h")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_t2756")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dirll"]
-bg_color = Color(0.258824, 0.262745, 0.231373, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whypw"]
-bg_color = Color(0.784314, 0.776471, 0.705882, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkep4"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmyyg"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4pse"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uf088"]
-bg_color = Color(0.0862745, 0.231373, 0.160784, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 1)
-border_blend = true
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_dsa54")
 
@@ -232,145 +195,13 @@ layer_0/tile_data = PackedInt32Array(0, 65536, 0, 65536, 0, 1, 131072, 0, 1, 196
 [node name="Grid" type="Node2D" parent="."]
 script = ExtResource("5_eeynt")
 
-[node name="PanelBottom" type="Panel" parent="."]
-offset_left = -3.0
+[node name="RightPanel" parent="." instance=ExtResource("6_646g2")]
+
+[node name="PanelBottom" parent="." instance=ExtResource("7_k33w2")]
+offset_left = -1.0
 offset_top = 128.0
-offset_right = 205.0
+offset_right = 199.0
 offset_bottom = 155.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_dirll")
-
-[node name="RightPanel" type="Panel" parent="."]
-offset_left = 160.0
-offset_top = -2.0
-offset_right = 210.0
-offset_bottom = 128.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_whypw")
-
-[node name="Player" parent="." instance=ExtResource("6_yqn6c")]
-position = Vector2(48, 0)
-
-[node name="Button" type="Button" parent="."]
-offset_left = 170.0
-offset_top = 130.0
-offset_right = 366.0
-offset_bottom = 202.0
-scale = Vector2(0.12, 0.12)
-theme_override_fonts/font = ExtResource("7_suvb5")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_kkep4")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bmyyg")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_b4pse")
-text = "Play"
-icon = ExtResource("8_f1pos")
-
-[node name="LimparButton" type="Button" parent="."]
-offset_left = 170.0
-offset_top = 139.0
-offset_right = 430.0
-offset_bottom = 211.0
-scale = Vector2(0.12, 0.12)
-theme_override_fonts/font = ExtResource("7_suvb5")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_kkep4")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bmyyg")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_b4pse")
-text = "Limpar"
-icon = ExtResource("9_qtm3t")
-
-[node name="PanelQueue" parent="." instance=ExtResource("10_xox1o")]
-offset_left = 1.0
-offset_top = 129.0
-offset_right = 169.0
-offset_bottom = 149.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 0
-
-[node name="RightBlock" parent="." instance=ExtResource("11_snc38")]
-offset_left = 163.0
-offset_top = 3.0
-offset_right = 243.0
-offset_bottom = 83.0
-category = "right"
-
-[node name="image" parent="RightBlock" index="0"]
-position = Vector2(40, 40)
-scale = Vector2(0.3, 0.3)
-
-[node name="LeftBlock" parent="." instance=ExtResource("11_snc38")]
-offset_left = 163.0
-offset_top = 22.0
-offset_right = 243.0
-offset_bottom = 102.0
-category = "left"
-
-[node name="image" parent="LeftBlock" index="0"]
-position = Vector2(40, 40)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("12_ieac5")
-
-[node name="UpBlock" parent="." instance=ExtResource("11_snc38")]
-offset_left = 182.0
-offset_top = 3.0
-offset_right = 262.0
-offset_bottom = 83.0
-category = "up"
-
-[node name="image" parent="UpBlock" index="0"]
-position = Vector2(40, 40)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("13_8hhsr")
-
-[node name="DownBlock" parent="." instance=ExtResource("11_snc38")]
-offset_left = 182.0
-offset_top = 22.0
-offset_right = 262.0
-offset_bottom = 102.0
-category = "down"
-metadata/_edit_group_ = true
-
-[node name="image" parent="DownBlock" index="0"]
-position = Vector2(40, 40)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("14_ylb41")
-
-[node name="WaterBlock" parent="." instance=ExtResource("11_snc38")]
-offset_left = 164.0
-offset_top = 46.0
-offset_right = 244.0
-offset_bottom = 126.0
-category = "water"
-
-[node name="image" parent="WaterBlock" index="0"]
-position = Vector2(39.9999, 37.5)
-scale = Vector2(4.375, 4.6875)
-texture = ExtResource("15_lm5ru")
-hframes = 3
-vframes = 2
-
-[node name="Minus90" parent="." instance=ExtResource("11_snc38")]
-offset_left = 164.0
-offset_top = 69.0
-offset_right = 244.0
-offset_bottom = 149.0
-category = "minus_90"
-
-[node name="image" parent="Minus90" index="0"]
-position = Vector2(40, 40)
-scale = Vector2(0.21, 0.21)
-texture = ExtResource("16_gdj5g")
-
-[node name="Plus90" parent="." instance=ExtResource("11_snc38")]
-offset_left = 182.0
-offset_top = 69.0
-offset_right = 262.0
-offset_bottom = 149.0
-category = "plus_90"
-
-[node name="image" parent="Plus90" index="0"]
-position = Vector2(40, 40)
-scale = Vector2(0.21, 0.21)
-texture = ExtResource("17_eqgbg")
 
 [node name="Entities" type="Node2D" parent="."]
 
@@ -380,29 +211,10 @@ position = Vector2(64, 64)
 [node name="PlantTomatoSmall3" parent="Entities" instance=ExtResource("18_p458m")]
 position = Vector2(80, 64)
 
-[node name="Panel" type="Panel" parent="."]
-offset_left = 2.0
-offset_top = 1.0
-offset_right = 50.0
-offset_bottom = 18.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_uf088")
+[node name="Player" parent="." instance=ExtResource("6_yqn6c")]
+position = Vector2(48, 0)
 
-[node name="Label" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 19.0
-offset_top = 1.0
-offset_right = 46.0
-offset_bottom = 18.0
-theme_override_font_sizes/font_size = 10
-
-[node name="Sprite2D" type="Sprite2D" parent="Panel"]
-position = Vector2(11, 7)
-texture = ExtResource("19_1tkds")
-hframes = 6
-vframes = 2
-frame = 9
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="MissionIndicator" parent="." instance=ExtResource("10_xstoc")]
 
 [node name="Button2" parent="." instance=ExtResource("20_vyqj3")]
 offset_left = 141.0
@@ -410,17 +222,10 @@ offset_top = 1.0
 offset_right = 156.0
 offset_bottom = 17.0
 
-[connection signal="clean_panel" from="." to="PanelQueue" method="_on_game_level_clean_panel"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="LimparButton" to="." method="_on_limpar_button_pressed"]
-[connection signal="block_added" from="PanelQueue" to="." method="_on_panel_queue_block_added"]
+[connection signal="pressed" from="PanelBottom/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="PanelBottom/CleanButton" to="." method="_on_clean_button_pressed"]
+[connection signal="block_added" from="PanelBottom/PanelQueue" to="." method="_on_panel_queue_block_added"]
 [connection signal="completed" from="Entities/PlantTomatoSmall2" to="." method="_on_plant_tomato_small_2_completed"]
 [connection signal="completed" from="Entities/PlantTomatoSmall3" to="." method="_on_plant_tomato_small_2_completed"]
 
-[editable path="RightBlock"]
-[editable path="LeftBlock"]
-[editable path="UpBlock"]
-[editable path="DownBlock"]
-[editable path="WaterBlock"]
-[editable path="Minus90"]
-[editable path="Plus90"]
+[editable path="PanelBottom"]

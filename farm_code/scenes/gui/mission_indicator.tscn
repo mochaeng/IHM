@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnkdp5pbkqhyr"]
+
+[ext_resource type="Texture2D" uid="uid://c2jwwtsxq215e" path="res://art/Objects/Basic Plants.png" id="1_fpkou"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uf088"]
+bg_color = Color(0.0862745, 0.231373, 0.160784, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="MissionIndicator" type="Panel"]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 50.0
+offset_bottom = 18.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uf088")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 1.0
+offset_right = 46.0
+offset_bottom = 18.0
+theme_override_font_sizes/font_size = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(11, 7)
+texture = ExtResource("1_fpkou")
+hframes = 6
+vframes = 2
+frame = 9

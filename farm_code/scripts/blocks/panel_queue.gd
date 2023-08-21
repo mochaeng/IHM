@@ -3,7 +3,7 @@ extends Panel
 class_name PanelQueue
 
 signal block_added(data: Block)
-signal clean_panel
+signal panel_clened
 
 @onready var block = preload("res://scenes/blocks/block.tscn")
 
@@ -18,21 +18,6 @@ signal clean_panel
 var textures = {}
 
 
-func _can_drop_data(_at_position, data):
-	return (data is Block == true) && data.category != ""
-
-
-func _drop_data(_at_position, data):
-	var new_block := block.instantiate()
-	new_block.get_node("image").texture = textures[data.category]
-	new_block.get_node("image").set_offset(Vector2(7, 0))
-	new_block.set_custom_minimum_size(Vector2(64, 64))
-
-	$Container.add_child(new_block)
-
-	block_added.emit(data)
-
-
 func _ready():
 	textures["left"] = left_texture
 	textures["right"] = right_texture
@@ -42,12 +27,44 @@ func _ready():
 	textures["plus_90"] = plus_90_texture
 	textures["water"] = water_texture
 
-
-func _process(_delta):
-	pass
+	panel_clened.connect(clean_panel)
 
 
-func _on_game_level_clean_panel():
+func _get_drag_data(_at_position):
+	var preview := self.duplicate()
+	# preview.modulate.a = .5
+	set_drag_preview(preview)
+	return preview
+
+
+func _can_drop_data(_at_position, data):
+	return (data is Block == true) && data.category != ""
+
+
+func _drop_data(_at_position, data):
+	var new_block := block.instantiate()
+
+	# new_block.get_node("image").texture = textures[data.category]
+	new_block.get_node("image").texture = data.get_node("image").texture
+	new_block.get_node("image").hframes = data.get_node("image").hframes
+
+	new_block.get_node("image").vframes = data.get_node("image").vframes
+	if data.category == "watering" or data.category == "axing":
+		new_block.get_node("image").scale = Vector2(3.8, 3.95)
+	else:
+		new_block.get_node("image").scale = Vector2(0.2, 0.2)
+
+	new_block.get_node("image").frame = data.get_node("image").frame
+	new_block.category = data.category
+
+	new_block.set_custom_minimum_size(Vector2(64, 64))
+
+	$Container.add_child(new_block)
+
+	block_added.emit(data)
+
+
+func clean_panel():
 	var blocks := $Container.get_children()
 	var container := $Container
 	for block_ in blocks:
