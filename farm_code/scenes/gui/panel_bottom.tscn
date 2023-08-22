@@ -1,21 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://ybxdfixp7lrf"]
+[gd_scene load_steps=7 format=3 uid="uid://ybxdfixp7lrf"]
 
-[ext_resource type="FontFile" uid="uid://xkwoks88wexv" path="res://art/resources/Funhouse.ttf" id="1_20e4t"]
-[ext_resource type="Texture2D" uid="uid://dwubw6dygffhr" path="res://art/resources/Play.png" id="2_wgu1f"]
-[ext_resource type="Texture2D" uid="uid://ihv0jjgf74wo" path="res://art/resources/Remove.png" id="3_wiocu"]
+[ext_resource type="Theme" uid="uid://dqhensnempemr" path="res://scenes/gui/themes/cat_button1.tres" id="1_64ss8"]
+[ext_resource type="FontFile" uid="uid://cn7qvq8xj8uy5" path="res://art/resources/Roboto-Bold.ttf" id="2_vgkgc"]
+[ext_resource type="Texture2D" uid="uid://g12y0r524tld" path="res://art/resources/play_icon.png" id="3_dgcvt"]
 [ext_resource type="PackedScene" uid="uid://pkx0020xl1lc" path="res://scenes/blocks/panel_queue.tscn" id="4_lmbn0"]
+[ext_resource type="Texture2D" uid="uid://d1yvmooj23rnk" path="res://art/resources/clean_icon.png" id="4_my2ab"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dirll"]
-bg_color = Color(0.290196, 0.345098, 0.556863, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkep4"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmyyg"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4pse"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+bg_color = Color(0.862745, 0.878431, 0.823529, 1)
 
 [node name="PanelBottom" type="Panel"]
 offset_right = 200.0
@@ -25,36 +17,40 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_dirll")
 [node name="PlayButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 170.0
-offset_top = 2.0
-offset_right = 378.0
-offset_bottom = 74.0
+offset_top = 1.0
+offset_right = 403.0
+offset_bottom = 86.0
 scale = Vector2(0.12, 0.12)
 focus_mode = 0
 mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("1_20e4t")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_kkep4")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bmyyg")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_b4pse")
+theme = ExtResource("1_64ss8")
+theme_override_colors/font_color = Color(0.713726, 0.537255, 0.384314, 1)
+theme_override_colors/font_pressed_color = Color(0.713726, 0.537255, 0.384314, 1)
+theme_override_constants/h_separation = -25
+theme_override_fonts/font = ExtResource("2_vgkgc")
+theme_override_font_sizes/font_size = 47
 text = "Play"
-icon = ExtResource("2_wgu1f")
+icon = ExtResource("3_dgcvt")
+expand_icon = true
 
 [node name="CleanButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 170.0
-offset_top = 11.0
-offset_right = 430.0
-offset_bottom = 83.0
+offset_top = 12.0
+offset_right = 403.0
+offset_bottom = 97.0
 scale = Vector2(0.12, 0.12)
 focus_mode = 0
 mouse_default_cursor_shape = 2
-theme_override_fonts/font = ExtResource("1_20e4t")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_kkep4")
-theme_override_styles/hover = SubResource("StyleBoxFlat_bmyyg")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_b4pse")
+theme = ExtResource("1_64ss8")
+theme_override_colors/font_color = Color(0.713726, 0.537255, 0.384314, 1)
+theme_override_colors/font_pressed_color = Color(0.713726, 0.537255, 0.384314, 1)
+theme_override_constants/h_separation = -25
+theme_override_fonts/font = ExtResource("2_vgkgc")
+theme_override_font_sizes/font_size = 42
 text = "Limpar"
-icon = ExtResource("3_wiocu")
+icon = ExtResource("4_my2ab")
+expand_icon = true
 
 [node name="PanelQueue" parent="." instance=ExtResource("4_lmbn0")]
 layout_mode = 1

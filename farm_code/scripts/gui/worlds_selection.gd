@@ -1,7 +1,6 @@
-extends Control
+extends Panel
 
 @onready var worlds := $Worlds.get_children()
-@onready var settings_window := $SettingsWindow
 
 
 func _ready():
@@ -20,24 +19,14 @@ func _ready():
 			world.get_node("PlayButton").text = ""
 			world.get_node("InfoButton").text = ""
 			world.get_node("Quantity").visible = false
+			world.get_node("Logo").visible = false
 
 		idx += 1
-
-	settings_window.visible = false
-
-	# var quantity_completed_1 = Utils.get_phases_completed_from_world(Utils.phases_world_1_conclude_status)
-	# var quantity_completed_2 = Utils.get_phases_completed_from_world(Utils.phases_world_2_conclude_status)
-
-	# world_1.get_node("Quantity").text = quantity_completed_1 + " " + Utils.phases_world_1_conclude_status.size()
-	# world_2.get_node("Quantity").text = quantity_completed_2 + " " + Utils.phases_world_2_conclude_status.size()
-
-
-func _on_settings_button_pressed():
-	settings_window.visible = true
-
-
-func _on_settings_window_should_close_settings():
-	settings_window.visible = false
+	
+		
+	worlds[0].get_node("PlayButton").connect("pressed", _on_world1_play_button_pressed)
+	worlds[1].get_node("PlayButton").connect("pressed", _on_world2_play_button_pressed)
+	# worlds[2].get_node("PlayButton").connect("pressed", _on_world1_play_button_pressed)
 
 
 func _on_back_button_pressed():

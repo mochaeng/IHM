@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://ciau3gg5i7brb"]
+
+[ext_resource type="PackedScene" uid="uid://cqquvuibn0in0" path="res://scenes/gui/world_phase.tscn" id="1_5t3ta"]
+[ext_resource type="Script" path="res://scripts/gui/worlds_selection.gd" id="1_mr6aq"]
+[ext_resource type="PackedScene" uid="uid://1ennmkbfk4qo" path="res://scenes/gui/back_button.tscn" id="2_ds0og"]
+[ext_resource type="FontFile" uid="uid://cn7qvq8xj8uy5" path="res://art/resources/Roboto-Bold.ttf" id="3_3wilx"]
+
+[node name="WorldsSelection" type="Panel"]
+offset_right = 200.0
+offset_bottom = 150.0
+script = ExtResource("1_mr6aq")
+
+[node name="BackButton" parent="." instance=ExtResource("2_ds0og")]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 133.0
+offset_right = 192.122
+offset_bottom = 148.0
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 4.0
+offset_right = 174.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("3_3wilx")
+text = "Escolha de Mundos"
+
+[node name="Worlds" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" parent="Worlds" instance=ExtResource("1_5t3ta")]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 29.0
+offset_right = 65.0
+offset_bottom = 126.0
+
+[node name="Panel2" parent="Worlds" instance=ExtResource("1_5t3ta")]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 29.0
+offset_right = 127.0
+offset_bottom = 126.0
+
+[node name="Panel3" parent="Worlds" instance=ExtResource("1_5t3ta")]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 30.0
+offset_right = 190.0
+offset_bottom = 127.0
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

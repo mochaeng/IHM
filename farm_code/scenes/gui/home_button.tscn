@@ -5,7 +5,7 @@
 [ext_resource type="StyleBox" uid="uid://dqikt5t5w0uqp" path="res://scenes/gui/home_button_white_back.tres" id="2_m60d1"]
 [ext_resource type="Script" path="res://scripts/gui/home_button.gd" id="3_csfmg"]
 
-[node name="Button" type="Button"]
+[node name="HomeButton" type="Button"]
 offset_right = 22.0
 offset_bottom = 22.0
 mouse_default_cursor_shape = 2

@@ -239,9 +239,6 @@ offset_bottom = 154.0
 [node name="StaticBody2D" parent="Entities" instance=ExtResource("8_6nhr6")]
 position = Vector2(80, 64)
 
-[node name="StaticBody2D3" parent="Entities" instance=ExtResource("8_6nhr6")]
-position = Vector2(80, 64)
-
 [node name="StaticBody2D2" parent="Entities" instance=ExtResource("8_6nhr6")]
 position = Vector2(96, 32)
 
@@ -267,7 +264,6 @@ offset_bottom = 17.0
 [connection signal="pressed" from="PanelBottom/CleanButton" to="." method="_on_clean_button_pressed"]
 [connection signal="block_added" from="PanelBottom/PanelQueue" to="." method="_on_panel_queue_block_added"]
 [connection signal="completed" from="Entities/StaticBody2D" to="." method="_on_static_body_2d_completed"]
-[connection signal="completed" from="Entities/StaticBody2D3" to="." method="_on_static_body_2d_completed"]
 [connection signal="completed" from="Entities/StaticBody2D2" to="." method="_on_static_body_2d_completed"]
 
 [editable path="RightPanel"]

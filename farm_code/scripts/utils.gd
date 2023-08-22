@@ -3,7 +3,7 @@ extends Node
 signal songs_option_change(option)
 
 const SCENES_PATH = {
-	"WorldsSelection": "res://scenes/gui/WorldsSelection.tscn",
+	"WorldsSelection": "res://scenes/gui/new_worlds_selection.tscn",
 	"MenuScreen": "res://scenes/gui/menu_screen.tscn",
 	"Phase1": "res://scenes/levels/level1.tscn",
 	"Phase2": "res://scenes/levels/level2.tscn",

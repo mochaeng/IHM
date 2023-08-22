@@ -4,16 +4,14 @@ extends Control
 @onready var settings_window := $SettingsWindow
 
 
-func _process(_delta):
-	# audio_music.playing = Utils.is_songs_enable
-	pass
-
-
 func _ready():
 	audio_music.playing = Utils.is_songs_enable
 	settings_window.visible = false
 	# Utils.should_close_settings.connect(clean_setting_window())
 	Utils.songs_option_change.connect(toggle_music)
+
+	# settings_window.get_node("Control/Panel/BackButton").connect("pressed", _on_settings_button_pressed)
+	# settings_window.get_node("Control/Panel/MusicButton").connect("pressed", _on_settings_button_pressed)
 
 
 func toggle_music(is_enable: bool):

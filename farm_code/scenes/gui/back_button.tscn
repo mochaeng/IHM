@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://1ennmkbfk4qo"]
+
+[ext_resource type="Theme" uid="uid://duwf68t8726td" path="res://scenes/gui/themes/back_button.tres" id="1_bqylj"]
+[ext_resource type="FontFile" uid="uid://cn7qvq8xj8uy5" path="res://art/resources/Roboto-Bold.ttf" id="2_ikhhj"]
+
+[node name="BackButton" type="Button"]
+offset_right = 40.1224
+offset_bottom = 15.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_bqylj")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_ikhhj")
+theme_override_font_sizes/font_size = 10
+text = "Voltar"
