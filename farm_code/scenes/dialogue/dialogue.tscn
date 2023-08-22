@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://d4lddkr54unir"]
 
 [ext_resource type="Script" path="res://scripts/tutorial/dialogues/dialogue.gd" id="1_c084m"]
-[ext_resource type="Texture2D" uid="uid://bkchpx8dcwmbs" path="res://art/resources/dialogue_box.png" id="1_vekw7"]
 [ext_resource type="Texture2D" uid="uid://ch8fd0qcvuotc" path="res://art/npcs/emylly_surprise.png" id="2_n8uvf"]
 [ext_resource type="FontFile" uid="uid://xkwoks88wexv" path="res://art/resources/Funhouse.ttf" id="3_kfw0q"]
-[ext_resource type="FontFile" uid="uid://dfje5c653ne0h" path="res://art/resources/arial.TTF" id="5_uahml"]
+[ext_resource type="Texture2D" uid="uid://icvdhp2vo85y" path="res://art/cat_UI/Sprite sheets/Dialouge UI/dialog box medium.png" id="3_ndsbf"]
+[ext_resource type="FontFile" uid="uid://cn7qvq8xj8uy5" path="res://art/resources/Roboto-Bold.ttf" id="5_rowbx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dygm1"]
 bg_color = Color(0, 0, 0, 1)
@@ -25,12 +25,12 @@ texture = ExtResource("2_n8uvf")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 63.0
-offset_right = 200.0
-offset_bottom = 106.0
+offset_left = -2.0
+offset_top = 55.0
+offset_right = 201.0
+offset_bottom = 111.0
 mouse_filter = 1
-texture = ExtResource("1_vekw7")
+texture = ExtResource("3_ndsbf")
 patch_margin_left = 5
 patch_margin_top = 4
 patch_margin_right = 5
@@ -56,14 +56,14 @@ text = "Emyly"
 
 [node name="Chat" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 65.0
-offset_right = 197.0
-offset_bottom = 103.0
+offset_left = 13.0
+offset_top = 66.0
+offset_right = 191.0
+offset_bottom = 104.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/line_separation = -2
-theme_override_fonts/normal_font = ExtResource("5_uahml")
-theme_override_font_sizes/normal_font_size = 10
+theme_override_fonts/normal_font = ExtResource("5_rowbx")
+theme_override_font_sizes/normal_font_size = 9
 text = "Olá! Boa noite! Meu nome é Emylly (clique nessa caixa para passar o texto ...)"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

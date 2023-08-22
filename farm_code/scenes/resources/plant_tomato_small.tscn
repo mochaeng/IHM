@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://byrid6uiras0d"]
+[gd_scene load_steps=10 format=3 uid="uid://byrid6uiras0d"]
 
 [ext_resource type="Script" path="res://scripts/entities/plant_tomato_small.gd" id="1_4smto"]
 [ext_resource type="Texture2D" uid="uid://c2jwwtsxq215e" path="res://art/Objects/Basic Plants.png" id="1_wny6a"]
 [ext_resource type="Shader" path="res://shaders/plant_tomato_small.gdshader" id="2_4qq75"]
+[ext_resource type="PackedScene" uid="uid://bjgim2vbq5t2n" path="res://scenes/resources/blink_selection.tscn" id="4_wa6e7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oytw3"]
 resource_local_to_scene = true
@@ -84,3 +85,7 @@ reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_elunk")
 }
+
+[node name="BlinkSelection" parent="." instance=ExtResource("4_wa6e7")]
+position = Vector2(8, 8)
+scale = Vector2(0.53125, 0.591797)

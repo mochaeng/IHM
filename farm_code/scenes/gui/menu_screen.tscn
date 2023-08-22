@@ -652,7 +652,8 @@ stream = ExtResource("14_gge73")
 visible = false
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="TutorialButton" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="HistoryButton" to="." method="_on_history_button_pressed"]
 [connection signal="pressed" from="CreditButton" to="." method="_on_credit_button_pressed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="should_close_settings" from="SettingsWindow" to="." method="_on_settings_window_should_close_settings"]

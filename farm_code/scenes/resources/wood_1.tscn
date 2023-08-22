@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cn8dvbruv346u"]
+[gd_scene load_steps=10 format=3 uid="uid://cn8dvbruv346u"]
 
 [ext_resource type="Script" path="res://scripts/entities/wood_1.gd" id="1_beidf"]
 [ext_resource type="Texture2D" uid="uid://db3etw17dmg1i" path="res://art/Objects/Basic Grass Biom things 1.png" id="1_fx73q"]
 [ext_resource type="Shader" path="res://scenes/resources/wood_1.gdshader" id="2_g6gjb"]
+[ext_resource type="PackedScene" uid="uid://bjgim2vbq5t2n" path="res://scenes/resources/blink_selection.tscn" id="4_5mf8g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ddbd"]
 resource_local_to_scene = true
@@ -84,3 +85,7 @@ reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_wc10s")
 }
+
+[node name="BlinkSelection" parent="." instance=ExtResource("4_5mf8g")]
+position = Vector2(8, 8)
+scale = Vector2(0.546875, 0.5)

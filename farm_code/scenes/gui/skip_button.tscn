@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cswuvyicbhc5h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdl3i"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_165j0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4m2sj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7sck"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwagq"]
+bg_color = Color(1, 1, 1, 0)
+
+[node name="SkipButton" type="Button"]
+offset_left = 2.0
+offset_top = 107.0
+offset_right = 197.0
+offset_bottom = 146.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_fdl3i")
+theme_override_styles/hover = SubResource("StyleBoxFlat_165j0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4m2sj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_d7sck")
+theme_override_styles/focus = SubResource("StyleBoxFlat_pwagq")

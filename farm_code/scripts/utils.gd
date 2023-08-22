@@ -5,6 +5,8 @@ signal songs_option_change(option)
 const SCENES_PATH = {
 	"WorldsSelection": "res://scenes/gui/new_worlds_selection.tscn",
 	"MenuScreen": "res://scenes/gui/menu_screen.tscn",
+	"Instructions": "res://scenes/tutorial/instructions.tscn",
+	"History_1": "res://scenes/tutorial/levels/tutorial1.tscn",
 	"Phase1": "res://scenes/levels/level1.tscn",
 	"Phase2": "res://scenes/levels/level2.tscn",
 	"Phases_1_Selection": "res://scenes/gui/phases_selection_1.tscn",
@@ -38,6 +40,7 @@ var transitioner = preload("res://scenes/gui/transitioner.tscn")
 var settings_window = preload("res://scenes/gui/settings_window.tscn")
 
 # wolrds && phases
+var showed_dialogues = [false, false, false]
 var phases_conclude = [[false, false, false], [false, false], [false, false]]
 var phases_enable = [[true, false, false], [false, false], [false, false]]
 # var phases_world_1_enable_status = [true, false]
@@ -48,6 +51,10 @@ var phases_enable = [[true, false, false], [false, false], [false, false]]
 
 var worlds_conclude = [false, false, false]
 var worlds_enable = [true, false, false]
+
+
+func set_has_showed_dialogues(dialogue: int, value: bool):
+	showed_dialogues[dialogue] = value
 
 
 func set_has_conclude_phase(world: int, phase: int, value: bool):

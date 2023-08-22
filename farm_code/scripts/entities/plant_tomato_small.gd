@@ -7,6 +7,7 @@ signal completed
 
 @onready var animation_player := $AnimationPlayer
 @onready var sprite := $Sprite2D
+@onready var selection := $BlinkSelection
 
 var is_completed := false
 
@@ -28,3 +29,4 @@ func interact_with():
 	print("I was watered")
 	animation_player.play("blink")
 	sprite.set_frame(10)
+	selection.visible = false

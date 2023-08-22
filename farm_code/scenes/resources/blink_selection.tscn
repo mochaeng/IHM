@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjgim2vbq5t2n"]
+
+[ext_resource type="Texture2D" uid="uid://c1p2i81727ihh" path="res://art/gui/select1.png" id="1_kma31"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcflm"]
+atlas = ExtResource("1_kma31")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7drtb"]
+atlas = ExtResource("1_kma31")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6jg0"]
+atlas = ExtResource("1_kma31")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no3bf"]
+atlas = ExtResource("1_kma31")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sgpm6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcflm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7drtb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6jg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no3bf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BlinkSelection" type="AnimatedSprite2D"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_sgpm6")
+autoplay = "default"
+frame_progress = 0.382306

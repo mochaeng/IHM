@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Emylly",
+        "text": "Olá! Boa noite! Meu nome é Emylly (clique nessa caixa para passar o texto)",
+        "frame": 0,
+        "is_disruptive": false
+    },
+    {
+        "name": "Emylly",
+        "text": "Veja, alguns pedaços de troncos estão espalhados! ",
+        "frame": 1,
+        "is_disruptive": false
+    },
+    {
+        "name": "Emylly",
+        "text": "Será que você pode me ajudar a retirá-los?",
+        "frame": 3,
+        "is_disruptive": false
+    },
+    {
+        "name": "Emylly",
+        "text": "",
+        "frame": 0,
+        "is_disruptive": true
+    },
+]
