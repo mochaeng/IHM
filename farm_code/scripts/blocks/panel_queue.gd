@@ -44,12 +44,14 @@ func _can_drop_data(_at_position, data):
 func _drop_data(_at_position, data):
 	var new_block := block.instantiate()
 
+	# new_block.size = Vector2(, 50)
 	# new_block.get_node("image").texture = textures[data.category]
+	new_block.position = Vector2(500, 5)
 	new_block.get_node("image").texture = data.get_node("image").texture
 	new_block.get_node("image").hframes = data.get_node("image").hframes
 
 	new_block.get_node("image").vframes = data.get_node("image").vframes
-	if data.category == "watering" or data.category == "axing":
+	if data.category == "water" or data.category == "axing":
 		new_block.get_node("image").scale = Vector2(3.8, 3.95)
 	else:
 		new_block.get_node("image").scale = Vector2(0.2, 0.2)

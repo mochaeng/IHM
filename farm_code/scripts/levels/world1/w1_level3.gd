@@ -7,6 +7,7 @@ signal clean_panel
 
 @onready var entities := $Entities.get_children()
 @onready var total_amount := $Entities.get_children().size()
+@onready var panel_queue := $PanelBottom.get_node("PanelQueue")
 
 var entities_completed := 0
 var is_processing_commands = false
@@ -57,7 +58,7 @@ func _on_play_button_pressed():
 func _on_clean_button_pressed():
 	if not is_processing_commands:
 		commands = []
-		clean_panel.emit()
+		panel_queue.emit_signal("panel_clened")
 
 
 func _on_static_body_2d_completed():

@@ -7,11 +7,13 @@ const SCENES_PATH = {
 	"MenuScreen": "res://scenes/gui/menu_screen.tscn",
 	"Phase1": "res://scenes/levels/level1.tscn",
 	"Phase2": "res://scenes/levels/level2.tscn",
-	"World_1_Phases": "res://scripts/gui/phases_selection_1.gd",
 	"Phases_1_Selection": "res://scenes/gui/phases_selection_1.tscn",
+	"Phases_2_Selection": "res://scenes/gui/phases_selection_2.tscn",
 	"W1_L1": "res://scenes/levels/world1/w1_level1.tscn",
 	"W1_L2": "res://scenes/levels/world1/w1_level2.tscn",
 	"W1_L3": "res://scenes/levels/world1/w1_level3.tscn",
+	"W2_L1": "res://scenes/levels/world2/w2_level1.tscn",
+	"W2_L2": "res://scenes/levels/world2/w2_level2.tscn",
 }
 
 const GRID_SIZE := Vector2(800, 600)

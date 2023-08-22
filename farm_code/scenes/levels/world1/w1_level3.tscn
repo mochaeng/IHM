@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cfoqeor534eas"]
+[gd_scene load_steps=20 format=3 uid="uid://cfoqeor534eas"]
 
 [ext_resource type="Script" path="res://scripts/levels/world1/w1_level3.gd" id="1_107ku"]
 [ext_resource type="Texture2D" uid="uid://bhuhbvbax3vf" path="res://art/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png" id="2_et2m0"]
@@ -6,8 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://dueq7plyll2nm" path="res://art/Tilesets/Fences.png" id="4_4gwyq"]
 [ext_resource type="Script" path="res://scripts/Grid.gd" id="5_64pdc"]
 [ext_resource type="PackedScene" uid="uid://c4rx5isgyq5r4" path="res://scenes/gui/right_panel.tscn" id="6_h0h8j"]
+[ext_resource type="PackedScene" uid="uid://c011h37r0uk6h" path="res://scenes/blocks/block.tscn" id="7_lw20j"]
 [ext_resource type="PackedScene" uid="uid://ybxdfixp7lrf" path="res://scenes/gui/panel_bottom.tscn" id="7_pqihy"]
 [ext_resource type="PackedScene" uid="uid://cn8dvbruv346u" path="res://scenes/resources/wood_1.tscn" id="8_6nhr6"]
+[ext_resource type="Texture2D" uid="uid://dusirhrvrpy8m" path="res://art/Objects/Basic tools and meterials.png" id="8_138f1"]
 [ext_resource type="PackedScene" uid="uid://cnwy7dl1yevgd" path="res://scenes/player.tscn" id="9_qmc61"]
 [ext_resource type="PackedScene" uid="uid://dnkdp5pbkqhyr" path="res://scenes/gui/mission_indicator.tscn" id="10_o02gn"]
 [ext_resource type="Texture2D" uid="uid://db3etw17dmg1i" path="res://art/Objects/Basic Grass Biom things 1.png" id="11_i55jd"]
@@ -212,6 +214,22 @@ visible = false
 [node name="Plus90" parent="RightPanel" index="6"]
 visible = false
 
+[node name="WaterBlock2" parent="RightPanel" instance=ExtResource("7_lw20j")]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 48.0
+offset_right = 84.0
+offset_bottom = 128.0
+category = "axing"
+
+[node name="image" parent="RightPanel/WaterBlock2" index="0"]
+position = Vector2(40, 40)
+scale = Vector2(3.8, 3.946)
+texture = ExtResource("8_138f1")
+hframes = 3
+vframes = 2
+frame = 1
+
 [node name="PanelBottom" parent="." instance=ExtResource("7_pqihy")]
 offset_top = 127.0
 offset_bottom = 154.0
@@ -219,6 +237,9 @@ offset_bottom = 154.0
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="StaticBody2D" parent="Entities" instance=ExtResource("8_6nhr6")]
+position = Vector2(80, 64)
+
+[node name="StaticBody2D3" parent="Entities" instance=ExtResource("8_6nhr6")]
 position = Vector2(80, 64)
 
 [node name="StaticBody2D2" parent="Entities" instance=ExtResource("8_6nhr6")]
@@ -246,6 +267,7 @@ offset_bottom = 17.0
 [connection signal="pressed" from="PanelBottom/CleanButton" to="." method="_on_clean_button_pressed"]
 [connection signal="block_added" from="PanelBottom/PanelQueue" to="." method="_on_panel_queue_block_added"]
 [connection signal="completed" from="Entities/StaticBody2D" to="." method="_on_static_body_2d_completed"]
+[connection signal="completed" from="Entities/StaticBody2D3" to="." method="_on_static_body_2d_completed"]
 [connection signal="completed" from="Entities/StaticBody2D2" to="." method="_on_static_body_2d_completed"]
 
 [editable path="RightPanel"]
@@ -256,5 +278,6 @@ offset_bottom = 17.0
 [editable path="RightPanel/WaterBlock"]
 [editable path="RightPanel/Minus90"]
 [editable path="RightPanel/Plus90"]
+[editable path="RightPanel/WaterBlock2"]
 [editable path="PanelBottom"]
 [editable path="MissionIndicator"]
