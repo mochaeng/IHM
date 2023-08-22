@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Emylly",
+        "text": "Que bom que você removeu os troncos. Parabéns!!",
+        "frame": 0,
+        "is_disruptive": false
+    },
+    {
+        "name": "Emylly",
+        "text": "Agora é o momento de regar as plantas da fazenda.",
+        "frame": 0,
+        "is_disruptive": false
+    },
+    {
+        "name": "Emylly",
+        "text": "Não é hora de perdemos tempo com conversa, vamos começar logo isso.",
+        "frame": 3,
+        "is_disruptive": false
+    },
+    {
+        "name": "Emylly",
+        "text": "",
+        "frame": 0,
+        "is_disruptive": true
+    },
+]

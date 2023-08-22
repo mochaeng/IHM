@@ -6,6 +6,7 @@ const SCENES_PATH = {
 	"WorldsSelection": "res://scenes/gui/new_worlds_selection.tscn",
 	"MenuScreen": "res://scenes/gui/menu_screen.tscn",
 	"Instructions": "res://scenes/tutorial/instructions.tscn",
+	"Credits": "res://scenes/credits.tscn",
 	"History_1": "res://scenes/tutorial/levels/tutorial1.tscn",
 	"Phase1": "res://scenes/levels/level1.tscn",
 	"Phase2": "res://scenes/levels/level2.tscn",

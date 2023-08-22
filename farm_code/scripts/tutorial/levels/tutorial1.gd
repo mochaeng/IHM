@@ -132,3 +132,7 @@ func _on_panel_queue_clean_panel():
 	if not is_processing_commands:
 		commands = []
 		clean_panel.emit()
+
+
+func _on_button_2_pressed():
+	Utils.change_scene_with_transition("MenuScreen")

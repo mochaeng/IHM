@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ifgkxyrs0wdo"]
+[gd_scene load_steps=19 format=3 uid="uid://ifgkxyrs0wdo"]
 
 [ext_resource type="Script" path="res://scripts/levels/world2/w2_level1.gd" id="1_kvwb5"]
 [ext_resource type="Texture2D" uid="uid://bhuhbvbax3vf" path="res://art/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png" id="2_et2m0"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://cnwy7dl1yevgd" path="res://scenes/player.tscn" id="9_qmc61"]
 [ext_resource type="PackedScene" uid="uid://dnkdp5pbkqhyr" path="res://scenes/gui/mission_indicator.tscn" id="10_o02gn"]
 [ext_resource type="PackedScene" uid="uid://ccjmncegnpgl8" path="res://scenes/gui/home_button.tscn" id="11_sr83j"]
+[ext_resource type="PackedScene" uid="uid://d4lddkr54unir" path="res://scenes/dialogue/dialogue.tscn" id="12_bu6qb"]
+[ext_resource type="PackedScene" uid="uid://cswuvyicbhc5h" path="res://scenes/gui/skip_button.tscn" id="13_ua5nm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qbifw"]
 texture = ExtResource("2_et2m0")
@@ -230,10 +232,23 @@ offset_top = 1.0
 offset_right = 156.0
 offset_bottom = 17.0
 
+[node name="Dialogue" parent="." instance=ExtResource("12_bu6qb")]
+offset_left = -1.0
+offset_top = 47.0
+offset_right = -1.0
+offset_bottom = 47.0
+
+[node name="SkipButton" parent="." instance=ExtResource("13_ua5nm")]
+offset_top = 111.0
+offset_bottom = 150.0
+
 [connection signal="pressed" from="PanelBottom/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelBottom/CleanButton" to="." method="_on_clean_button_pressed"]
 [connection signal="block_added" from="PanelBottom/PanelQueue" to="." method="_on_panel_queue_block_added"]
 [connection signal="completed" from="Entities/PlantTomatoSmall" to="." method="_on_plant_tomato_small_completed"]
+[connection signal="dialogue_change" from="Dialogue" to="." method="_on_dialogue_dialogue_change"]
+[connection signal="should_change_stage" from="Dialogue" to="." method="_on_dialogue_should_change_stage"]
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]
 
 [editable path="RightPanel"]
 [editable path="RightPanel/RightBlock"]

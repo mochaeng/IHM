@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dwwwy2ni7yulb"]
+[gd_scene load_steps=11 format=3 uid="uid://dwwwy2ni7yulb"]
 
 [ext_resource type="Script" path="res://scripts/tutorial/instructions.gd" id="1_825ye"]
 [ext_resource type="PackedScene" uid="uid://c4rx5isgyq5r4" path="res://scenes/gui/right_panel.tscn" id="1_ekkpj"]
 [ext_resource type="PackedScene" uid="uid://ybxdfixp7lrf" path="res://scenes/gui/panel_bottom.tscn" id="2_cvutf"]
 [ext_resource type="PackedScene" uid="uid://cnwy7dl1yevgd" path="res://scenes/player.tscn" id="2_n35oq"]
+[ext_resource type="PackedScene" uid="uid://dnkdp5pbkqhyr" path="res://scenes/gui/mission_indicator.tscn" id="3_n17as"]
 [ext_resource type="FontFile" uid="uid://cn7qvq8xj8uy5" path="res://art/resources/Roboto-Bold.ttf" id="4_i40g3"]
 [ext_resource type="Texture2D" uid="uid://ci11703g75r8d" path="res://art/resources/yt-logo.png" id="5_fy1tg"]
 [ext_resource type="PackedScene" uid="uid://1ennmkbfk4qo" path="res://scenes/gui/back_button.tscn" id="5_l2dl6"]
@@ -57,6 +58,13 @@ visible = false
 [node name="Plus90" parent="RightPanel" index="6"]
 visible = false
 
+[node name="MissionIndicator" parent="." instance=ExtResource("3_n17as")]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 74.0
+offset_right = 53.0
+offset_bottom = 91.0
+
 [node name="Player" parent="." instance=ExtResource("2_n35oq")]
 position = Vector2(3, 10)
 
@@ -103,6 +111,27 @@ theme_override_fonts/font = ExtResource("4_i40g3")
 theme_override_font_sizes/font_size = 9
 text = "Personagem"
 
+[node name="Panel4" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 72.0
+offset_right = 76.0
+offset_bottom = 124.0
+rotation = 1.5708
+theme_override_styles/panel = SubResource("StyleBoxFlat_d677i")
+
+[node name="Label" type="Label" parent="Panel4"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 42.0
+offset_right = 18.0
+offset_bottom = 57.0
+rotation = -1.5708
+theme_override_fonts/font = ExtResource("4_i40g3")
+theme_override_font_sizes/font_size = 9
+text = "Missão
+"
+
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 61.0
@@ -133,13 +162,13 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_d677i")
 [node name="Label" type="Label" parent="Panel3"]
 layout_mode = 0
 offset_left = -22.0
-offset_top = 66.0
+offset_top = 52.0
 offset_right = 14.0
-offset_bottom = 81.0
+offset_bottom = 67.0
 rotation = -1.5708
 theme_override_fonts/font = ExtResource("4_i40g3")
 theme_override_font_sizes/font_size = 9
-text = "Blocos"
+text = "Caixa"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -160,7 +189,7 @@ offset_top = 120.0
 offset_right = 195.0
 offset_bottom = 143.0
 
-[node name="Button" type="Button" parent="."]
+[node name="YtButton" type="Button" parent="."]
 layout_mode = 0
 offset_left = 14.0
 offset_top = 107.0
@@ -173,6 +202,7 @@ icon = ExtResource("5_fy1tg")
 expand_icon = true
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="YtButton" to="." method="_on_yt_button_pressed"]
 
 [editable path="RightPanel"]
 [editable path="RightPanel/RightBlock"]

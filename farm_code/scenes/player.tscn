@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://cnwy7dl1yevgd"]
+[gd_scene load_steps=80 format=3 uid="uid://cnwy7dl1yevgd"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_fqajd"]
 [ext_resource type="Texture2D" uid="uid://dmb6i6skobkj1" path="res://art/cat_basic.png" id="1_st0lt"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c1p2i81727ihh" path="res://art/gui/select1.png" id="4_f6cmr"]
 [ext_resource type="AudioStream" uid="uid://dmopo77qp0wqm" path="res://songs/effects/watering.wav" id="4_j6iih"]
 [ext_resource type="AudioStream" uid="uid://c3cyanm6fwngb" path="res://songs/effects/axing.wav" id="5_fyia5"]
+[ext_resource type="Texture2D" uid="uid://bhu6qn020o1ax" path="res://art/cat_UI/Sprite sheets/Icons/special icons/Small Happines-Sadness icons.png" id="7_6wppo"]
 
 [sub_resource type="Animation" id="Animation_48a20"]
 length = 0.001
@@ -1937,6 +1938,28 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_eln2p"]
+atlas = ExtResource("7_6wppo")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3inse"]
+atlas = ExtResource("7_6wppo")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d36ce"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eln2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3inse")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 rotation = 0.0100737
 motion_mode = 1
@@ -1988,3 +2011,10 @@ frame_progress = 0.748305
 centered = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="SadEmote" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(24.0693, 6.75788)
+sprite_frames = SubResource("SpriteFrames_d36ce")
+autoplay = "default"
+frame_progress = 0.689232

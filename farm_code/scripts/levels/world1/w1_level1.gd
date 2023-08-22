@@ -4,6 +4,7 @@ signal clean_panel
 
 @onready var player: Player = $Player
 @onready var label_text := $MissionIndicator.get_node("Label")
+@onready var sad_emote := $Player.get_node("SadEmote")
 
 @onready var entities := $Entities.get_children()
 @onready var total_amount := $Entities.get_children().size()
@@ -20,7 +21,6 @@ var is_setting_stage = false
 var stages_sequence_pointer = 0
 var stages_sequence = [Stage.CONVERSATION_1, Stage.ACTION_1]
 var current_stage = Stage.CONVERSATION_1
-
 var path_to_dialogue = "res://art/resources/dialogues/w1_l1.json"
 var textures_path = [
 	"res://art/npcs/emylly_normal.png",
@@ -28,6 +28,7 @@ var textures_path = [
 	"res://art/npcs/emylly_surprise.png",
 	"res://art/npcs/emylly_helping.png"
 ]
+
 var entities_completed := 0
 var is_processing_commands = false
 var commands = []
@@ -40,7 +41,6 @@ func _ready():
 	update_label()
 
 	dialogue.visible = false
-	print("é chamada no reload")
 
 	if Utils.showed_dialogues[0]:
 		_on_dialogue_should_change_stage()
@@ -92,9 +92,11 @@ func process_commands():
 		player.move_by_direction(dir)
 		await get_tree().create_timer(1).timeout
 
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.3).timeout
 
 	if entities_completed != total_amount:
+		player.emit_signal("sad_emoted")
+		await player.sad_emoted
 		get_tree().reload_current_scene()
 	else:
 		Utils.set_has_conclude_phase(0, 0, true)
@@ -135,7 +137,6 @@ func _on_dialogue_dialogue_change():
 
 
 func _on_dialogue_should_change_stage():
-	print("Neve called")
 	stages_sequence_pointer += 1
 	if stages_sequence_pointer >= stages_sequence.size():
 		return

@@ -32,9 +32,11 @@ func process_commands():
 		player.move_by_direction(dir)
 		await get_tree().create_timer(1).timeout
 
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.3).timeout
 
 	if entities_completed != total_amount:
+		player.emit_signal("sad_emoted")
+		await player.sad_emoted
 		get_tree().reload_current_scene()
 	else:
 		Utils.set_has_conclude_phase(1, 1, true)
