@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4rx5isgyq5r4"]
+[gd_scene load_steps=10 format=3 uid="uid://c4rx5isgyq5r4"]
 
+[ext_resource type="Script" path="res://scripts/gui/right_panel.gd" id="1_f0q2n"]
 [ext_resource type="PackedScene" uid="uid://c011h37r0uk6h" path="res://scenes/blocks/block.tscn" id="1_s1rfk"]
 [ext_resource type="Texture2D" uid="uid://dkw513kx3c5hj" path="res://art/blocks/left.png" id="2_x1kw4"]
 [ext_resource type="Texture2D" uid="uid://d0nsl04wdjsr" path="res://art/blocks/up.png" id="3_d5qcw"]
@@ -16,6 +17,7 @@ offset_left = 160.0
 offset_right = 200.0
 offset_bottom = 128.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_whypw")
+script = ExtResource("1_f0q2n")
 
 [node name="RightBlock" parent="." instance=ExtResource("1_s1rfk")]
 layout_mode = 0

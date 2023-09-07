@@ -318,6 +318,15 @@ func move(delta):
 		player_state = PlayerState.IDLE
 		percent_move_to_next_tile = 0.0
 
+	# percent_move_to_next_tile += wallk_speed * delta
+	# if percent_move_to_next_tile >= 1.0:
+	# 	position = initial_position + (TILE_SIZE * input_direction)
+	# 	percent_move_to_next_tile = 0.0
+	# 	player_state = PlayerState.IDLE
+	# else:
+	# 	position = initial_position + (TILE_SIZE * input_direction * percent_move_to_next_tile)
+
+
 
 func interact_with_entity():
 	if ray_cast.is_colliding():
