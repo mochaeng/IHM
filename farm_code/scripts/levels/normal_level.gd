@@ -16,13 +16,16 @@ var commands = []
 var formatter := ": {completed}/{total}"
 
 
-func _ready():
+func _initiate():
 	update_label()
-	right_panel.get_node("RightBlock").connect("_on_pressed", test)
+
+	for block in right_panel.get_children():
+		block.connect("block_clicked", add_block_command)
 
 
-func test():
-	print("recebi o sinal")
+func add_block_command(block: Block):
+	print("recebi o sinal: " + block.category)
+	panel_queue.add_block_visually(block)
 
 
 func update_label():
@@ -53,6 +56,25 @@ func process_commands():
 	is_processing_commands = false
 
 
+func _on_panel_queue_block_added(data: Block):
+	commands.push_back(data.category)
+
+
+func _on_play_button_pressed():
+	print(commands)
+	if not is_processing_commands:
+		process_commands()
+
+
+func _on_clean_button_pressed():
+	if not is_processing_commands:
+		var idx = commands.size() - 1
+		if idx < 0:
+			return
+		commands.remove_at(idx)
+		panel_queue.emit_signal("last_block_deleted")
+
+
 func before_processing_commands():
 	pass
 
@@ -67,19 +89,3 @@ func completed_level():
 
 func not_completed_level():
 	pass
-
-
-func _on_panel_queue_block_added(data: Block):
-	commands.push_back(data.category)
-
-
-func _on_play_button_pressed():
-	print(commands)
-	if not is_processing_commands:
-		process_commands()
-
-
-func _on_clean_button_pressed():
-	if not is_processing_commands:
-		commands = []
-		panel_queue.emit_signal("panel_clened")

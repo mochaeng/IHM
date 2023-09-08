@@ -14,6 +14,8 @@ func _init():
 
 
 func _ready():
+	_initiate()
+
 	dialogue.initiate(path_to_dialogue, textures_path)
 	dialogue.set_dialogue(dialogue.get_current_dialogue_line())
 	update_label()

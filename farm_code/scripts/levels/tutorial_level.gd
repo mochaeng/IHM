@@ -2,17 +2,18 @@ extends "res://scripts/levels/normal_level.gd"
 
 @onready var dialogue := $Dialogue
 @onready var skip_button := $SkipButton
-
 @onready var panel_bottom := $PanelBottom
-
 enum Stage { CONVERSATION_1, ACTION_1 }
 var stages_sequence = []
 var stages_sequence_pointer = 0
 var is_setting_stage = false
 var current_stage
-
 var path_to_dialogue: String
 var textures_path = []
+
+
+func test(category: String):
+	print("recebi o sinal: " + category)
 
 
 func set_conversation_1():

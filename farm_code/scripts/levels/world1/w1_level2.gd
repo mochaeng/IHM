@@ -1,6 +1,9 @@
 extends "res://scripts/levels/normal_level.gd"
 
 
+func _ready():
+	_initiate()
+
 func completed_level():
 	Utils.set_has_conclude_phase(0, 1, true)
 	Utils.set_has_enable_phase(0, 2, true)

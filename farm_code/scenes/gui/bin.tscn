@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2ksieiosfars"]
+
+[ext_resource type="Script" path="res://scripts/gui/bin.gd" id="1_16yu7"]
+
+[node name="Bin" type="Panel"]
+offset_right = 34.0
+offset_bottom = 18.0
+script = ExtResource("1_16yu7")

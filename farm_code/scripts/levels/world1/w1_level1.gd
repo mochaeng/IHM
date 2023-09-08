@@ -15,6 +15,8 @@ func _init():
 
 
 func _ready():
+	_initiate()
+
 	dialogue.initiate(path_to_dialogue, textures_path)
 	dialogue.set_dialogue(dialogue.get_current_dialogue_line())
 	update_label()
@@ -25,6 +27,7 @@ func _ready():
 		_on_dialogue_should_change_stage()
 	else:
 		dialogue.visible = true
+
 
 
 func _process(_delta):

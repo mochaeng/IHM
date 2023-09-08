@@ -27,6 +27,8 @@ const BLACK := Color("23213D")
 const GRAY := Color("B9B5C3")
 const WHITE := Color.WHITE
 
+var current_commands_phase = []
+
 var arrow_cursor = load("res://art/cat_UI/Sprite sheets/Mouse sprites/Triangle Mouse icon 1.png")
 var pointing_hand_cursor = load(
 	"res://art/cat_UI/Sprite sheets/Mouse sprites/Catpaw pointing Mouse icon.png"
