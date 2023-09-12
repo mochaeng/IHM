@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://co1in7t24mxd"]
+
+[ext_resource type="Script" path="res://scripts/gui/phases_selection_3.gd" id="1_mejsk"]
+[ext_resource type="FontFile" uid="uid://cn7qvq8xj8uy5" path="res://art/resources/Roboto-Bold.ttf" id="2_07a6b"]
+[ext_resource type="PackedScene" uid="uid://dm1i7gqbf67tq" path="res://scenes/gui/phase_button.tscn" id="2_p3bln"]
+[ext_resource type="Theme" uid="uid://duwf68t8726td" path="res://scenes/gui/themes/back_button.tres" id="4_wrkmq"]
+
+[node name="PhasesSelection3" type="Control"]
+layout_mode = 3
+anchor_right = 0.25
+anchor_bottom = 0.25
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mejsk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 150.0
+color = Color(0.368627, 0.368627, 0.368627, 1)
+
+[node name="Buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 150.0
+
+[node name="Phase1" parent="Buttons" instance=ExtResource("2_p3bln")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -31.0
+offset_right = -34.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Phase2" parent="Buttons" instance=ExtResource("2_p3bln")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -31.0
+offset_right = 20.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 127.0
+offset_right = 187.0
+offset_bottom = 146.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("4_wrkmq")
+text = "Voltar"
+
+[node name="Tittle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 5.0
+offset_right = 142.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("2_07a6b")
+theme_override_font_sizes/font_size = 20
+text = "Mundo 3"
+
+[connection signal="pressed" from="Buttons/Phase1" to="." method="_on_phase_1_pressed"]
+[connection signal="pressed" from="Buttons/Phase2" to="." method="_on_phase_2_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

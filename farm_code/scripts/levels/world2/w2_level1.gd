@@ -48,6 +48,6 @@ func _on_plant_tomato_small_completed():
 
 
 func completed_level():
-	Utils.set_has_conclude_phase(0, 1, true)
+	Utils.set_has_conclude_phase(1, 0, true)
 	Utils.set_has_enable_phase(1, 1, true)
 	Utils.change_scene_with_transition("W2_L2")

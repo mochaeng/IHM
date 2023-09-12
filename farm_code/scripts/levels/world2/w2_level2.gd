@@ -7,6 +7,7 @@ func completed_level():
 	Utils.set_has_conclude_phase(1, 1, true)
 	Utils.set_has_conclude_world(1, true)
 	Utils.set_has_enable_world(2, true)
+	Utils.set_has_enable_phase(2, 0, true)
 	Utils.change_scene_with_transition("WorldsSelection")
 
 

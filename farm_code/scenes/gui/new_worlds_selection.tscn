@@ -46,11 +46,10 @@ offset_right = 127.0
 offset_bottom = 126.0
 
 [node name="Panel3" parent="Worlds" instance=ExtResource("1_5t3ta")]
-visible = false
 layout_mode = 0
-offset_left = 136.0
+offset_left = 135.0
 offset_top = 30.0
-offset_right = 190.0
+offset_right = 189.0
 offset_bottom = 127.0
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

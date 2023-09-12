@@ -73,13 +73,28 @@ texture = ExtResource("4_ubija")
 
 [node name="WaterBlock" parent="." instance=ExtResource("1_s1rfk")]
 layout_mode = 0
-offset_left = 4.0
+offset_left = 3.0
 offset_top = 48.0
-offset_right = 84.0
+offset_right = 83.0
 offset_bottom = 128.0
 category = "water"
 
 [node name="image" parent="WaterBlock" index="0"]
+position = Vector2(39.9999, 37.5)
+scale = Vector2(4.375, 4.6875)
+texture = ExtResource("5_0wy2f")
+hframes = 3
+vframes = 2
+
+[node name="WaterBlock2" parent="." instance=ExtResource("1_s1rfk")]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 48.0
+offset_right = 102.0
+offset_bottom = 128.0
+category = "water"
+
+[node name="image" parent="WaterBlock2" index="0"]
 position = Vector2(39.9999, 37.5)
 scale = Vector2(4.375, 4.6875)
 texture = ExtResource("5_0wy2f")
@@ -117,5 +132,6 @@ texture = ExtResource("7_8xgvv")
 [editable path="UpBlock"]
 [editable path="DownBlock"]
 [editable path="WaterBlock"]
+[editable path="WaterBlock2"]
 [editable path="Minus90"]
 [editable path="Plus90"]

@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+class_name Wood
+
 signal interacted
 signal completed
 

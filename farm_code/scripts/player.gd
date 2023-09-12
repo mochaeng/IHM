@@ -25,6 +25,8 @@ var input_direction = Vector2.ZERO
 var percent_move_to_next_tile = 0.0
 var initial_position = Vector2.ZERO
 
+var last_action_executed = ''
+
 var directions = {
 	"left": Vector2(-1, 0),
 	"right": Vector2(1, 0),
@@ -135,10 +137,12 @@ func turn_player():
 
 func do_watering():
 	player_state = PlayerState.WATERING
+	last_action_executed = 'watering'
 
 
 func do_axing():
 	player_state = PlayerState.AXING
+	last_action_executed = 'axing'
 
 
 func finished_turning():
@@ -332,4 +336,13 @@ func interact_with_entity():
 	if ray_cast.is_colliding():
 		print(ray_cast.get_collider())
 		var entity := ray_cast.get_collider()
-		entity.emit_signal("interacted")
+		match last_action_executed:
+			'watering':
+				if entity is PlantTomatoSmall:
+					entity.emit_signal("interacted")
+			'axing':
+				if entity is Wood:
+					entity.emit_signal("interacted")
+
+		print(last_action_executed)
+		print(entity)

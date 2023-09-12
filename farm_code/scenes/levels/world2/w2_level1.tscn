@@ -203,10 +203,13 @@ script = ExtResource("5_64pdc")
 position = Vector2(40, 40)
 scale = Vector2(3.8, 3.946)
 
-[node name="Minus90" parent="RightPanel" index="5"]
+[node name="WaterBlock2" parent="RightPanel" index="5"]
 visible = false
 
-[node name="Plus90" parent="RightPanel" index="6"]
+[node name="Minus90" parent="RightPanel" index="6"]
+visible = false
+
+[node name="Plus90" parent="RightPanel" index="7"]
 visible = false
 
 [node name="PanelBottom" parent="." instance=ExtResource("7_pqihy")]
@@ -256,6 +259,7 @@ offset_bottom = 150.0
 [editable path="RightPanel/UpBlock"]
 [editable path="RightPanel/DownBlock"]
 [editable path="RightPanel/WaterBlock"]
+[editable path="RightPanel/WaterBlock2"]
 [editable path="RightPanel/Minus90"]
 [editable path="RightPanel/Plus90"]
 [editable path="PanelBottom"]

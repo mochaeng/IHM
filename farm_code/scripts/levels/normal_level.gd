@@ -10,6 +10,7 @@ signal clean_panel
 @onready var panel_queue := $PanelBottom.get_node("PanelQueue")
 @onready var right_panel := $RightPanel
 
+const MAXIMUM_BLOCKS = 9
 var entities_completed := 0
 var is_processing_commands = false
 var commands = []
@@ -25,6 +26,8 @@ func _initiate():
 
 func add_block_command(block: Block):
 	print("recebi o sinal: " + block.category)
+	if commands.size() >= 9:
+		return
 	panel_queue.add_block_visually(block)
 
 
@@ -57,6 +60,8 @@ func process_commands():
 
 
 func _on_panel_queue_block_added(data: Block):
+	if commands.size() >= 9:
+		return
 	commands.push_back(data.category)
 
 
