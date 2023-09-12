@@ -17,6 +17,16 @@ var commands = []
 var formatter := ": {completed}/{total}"
 
 
+func _process(_delta):
+	if panel_queue.blocks_inside.size() > 9:
+		var idx = commands.size() - 1
+		commands.remove_at(idx)
+		panel_queue.emit_signal("last_block_deleted")
+
+	print(commands.size())
+	print(panel_queue.blocks_inside.size())
+
+
 func _initiate():
 	update_label()
 
