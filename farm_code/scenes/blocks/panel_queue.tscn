@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://pkx0020xl1lc"]
 
-[ext_resource type="Script" path="res://scripts/blocks/panel_queue.gd" id="1_sgely"]
 [ext_resource type="Theme" uid="uid://dokk8wejldofb" path="res://scenes/gui/themes/panel_queue_theme.tres" id="1_vd38s"]
+[ext_resource type="Script" path="res://src/blocks/PanelQueue.cs" id="2_eqt8e"]
 
 [node name="PanelQueue" type="Panel"]
 anchors_preset = -1
@@ -14,7 +14,7 @@ offset_top = -59.4
 offset_right = 641.6
 offset_bottom = 20.6
 theme = ExtResource("1_vd38s")
-script = ExtResource("1_sgely")
+script = ExtResource("2_eqt8e")
 
 [node name="Container" type="HBoxContainer" parent="."]
 layout_mode = 0

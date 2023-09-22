@@ -24,6 +24,7 @@ func _ready():
 		idx += 1
 
 	worlds[1].get_node("Logo").frame = 0
+	worlds[2].get_node("Logo").frame = 3
 
 	worlds[0].get_node("PlayButton").connect("pressed", _on_world1_play_button_pressed)
 	worlds[1].get_node("PlayButton").connect("pressed", _on_world2_play_button_pressed)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=80 format=3 uid="uid://cnwy7dl1yevgd"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_fqajd"]
+[ext_resource type="Script" path="res://src/Player.cs" id="1_jti51"]
 [ext_resource type="Texture2D" uid="uid://dmb6i6skobkj1" path="res://art/cat_basic.png" id="1_st0lt"]
 [ext_resource type="Texture2D" uid="uid://dn5oh2xkypa4u" path="res://art/cat_actions.png" id="2_5kjpu"]
 [ext_resource type="Texture2D" uid="uid://c1p2i81727ihh" path="res://art/gui/select1.png" id="4_f6cmr"]
@@ -1963,7 +1963,7 @@ animations = [{
 [node name="Player" type="CharacterBody2D"]
 rotation = 0.0100737
 motion_mode = 1
-script = ExtResource("1_fqajd")
+script = ExtResource("1_jti51")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
