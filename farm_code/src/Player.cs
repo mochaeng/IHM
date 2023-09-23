@@ -82,8 +82,6 @@ public partial class Player : CharacterBody2D
 	{
 		UpdateParameters();
 		UpdateSelect();
-
-		GD.Print(InputDirection);
 	}
 
 	public void UpdateRayCastToPlayerDirection()

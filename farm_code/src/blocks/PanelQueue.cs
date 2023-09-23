@@ -15,8 +15,11 @@ public partial class PanelQueue : Panel
 
 	public ArrayList BlocksInside = new();
 
+	public PackedScene DemoBlock;
+
 	public override void _Ready()
 	{
+ 		DemoBlock = (PackedScene) ResourceLoader.Load("res://scenes/blocks/block.tscn");
 		Connect("PanelClened", Callable.From(CleanPanel));
 		Connect("LastBlockDeleted", Callable.From(DeleteLastBlock));
 	}
@@ -48,22 +51,10 @@ public partial class PanelQueue : Panel
 
 	private Block CreatingBlock(Block data)
 	{
-		var newBlock = new Block
-		{
-			Position = new Vector2(500, 5)
-		};
-
-		// var image = newBlock.GetNode<Sprite2D>("image");
-		// image.Texture = data.GetNode<Sprite2D>("image").Texture;
-		// image.Hframes = data.GetNode<Sprite2D>("image").Hframes;
-		// image.Vframes = data.GetNode<Sprite2D>("image").Vframes;
-
-		newBlock.GetNode<Sprite2D>("image").Texture = data.GetNode<Sprite2D>("image").Texture;
-		newBlock.GetNode<Sprite2D>("image").Hframes = data.GetNode<Sprite2D>("image").Hframes;
-		newBlock.GetNode<Sprite2D>("image").Vframes = data.GetNode<Sprite2D>("image").Vframes;
-		newBlock.GetNode<Sprite2D>("image").Frame = data.GetNode<Sprite2D>("image").Frame;
-		newBlock.Category = data.Category;
+		var newBlock = data.Duplicate() as Block;
+		newBlock.GetNode<Sprite2D>("image").Centered = true;
 		newBlock.CustomMinimumSize = new Vector2(64f, 64f);
+		newBlock.GetNode<Sprite2D>("image").Position = new Vector2(32f, 32f);
 
 		if (data.Category == "water" || data.Category == "axing")
 		{
@@ -74,17 +65,23 @@ public partial class PanelQueue : Panel
 			newBlock.GetNode<Sprite2D>("image").Scale = new Vector2(0.2f, 0.2f);
 		}
 
+
+		GD.Print("LOOK HERE MEIN FREUND");
+		GD.Print(newBlock.GetNode<Sprite2D>("image"));
+
 		return newBlock;
 	}
 
 	public void AddBlockVisually(Block blockToAdd)
 	{
+		GD.Print("ADICIONANDO VISUALMENTE");
 		var newBlock = CreatingBlock(blockToAdd);
 		AddToPanel(newBlock);
 	}
 
 	public void AddToPanel(Block blockToAdd)
-	{
+	{	
+		GD.Print("MEU DEUS");
 		var container = GetNode<HBoxContainer>("Container");
 		container.AddChild(blockToAdd);
 		BlocksInside.Add(blockToAdd);

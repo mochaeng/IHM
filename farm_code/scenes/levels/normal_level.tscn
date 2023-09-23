@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://h1yxn0wcd4wt"]
+[gd_scene load_steps=18 format=3 uid="uid://dslcvmvessmcw"]
 
-[ext_resource type="Script" path="res://src/levels/level1/W1Level1.cs" id="1_vu2my"]
+[ext_resource type="Script" path="res://src/levels/NormalLevel.cs" id="1_m4f4c"]
 [ext_resource type="Texture2D" uid="uid://bhuhbvbax3vf" path="res://art/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png" id="2_et2m0"]
 [ext_resource type="Texture2D" uid="uid://d2ov37m16f7d7" path="res://art/Tilesets/ground tiles/old tiles/Tilled Dirt.png" id="3_0giie"]
 [ext_resource type="Texture2D" uid="uid://dueq7plyll2nm" path="res://art/Tilesets/Fences.png" id="4_4gwyq"]
-[ext_resource type="PackedScene" uid="uid://bcl0eof6hdjmq" path="res://scenes/grid.tscn" id="5_5inav"]
+[ext_resource type="Script" path="res://scripts/Grid.gd" id="5_64pdc"]
 [ext_resource type="PackedScene" uid="uid://c4rx5isgyq5r4" path="res://scenes/gui/right_panel.tscn" id="6_h0h8j"]
 [ext_resource type="PackedScene" uid="uid://ybxdfixp7lrf" path="res://scenes/gui/panel_bottom.tscn" id="7_pqihy"]
 [ext_resource type="PackedScene" uid="uid://cn8dvbruv346u" path="res://scenes/resources/wood_1.tscn" id="8_6nhr6"]
@@ -12,8 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://dnkdp5pbkqhyr" path="res://scenes/gui/mission_indicator.tscn" id="10_o02gn"]
 [ext_resource type="Texture2D" uid="uid://db3etw17dmg1i" path="res://art/Objects/Basic Grass Biom things 1.png" id="11_i55jd"]
 [ext_resource type="PackedScene" uid="uid://ccjmncegnpgl8" path="res://scenes/gui/home_button.tscn" id="11_sr83j"]
-[ext_resource type="PackedScene" uid="uid://d4lddkr54unir" path="res://scenes/dialogue/dialogue.tscn" id="13_sikuj"]
-[ext_resource type="PackedScene" uid="uid://cswuvyicbhc5h" path="res://scenes/gui/skip_button.tscn" id="14_vg1mw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qbifw"]
 texture = ExtResource("2_et2m0")
@@ -182,8 +180,8 @@ texture = ExtResource("4_4gwyq")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_t2756")
 
-[node name="W1Level1" type="Node2D"]
-script = ExtResource("1_vu2my")
+[node name="W1Level2" type="Node2D"]
+script = ExtResource("1_m4f4c")
 
 [node name="TileMap1" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ux0n8")
@@ -195,9 +193,22 @@ tile_set = SubResource("TileSet_hkxr0")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 65536, 0, 65536, 0, 1, 131072, 0, 1, 196608, 0, 1, 262144, 0, 1, 327680, 0, 1, 393216, 0, 1, 458752, 65536, 2, 458753, 131072, 2, 458754, 131072, 2, 458755, 131072, 2, 458756, 131072, 2, 458757, 131072, 2, 458758, 131072, 2, 458759, 131072, 2, 458760, 131072, 2, 458761, 196608, 2, 393225, 0, 1, 327689, 0, 1, 262153, 0, 1, 196617, 0, 1, 131081, 0, 1, 65545, 0, 1, 9, 196608, 0, 8, 131072, 3, 7, 131072, 3, 6, 131072, 3, 5, 131072, 3, 4, 131072, 3, 3, 131072, 3, 2, 131072, 3, 1, 131072, 3)
 
-[node name="Grid" parent="." instance=ExtResource("5_5inav")]
+[node name="Grid" type="Node2D" parent="."]
+script = ExtResource("5_64pdc")
 
 [node name="RightPanel" parent="." instance=ExtResource("6_h0h8j")]
+
+[node name="RightBlock" parent="RightPanel" index="0"]
+Category = "right"
+
+[node name="LeftBlock" parent="RightPanel" index="1"]
+Category = "left"
+
+[node name="UpBlock" parent="RightPanel" index="2"]
+Category = "up"
+
+[node name="DownBlock" parent="RightPanel" index="3"]
+Category = "down"
 
 [node name="image" parent="RightPanel/WaterBlock" index="0"]
 position = Vector2(40, 40)
@@ -220,10 +231,13 @@ offset_bottom = 154.0
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="StaticBody2D" parent="Entities" instance=ExtResource("8_6nhr6")]
-position = Vector2(64, 64)
+position = Vector2(64, 48)
+
+[node name="StaticBody2D2" parent="Entities" instance=ExtResource("8_6nhr6")]
+position = Vector2(80, 48)
 
 [node name="Player" parent="." instance=ExtResource("9_qmc61")]
-position = Vector2(48, 0)
+position = Vector2(16, 32)
 
 [node name="MissionIndicator" parent="." instance=ExtResource("10_o02gn")]
 
@@ -240,19 +254,8 @@ offset_top = 1.0
 offset_right = 156.0
 offset_bottom = 17.0
 
-[node name="Dialogue" parent="." instance=ExtResource("13_sikuj")]
-offset_top = 47.0
-offset_bottom = 47.0
-
-[node name="SkipButton" parent="." instance=ExtResource("14_vg1mw")]
-offset_bottom = 150.0
-
-[connection signal="pressed" from="PanelBottom/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="PanelBottom/CleanButton" to="." method="_on_clean_button_pressed"]
 [connection signal="completed" from="Entities/StaticBody2D" to="." method="_on_static_body_2d_completed"]
-[connection signal="dialogue_change" from="Dialogue" to="." method="_on_dialogue_dialogue_change"]
-[connection signal="should_change_stage" from="Dialogue" to="." method="_on_dialogue_should_change_stage"]
-[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]
+[connection signal="completed" from="Entities/StaticBody2D2" to="." method="_on_static_body_2d_completed"]
 
 [editable path="RightPanel"]
 [editable path="RightPanel/RightBlock"]
@@ -265,4 +268,3 @@ offset_bottom = 150.0
 [editable path="RightPanel/Plus90"]
 [editable path="PanelBottom"]
 [editable path="MissionIndicator"]
-[editable path="Dialogue"]

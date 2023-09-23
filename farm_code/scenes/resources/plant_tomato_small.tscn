@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://byrid6uiras0d"]
 
-[ext_resource type="Script" path="res://scripts/entities/plant_tomato_small.gd" id="1_4smto"]
+[ext_resource type="Script" path="res://src/entities/PlantTomatoSmall.cs" id="1_qvtkb"]
 [ext_resource type="Texture2D" uid="uid://c2jwwtsxq215e" path="res://art/Objects/Basic Plants.png" id="1_wny6a"]
 [ext_resource type="Shader" path="res://shaders/plant_tomato_small.gdshader" id="2_4qq75"]
 [ext_resource type="PackedScene" uid="uid://bjgim2vbq5t2n" path="res://scenes/resources/blink_selection.tscn" id="4_wa6e7"]
@@ -65,7 +65,7 @@ _data = {
 }
 
 [node name="PlantTomatoSmall" type="StaticBody2D"]
-script = ExtResource("1_4smto")
+script = ExtResource("1_qvtkb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_oytw3")
