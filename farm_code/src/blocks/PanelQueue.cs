@@ -19,7 +19,7 @@ public partial class PanelQueue : Panel
 
 	public override void _Ready()
 	{
- 		DemoBlock = (PackedScene) ResourceLoader.Load("res://scenes/blocks/block.tscn");
+		DemoBlock = (PackedScene)ResourceLoader.Load("res://scenes/blocks/block.tscn");
 		Connect("PanelClened", Callable.From(CleanPanel));
 		Connect("LastBlockDeleted", Callable.From(DeleteLastBlock));
 	}
@@ -65,23 +65,17 @@ public partial class PanelQueue : Panel
 			newBlock.GetNode<Sprite2D>("image").Scale = new Vector2(0.2f, 0.2f);
 		}
 
-
-		GD.Print("LOOK HERE MEIN FREUND");
-		GD.Print(newBlock.GetNode<Sprite2D>("image"));
-
 		return newBlock;
 	}
 
 	public void AddBlockVisually(Block blockToAdd)
 	{
-		GD.Print("ADICIONANDO VISUALMENTE");
 		var newBlock = CreatingBlock(blockToAdd);
 		AddToPanel(newBlock);
 	}
 
 	public void AddToPanel(Block blockToAdd)
-	{	
-		GD.Print("MEU DEUS");
+	{
 		var container = GetNode<HBoxContainer>("Container");
 		container.AddChild(blockToAdd);
 		BlocksInside.Add(blockToAdd);
@@ -95,7 +89,7 @@ public partial class PanelQueue : Panel
 		foreach (var block in blocks)
 		{
 			container.RemoveChild(block);
-			block.CallDeferred("queeu_free");
+			block.CallDeferred("queue_free");
 		}
 	}
 

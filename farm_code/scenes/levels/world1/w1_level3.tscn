@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://cfoqeor534eas"]
 
-[ext_resource type="Script" path="res://scripts/levels/world1/w1_level3.gd" id="1_107ku"]
+[ext_resource type="Script" path="res://src/levels/level1/W1Level3.cs" id="1_oujju"]
 [ext_resource type="Texture2D" uid="uid://bhuhbvbax3vf" path="res://art/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png" id="2_et2m0"]
 [ext_resource type="Texture2D" uid="uid://d2ov37m16f7d7" path="res://art/Tilesets/ground tiles/old tiles/Tilled Dirt.png" id="3_0giie"]
 [ext_resource type="Texture2D" uid="uid://dueq7plyll2nm" path="res://art/Tilesets/Fences.png" id="4_4gwyq"]
@@ -181,7 +181,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_t2756")
 
 [node name="W1Level3" type="Node2D"]
-script = ExtResource("1_107ku")
+script = ExtResource("1_oujju")
 
 [node name="TileMap1" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ux0n8")
@@ -197,6 +197,9 @@ layer_0/tile_data = PackedInt32Array(0, 65536, 0, 65536, 0, 1, 131072, 0, 1, 196
 script = ExtResource("5_64pdc")
 
 [node name="RightPanel" parent="." instance=ExtResource("6_h0h8j")]
+
+[node name="WaterBlock" parent="RightPanel" index="4"]
+Category = "axing"
 
 [node name="image" parent="RightPanel/WaterBlock" index="0"]
 position = Vector2(40, 40)
@@ -244,8 +247,6 @@ offset_bottom = 17.0
 
 [connection signal="pressed" from="PanelBottom/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelBottom/CleanButton" to="." method="_on_clean_button_pressed"]
-[connection signal="completed" from="Entities/StaticBody2D" to="." method="_on_static_body_2d_completed"]
-[connection signal="completed" from="Entities/StaticBody2D2" to="." method="_on_static_body_2d_completed"]
 
 [editable path="RightPanel"]
 [editable path="RightPanel/RightBlock"]

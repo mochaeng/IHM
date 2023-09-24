@@ -198,17 +198,8 @@ script = ExtResource("5_64pdc")
 
 [node name="RightPanel" parent="." instance=ExtResource("6_h0h8j")]
 
-[node name="RightBlock" parent="RightPanel" index="0"]
-Category = "right"
-
-[node name="LeftBlock" parent="RightPanel" index="1"]
-Category = "left"
-
-[node name="UpBlock" parent="RightPanel" index="2"]
-Category = "up"
-
-[node name="DownBlock" parent="RightPanel" index="3"]
-Category = "down"
+[node name="WaterBlock" parent="RightPanel" index="4"]
+Category = "axing"
 
 [node name="image" parent="RightPanel/WaterBlock" index="0"]
 position = Vector2(40, 40)
@@ -256,8 +247,6 @@ offset_bottom = 17.0
 
 [connection signal="pressed" from="PanelBottom/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelBottom/CleanButton" to="." method="_on_clean_button_pressed"]
-[connection signal="completed" from="Entities/StaticBody2D" to="." method="_on_static_body_2d_completed"]
-[connection signal="completed" from="Entities/StaticBody2D2" to="." method="_on_static_body_2d_completed"]
 
 [editable path="RightPanel"]
 [editable path="RightPanel/RightBlock"]

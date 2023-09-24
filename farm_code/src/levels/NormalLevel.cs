@@ -1,7 +1,7 @@
 using Godot;
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class NormalLevel : Node2D
 {
@@ -10,7 +10,7 @@ public partial class NormalLevel : Node2D
 
     public Player Player;
     public Label LabelText;
-    public Godot.Collections.Array<Node> Entities;
+    public List<Entity> Entities;
     public int TotalAmount;
     public PanelQueue PanelQueue;
     public Panel RightPanel;
@@ -25,21 +25,27 @@ public partial class NormalLevel : Node2D
 
     public override void _Ready()
     {
-        GD.Print("HALLO");
-
         Player = GetNode<Player>("Player");
         LabelText = GetNode<Label>("MissionIndicator/Label");
-        Entities = GetNode<Node2D>("Entities").GetChildren();
-        TotalAmount = Entities.Count;
         PanelQueue = GetNode<PanelQueue>("PanelBottom/PanelQueue");
         RightPanel = GetNode<Panel>("RightPanel");
         PlayButton = GetNode<Button>("PanelBottom/PlayButton");
         CleanButton = GetNode<Button>("PanelBottom/CleanButton");
 
+        Entities = GetNode<Node2D>("Entities").GetChildren()
+            .Where(child => child is Entity)
+            .Cast<Entity>()
+            .ToList();
+        TotalAmount = Entities.Count;
+
         PanelQueue.BlockAdded += (data) => OnPanelQueueBlockAdded(data);
         PlayButton.Pressed += () => OnPlayButtonPressed();
         CleanButton.Pressed += () => OnCleanButtonPressed();
 
+        foreach (var entity in Entities)
+        {
+            entity.Completed += () => OnEntityCompleted();
+        }
         // Initiate();
     }
 
@@ -106,6 +112,15 @@ public partial class NormalLevel : Node2D
 
         IsProcessingCommands = false;
 
+    }
+
+    public void OnEntityCompleted()
+    {
+        if (EntitiesCompleted <= TotalAmount)
+        {
+            EntitiesCompleted += 1;
+            UpdateLabel();
+        }
     }
 
     public void OnPanelQueueBlockAdded(Block data)

@@ -1,27 +1,29 @@
 using Godot;
 using System;
 
-public partial class PlantTomatoSmall : StaticBody2D
+public partial class PlantTomatoSmall : Entity
 {
-	[Signal]
-	public delegate void InteractedEventHandler();
-
-	[Signal]
-	public delegate void CompletedEventHandler();
-
-	public AnimationPlayer AnimationPlayer;
-	public Sprite2D Sprite;
-	public AnimatedSprite2D Selection;
-
 	public override void _Ready()
 	{
-		AnimationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
-		Sprite = GetNode<Sprite2D>("Sprite2D");
-		Selection = GetNode<AnimatedSprite2D>("BlinkSelection");
+		base._Ready();
+		Interacted += () => InteractWith();
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public void CompletedAction()
 	{
+		if (IsCompleted)
+		{
+			return;
+		}
+		EmitSignal("Completed");
+		IsCompleted = true;
+	}
+
+	public void InteractWith()
+	{
+		GD.Print("I WAS WATERED");
+		AnimationPlayer.Play("blink");
+		Sprite.Frame = 10;
+		Selection.Visible = false;
 	}
 }

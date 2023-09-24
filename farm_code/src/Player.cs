@@ -279,7 +279,7 @@ public partial class Player : CharacterBody2D
 		AnimationTree.Set("parameters/Idle/blend_position", InputDirection);
 		AnimationTree.Set("parameters/Walk/blend_position", InputDirection);
 		AnimationTree.Set("parameters/Turning/blend_position", InputDirection);
-		AnimationTree.Set("parameters/Watering/blend_position", InputDirection); 
+		AnimationTree.Set("parameters/Watering/blend_position", InputDirection);
 		AnimationTree.Set("parameters/Axing/blend_position", InputDirection);
 	}
 
@@ -423,19 +423,27 @@ public partial class Player : CharacterBody2D
 		}
 	}
 
-	public void InteractWithEntity()
+	public void interact_with_entity()
 	{
 		if (RayCast.IsColliding())
 		{
 			GD.Print(RayCast.GetCollider());
 			var entity = RayCast.GetCollider();
-			if (LastActionExecuted == "watering")
+
+			switch (LastActionExecuted)
 			{
-				entity.EmitSignal("Interacted");
-			}
-			else
-			{
-				entity.EmitSignal("Interacted");
+				case "watering":
+					if (entity is PlantTomatoSmall)
+					{
+						entity.EmitSignal("Interacted");
+					}
+					break;
+				case "axing":
+					if (entity is Wood)
+					{
+						entity.EmitSignal("Interacted");
+					}
+					break;
 			}
 		}
 	}

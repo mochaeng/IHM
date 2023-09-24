@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://duc1knfenqc3s"]
 
-[ext_resource type="Script" path="res://scripts/levels/world3/w3_level2.gd" id="1_xd5vv"]
+[ext_resource type="Script" path="res://src/levels/level3/W3Level2.cs" id="1_okgfg"]
 [ext_resource type="Texture2D" uid="uid://bhuhbvbax3vf" path="res://art/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png" id="2_et2m0"]
 [ext_resource type="Texture2D" uid="uid://d2ov37m16f7d7" path="res://art/Tilesets/ground tiles/old tiles/Tilled Dirt.png" id="3_0giie"]
 [ext_resource type="Texture2D" uid="uid://dueq7plyll2nm" path="res://art/Tilesets/Fences.png" id="4_4gwyq"]
@@ -182,7 +182,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_t2756")
 
 [node name="W3Level1" type="Node2D"]
-script = ExtResource("1_xd5vv")
+script = ExtResource("1_okgfg")
 
 [node name="TileMap1" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ux0n8")
@@ -202,9 +202,6 @@ script = ExtResource("5_64pdc")
 [node name="image" parent="RightPanel/WaterBlock" index="0"]
 position = Vector2(40, 40)
 scale = Vector2(3.8, 3.946)
-
-[node name="WaterBlock2" parent="RightPanel" index="5"]
-category = "axing"
 
 [node name="image" parent="RightPanel/WaterBlock2" index="0"]
 scale = Vector2(3.8, 4.072)
@@ -260,10 +257,7 @@ offset_bottom = 17.0
 
 [connection signal="pressed" from="PanelBottom/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelBottom/CleanButton" to="." method="_on_clean_button_pressed"]
-[connection signal="block_added" from="PanelBottom/PanelQueue" to="." method="_on_panel_queue_block_added"]
 [connection signal="completed" from="Entities/Wood1" to="." method="_on_wood_1_completed"]
-[connection signal="completed" from="Entities/PlantTomatoSmall" to="." method="_on_plant_tomato_small_completed"]
-[connection signal="completed" from="Entities/PlantTomatoSmall2" to="." method="_on_plant_tomato_small_completed"]
 
 [editable path="RightPanel"]
 [editable path="RightPanel/RightBlock"]
