@@ -156,8 +156,8 @@ public partial class NormalLevel : Node2D
         }
     }
 
-    public void BeforeProcessingCommands() { }
-    public void AfterProcessingCommands() { }
-    public void CompletedLevel() { }
-    public void NotCompletedLebel() { }
+    public virtual void BeforeProcessingCommands() {}
+    public virtual void AfterProcessingCommands() {}
+    public virtual void CompletedLevel() {}
+    public virtual void NotCompletedLebel() {}
 }

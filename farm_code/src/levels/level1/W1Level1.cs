@@ -49,4 +49,15 @@ public partial class W1Level1 : TutorialLevel
                 break;
         }
     }
+
+    public override void CompletedLevel()
+    {
+
+        var singleton = GetNode<Singleton>("/root/Singleton");
+
+        singleton.SetHasConcludePhase(0, 0, true);
+        singleton.SetHasEnablePhase(0, 1, true);
+
+        singleton.ChangeSceneWithTransition("W1_L2");
+    }
 }

@@ -257,7 +257,6 @@ offset_bottom = 17.0
 
 [connection signal="pressed" from="PanelBottom/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelBottom/CleanButton" to="." method="_on_clean_button_pressed"]
-[connection signal="completed" from="Entities/Wood1" to="." method="_on_wood_1_completed"]
 
 [editable path="RightPanel"]
 [editable path="RightPanel/RightBlock"]

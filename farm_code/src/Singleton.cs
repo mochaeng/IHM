@@ -21,8 +21,8 @@ public partial class Singleton : Node
     public Texture PointingHandCursor;
     public Texture HoldingCursor;
 
-    public CanvasLayer Transitioner;
-    public CanvasLayer SettingsWindow;
+    public PackedScene Transitioner;
+    public PackedScene SettingsWindow;
 
     public const int ENABLED_START_FRAME = 7;
     public const int DISABLED_START_FRAME = 9;
@@ -56,8 +56,8 @@ public partial class Singleton : Node
         HoldingCursor = ResourceLoader.Load<Texture>(
             "res://art/cat_UI/Sprite sheets/Mouse sprites/Catpaw holding Mouse icon.png"
         );
-        Transitioner = ResourceLoader.Load<CanvasLayer>("res://scenes/gui/transitioner.tscn");
-        SettingsWindow = ResourceLoader.Load<CanvasLayer>("res://scenes/gui/settings_window.tscn");
+        Transitioner = ResourceLoader.Load<PackedScene>("res://scenes/gui/transitioner.tscn");
+        SettingsWindow = ResourceLoader.Load<PackedScene>("res://scenes/gui/settings_window.tscn");
 
         ScenesPath = new() {
                 {"WorldsSelection", "res://scenes/gui/new_worlds_selection.tscn"},
@@ -79,6 +79,9 @@ public partial class Singleton : Node
                 {"W3_L2", "res://scenes/levels/world3/w3_level2.tscn"},
             };
 
+        GD.Print("CRIANDO A PORRA DO SCNES PATH");
+        GD.Print(ScenesPath);
+
         Input.SetCustomMouseCursor(ArrowCursor);
         Input.SetCustomMouseCursor(PointingHandCursor, Input.CursorShape.PointingHand);
         Input.SetCustomMouseCursor(ArrowCursor, Input.CursorShape.Forbidden);
@@ -87,14 +90,15 @@ public partial class Singleton : Node
 
     public async void ChangeSceneWithTransition(string target)
     {
-        var transitionerInstance = Transitioner.Duplicate() as CanvasLayer;
-        var animationPlayer = Transitioner.GetNode<AnimationPlayer>("AnimationPlayer");
+        GD.Print(Transitioner);
+        var transitionerInstance = Transitioner.Instantiate();
+        var animationPlayer = transitionerInstance.GetNode<AnimationPlayer>("AnimationPlayer");
 
         // await ToSignal(GetTree().Root.CallDeferred("add_child", transitionerInstance), "add_child");
         GetTree().Root.Call("add_child", transitionerInstance);
 
         animationPlayer.Play("fade_out");
-        await ToSignal(animationPlayer, "AnimationFinished");
+        await ToSignal(animationPlayer, "animation_finished");
 
         if (ScenesPath.ContainsKey(target))
         {
@@ -104,19 +108,20 @@ public partial class Singleton : Node
         GetTree().ChangeSceneToFile(target);
 
         animationPlayer.Play("fade_in");
-        await ToSignal(animationPlayer, "AnimationFinished");
+        await ToSignal(animationPlayer, "animation_finished");
 
         GetTree().Root.CallDeferred("remove_child", transitionerInstance);
         transitionerInstance.CallDeferred("queue_free");
         animationPlayer.CallDeferred("queue_free");
     }
 
-    public void ProcessedPhaseButtons(Array buttons)
+    public void ProcessedPhaseButtons(List<Button> buttons, List<bool> phasesEnable, List<bool> phasesConclude)
     {
         var idx = 0;
-        foreach (var hasEnable in PhasesEnable)
+        foreach (var hasEnable in phasesEnable)
         {
-            
+            if (hasEnable) {
+            }
         }
     }
 
