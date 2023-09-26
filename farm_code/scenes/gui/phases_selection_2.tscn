@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bgqxmed6o64x"]
 
-[ext_resource type="Script" path="res://scripts/gui/phases_selection_2.gd" id="1_1thk1"]
+[ext_resource type="Script" path="res://src/gui/PhasesSelection2.cs" id="1_moo6s"]
 [ext_resource type="FontFile" uid="uid://cn7qvq8xj8uy5" path="res://art/resources/Roboto-Bold.ttf" id="2_07a6b"]
 [ext_resource type="PackedScene" uid="uid://dm1i7gqbf67tq" path="res://scenes/gui/phase_button.tscn" id="2_p3bln"]
 [ext_resource type="Theme" uid="uid://duwf68t8726td" path="res://scenes/gui/themes/back_button.tres" id="4_wrkmq"]
@@ -11,7 +11,7 @@ anchor_right = 0.25
 anchor_bottom = 0.25
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_1thk1")
+script = ExtResource("1_moo6s")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0

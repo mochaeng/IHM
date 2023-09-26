@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://dfkomgjab1ciy"]
 
-[ext_resource type="Script" path="res://scripts/gui/settings_window.gd" id="2_havts"]
+[ext_resource type="Script" path="res://src/gui/SettingsWindow.cs" id="1_rr1r3"]
 [ext_resource type="Theme" uid="uid://c2utyh6fmb1f5" path="res://scenes/gui/themes/settings_window.tres" id="2_sud1j"]
+[ext_resource type="Script" path="res://src/gui/MusicButton.cs" id="3_b1btf"]
 [ext_resource type="FontFile" uid="uid://cn7qvq8xj8uy5" path="res://art/resources/Roboto-Bold.ttf" id="3_i0m35"]
-[ext_resource type="Script" path="res://scripts/gui/MusicButton.gd" id="3_lwtvs"]
 [ext_resource type="Theme" uid="uid://bo1d3l4wwmi8c" path="res://scenes/gui/themes/empty_button.tres" id="4_00dit"]
 
 [node name="SettingsWindow" type="CanvasLayer"]
-script = ExtResource("2_havts")
+script = ExtResource("1_rr1r3")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -44,7 +44,7 @@ offset_right = 39.0
 offset_bottom = 51.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
-script = ExtResource("3_lwtvs")
+script = ExtResource("3_b1btf")
 
 [node name="Label" type="Label" parent="Control/Panel"]
 layout_mode = 0

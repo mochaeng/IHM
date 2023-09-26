@@ -249,9 +249,6 @@ offset_bottom = 150.0
 
 [connection signal="pressed" from="PanelBottom/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="PanelBottom/CleanButton" to="." method="_on_clean_button_pressed"]
-[connection signal="completed" from="Entities/StaticBody2D" to="." method="_on_static_body_2d_completed"]
-[connection signal="dialogue_change" from="Dialogue" to="." method="_on_dialogue_dialogue_change"]
-[connection signal="should_change_stage" from="Dialogue" to="." method="_on_dialogue_should_change_stage"]
 [connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]
 
 [editable path="RightPanel"]

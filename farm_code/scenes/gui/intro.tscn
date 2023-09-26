@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://c488snhf0xgax"]
 
 [ext_resource type="FontFile" uid="uid://cn7qvq8xj8uy5" path="res://art/resources/Roboto-Bold.ttf" id="1_0dmcy"]
+[ext_resource type="Script" path="res://src/gui/Intro.cs" id="1_xee6y"]
 [ext_resource type="FontFile" uid="uid://72dn2pdt3ef0" path="res://art/resources/dragon_font.otf" id="2_yt5lg"]
-[ext_resource type="Script" path="res://scripts/gui/intro.gd" id="3_2jw7y"]
 
 [sub_resource type="Animation" id="Animation_g4nfk"]
 length = 0.001
@@ -99,7 +99,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 208.0
 offset_bottom = 160.0
-script = ExtResource("3_2jw7y")
+script = ExtResource("1_xee6y")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0

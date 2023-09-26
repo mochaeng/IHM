@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ckvljyuolp65u"]
 
-[ext_resource type="Script" path="res://scripts/credits.gd" id="1_ov8vr"]
+[ext_resource type="Script" path="res://src/utils/Credits.cs" id="1_mf1et"]
 [ext_resource type="PackedScene" uid="uid://cnwy7dl1yevgd" path="res://scenes/player.tscn" id="2_n35oq"]
 [ext_resource type="FontFile" uid="uid://cn7qvq8xj8uy5" path="res://art/resources/Roboto-Bold.ttf" id="4_i40g3"]
 [ext_resource type="Texture2D" uid="uid://ea5ovbdcqt1f" path="res://art/resources/git-hub.png" id="5_h7ly6"]
@@ -20,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ov8vr")
+script = ExtResource("1_mf1et")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0

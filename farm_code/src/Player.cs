@@ -168,47 +168,7 @@ public partial class Player : CharacterBody2D
 		return false;
 	}
 
-	public async void RunSadEmote()
-	{
-		SadEmote.Visible = true;
-		await ToSignal(GetTree().CreateTimer(0.5), "timeout");
-		SadEmote.Visible = false;
-		EmitSignal("SadEmoted");
-	}
 
-	public void TurnPlayer()
-	{
-		CurrentPlayerState = PlayerState.TURNING;
-		UpdateRayCastToPlayerDirection();
-	}
-
-	public void DoWatering()
-	{
-		CurrentPlayerState = PlayerState.WATERING;
-		LastActionExecuted = "watering";
-	}
-
-	public void DoAxing()
-	{
-		CurrentPlayerState = PlayerState.AXING;
-		LastActionExecuted = "axing";
-	}
-
-	public void finished_turning()
-	{
-		CurrentPlayerState = PlayerState.IDLE;
-		UpdateRayCastToPlayerDirection();
-	}
-
-	public void finished_watering()
-	{
-		CurrentPlayerState = PlayerState.IDLE;
-	}
-
-	public void finished_axing()
-	{
-		CurrentPlayerState = PlayerState.IDLE;
-	}
 
 	public Vector2 GetMinus90DirectionalVector()
 	{
@@ -446,5 +406,47 @@ public partial class Player : CharacterBody2D
 					break;
 			}
 		}
+	}
+
+	public async void RunSadEmote()
+	{
+		SadEmote.Visible = true;
+		await ToSignal(GetTree().CreateTimer(0.5), "timeout");
+		SadEmote.Visible = false;
+		EmitSignal("SadEmoted");
+	}
+
+	public void TurnPlayer()
+	{
+		CurrentPlayerState = PlayerState.TURNING;
+		UpdateRayCastToPlayerDirection();
+	}
+
+	public void DoWatering()
+	{
+		CurrentPlayerState = PlayerState.WATERING;
+		LastActionExecuted = "watering";
+	}
+
+	public void DoAxing()
+	{
+		CurrentPlayerState = PlayerState.AXING;
+		LastActionExecuted = "axing";
+	}
+
+	public void finished_turning()
+	{
+		CurrentPlayerState = PlayerState.IDLE;
+		UpdateRayCastToPlayerDirection();
+	}
+
+	public void finished_watering()
+	{
+		CurrentPlayerState = PlayerState.IDLE;
+	}
+
+	public void finished_axing()
+	{
+		CurrentPlayerState = PlayerState.IDLE;
 	}
 }

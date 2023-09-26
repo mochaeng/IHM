@@ -1,6 +1,6 @@
 [gd_scene load_steps=47 format=3 uid="uid://b1axqsnun14wh"]
 
-[ext_resource type="Script" path="res://scripts/gui/menu_screen.gd" id="1_8uhpk"]
+[ext_resource type="Script" path="res://src/gui/MenuScreen.cs" id="1_7322s"]
 [ext_resource type="Texture2D" uid="uid://85rng3qkqovf" path="res://art/Tilesets/ground tiles/new tiles/Tall Grass hill tiles v.2.png" id="2_4vsrg"]
 [ext_resource type="FontFile" uid="uid://xkwoks88wexv" path="res://art/resources/Funhouse.ttf" id="2_wkp5o"]
 [ext_resource type="Texture2D" uid="uid://cpeuasby2i4rp" path="res://art/cat_UI/Sprite sheets/Setting menu.png" id="3_2s6di"]
@@ -513,7 +513,7 @@ animations = [{
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_8uhpk")
+script = ExtResource("1_7322s")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_x2o0w")
@@ -650,10 +650,3 @@ stream = ExtResource("14_gge73")
 
 [node name="SettingsWindow" parent="." instance=ExtResource("16_saast")]
 visible = false
-
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_button_pressed"]
-[connection signal="pressed" from="HistoryButton" to="." method="_on_history_button_pressed"]
-[connection signal="pressed" from="CreditButton" to="." method="_on_credit_button_pressed"]
-[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="should_close_settings" from="SettingsWindow" to="." method="_on_settings_window_should_close_settings"]

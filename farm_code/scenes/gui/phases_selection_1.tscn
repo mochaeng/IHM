@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ccyje8fj7agbv"]
 
-[ext_resource type="Script" path="res://scripts/gui/phases_selection_1.gd" id="1_7gnm4"]
+[ext_resource type="Script" path="res://src/gui/PhasesSelection1.cs" id="1_vgvdo"]
 [ext_resource type="FontFile" uid="uid://cn7qvq8xj8uy5" path="res://art/resources/Roboto-Bold.ttf" id="2_07a6b"]
 [ext_resource type="PackedScene" uid="uid://dm1i7gqbf67tq" path="res://scenes/gui/phase_button.tscn" id="2_p3bln"]
 [ext_resource type="PackedScene" uid="uid://1ennmkbfk4qo" path="res://scenes/gui/back_button.tscn" id="3_vs685"]
@@ -11,7 +11,7 @@ anchor_right = 0.25
 anchor_bottom = 0.25
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7gnm4")
+script = ExtResource("1_vgvdo")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -75,8 +75,3 @@ offset_bottom = 32.0
 theme_override_fonts/font = ExtResource("2_07a6b")
 theme_override_font_sizes/font_size = 20
 text = "Mundo 1"
-
-[connection signal="pressed" from="Buttons/Phase1" to="." method="_on_phase_1_pressed"]
-[connection signal="pressed" from="Buttons/Phase2" to="." method="_on_phase_2_pressed"]
-[connection signal="pressed" from="Buttons/Phase3" to="." method="_on_phase_3_pressed"]
-[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

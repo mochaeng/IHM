@@ -1,11 +1,13 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-
+using System.Linq;
 
 public partial class Singleton : Node
 {
+    [Signal]
+    public delegate void SongsOptionChangeEventHandler(bool isEnable);
+
     public Vector2 GridSize;
     public Vector2 CellSize;
     public Vector2 CellsAmount;
@@ -79,9 +81,6 @@ public partial class Singleton : Node
                 {"W3_L2", "res://scenes/levels/world3/w3_level2.tscn"},
             };
 
-        GD.Print("CRIANDO A PORRA DO SCNES PATH");
-        GD.Print(ScenesPath);
-
         Input.SetCustomMouseCursor(ArrowCursor);
         Input.SetCustomMouseCursor(PointingHandCursor, Input.CursorShape.PointingHand);
         Input.SetCustomMouseCursor(ArrowCursor, Input.CursorShape.Forbidden);
@@ -120,12 +119,43 @@ public partial class Singleton : Node
         var idx = 0;
         foreach (var hasEnable in phasesEnable)
         {
-            if (hasEnable) {
+            if (hasEnable)
+            {
+                buttons[idx].GetNode<Label>("Number").Text = (idx + 1).ToString();
             }
+
+            buttons[idx].Disabled = !hasEnable;
+            idx++;
+        }
+
+        idx = 0;
+        foreach (var hasConclude in phasesConclude)
+        {
+            var sprites = buttons[idx].GetNode<Node2D>("Stars")
+                .GetChildren()
+                .Cast<Sprite2D>()
+                .ToList();
+
+            foreach (var sprite in sprites)
+            {
+                if (!phasesEnable[idx])
+                {
+                    sprite.Visible = false;
+                }
+                else if (hasConclude)
+                {
+                    sprite.Frame = ENABLED_START_FRAME;
+                }
+                else
+                {
+                    sprite.Frame = DISABLED_START_FRAME;
+                }
+            }
+            idx += 1;
         }
     }
 
-    public int GetPhasesConcludeFromWorld(int world)
+    public int GetAmountPhasesConcludeFromWorld(int world)
     {
         var quantity = 0;
         foreach (var hasCompleted in PhasesConcluded[world])
@@ -166,5 +196,21 @@ public partial class Singleton : Node
     {
         IsSongsEnable = isValue;
     }
+
+    public List<bool> GetPhasesEnable(int world)
+    {
+        return PhasesEnable[world];
+    }
+
+    public List<bool> GetPhasesConclude(int world)
+    {
+        return PhasesConcluded[world];
+    }
+
+    public bool IsWorldEnable(int world) {
+        return WorldsEnable[world];
+    }
+
+
 
 }
