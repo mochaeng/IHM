@@ -14,7 +14,7 @@ You play as a farmer who must tend to the farm by completing tasks to assist the
 
 The game's style draws inspiration from 'cozy' games I enjoy.
 
-**You can play the game here on Itch io**: [link](mochaeng.itch.io/farmcode)
+**You can play the game here on Itch io**: [link](https://mochaeng.itch.io/farmcode)
 
 ![1](imgs/1.png)
 ![2](imgs/2.png)
